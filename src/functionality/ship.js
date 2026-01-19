@@ -4,13 +4,13 @@ export class Ship {
         this.hits = 0;
         this.isSunk = false;
     }
-}
 
-export function hit(ship) {
-    return ship.hits++;
-}
+    hit() {
+        return this.hits++;
+    }
 
-export function isSunk(ship) {
-    if (ship.hits === ship.length) return true;
-    return false;
+    isSunk() {
+        if (this.hits === this.length) return true;
+        return false;
+    }   
 }

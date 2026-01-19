@@ -3,21 +3,21 @@ import { Ship } from "../functionality/ship.js";
 
 const ship = new Ship(3);
 
-describe('hit function', () => {
-    test('hit function is defined', () => {
-        expect(hit).toBeDefined();
+describe('hit method', () => {
+    test('hit method is defined', () => {
+        expect(ship.hit).toBeDefined();
     })
 
-    test('make hit function returns 1', () => {
-        hit(ship),
+    test('make hit method returns 1', () => {
+        ship.hit()
         expect(ship.hits).toBe(1);
     })
 
-    test('make hit function returns 3', () => {
+    test('make hit method returns 3', () => {
         ship.hits = 0;
-        hit(ship),
-        hit(ship),
-        hit(ship),
+        ship.hit(),
+        ship.hit(),
+        ship.hit(),
         expect(ship.hits).toBe(3);
     })
 })
