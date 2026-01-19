@@ -2,24 +2,24 @@ import { Ship } from "../functionality/ship.js";
 
 const ship = new Ship(3);
 
-test('isSunk function defined', () => {
-    expect(isSunk).toBeDefined();
+test('isShipSunk method defined', () => {
+    expect(ship.isShipSunk).toBeDefined();
 })
 
-test('isSunk function returns false', () => {
-    expect(isSunk(ship)).toBe(false);
+test('isShipSunk method returns false', () => {
+    expect(ship.isShipSunk()).toBe(false);
 })
 
-test('make isSunk function returns false when it hits 2', () => {
-    hit(ship),
-    hit(ship),
-    expect(isSunk(ship)).toBe(false);
+test('make isShipSunk method returns false when it hits 2', () => {
+    ship.hit(),
+    ship.hit(),
+    expect(ship.isShipSunk()).toBe(false);
 })
 
-test('make isSunk function returns true when it hits 3', () => {
+test('make isShipSunk function returns true when it hits 3', () => {
     ship.hits = 0;
-    hit(ship),
-    hit(ship),
-    hit(ship),
-    expect(isSunk(ship)).toBe(true);
+    ship.hit(),
+    ship.hit(),
+    ship.hit(),
+    expect(ship.isShipSunk()).toBe(true);
 })

@@ -9,7 +9,7 @@ export class Ship {
         return this.hits++;
     }
 
-    isSunk() {
+    isShipSunk() {
         if (this.hits === this.length) return true;
         return false;
     }   
