@@ -11,5 +11,5 @@ export function hit(ship) {
 }
 
 export function isSunk() {
-    
+    return true;
 }
