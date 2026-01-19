@@ -10,6 +10,7 @@ export function hit(ship) {
     return ship.hits++;
 }
 
-export function isSunk() {
-    return true;
+export function isSunk(ship) {
+    if (ship.hits === ship.length) return true;
+    return false;
 }
