@@ -9,3 +9,7 @@ export class Ship {
 export function hit(ship) {
     return ship.hits++;
 }
+
+export function isSunk() {
+    
+}
