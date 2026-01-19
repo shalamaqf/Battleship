@@ -7,5 +7,5 @@ class Ship {
 }
 
 export function hit() {
-
+    return 1;
 }
