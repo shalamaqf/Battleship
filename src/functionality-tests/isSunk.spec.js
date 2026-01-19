@@ -1,6 +1,4 @@
-import { isSunk } from "../functionality/ship.js";
 import { Ship } from "../functionality/ship.js";
-import { hit } from "../functionality/ship.js";
 
 const ship = new Ship(3);
 
