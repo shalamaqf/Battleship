@@ -6,6 +6,6 @@ export class Ship {
     }
 }
 
-export function hit() {
-    return 1;
+export function hit(ship) {
+    return ship.hits++;
 }

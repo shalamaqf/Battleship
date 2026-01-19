@@ -9,6 +9,15 @@ describe('hit function', () => {
     })
 
     test('make hit function returns 1', () => {
-        expect(hit()).toBe(1);
+        hit(ship),
+        expect(ship.hits).toBe(1);
+    })
+
+    test('make hit function returns 3', () => {
+        ship.hits = 0;
+        hit(ship),
+        hit(ship),
+        hit(ship),
+        expect(ship.hits).toBe(3);
     })
 })
