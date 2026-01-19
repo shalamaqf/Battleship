@@ -5,3 +5,7 @@ class Ship {
         this.isSunk = false;
     }
 }
+
+export function hit() {
+
+}
