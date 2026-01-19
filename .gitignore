@@ -1,0 +1,17 @@
+# Jest
+coverage/
+*.snap
+__snapshots__/
+
+# Babel
+/lib
+/dist
+
+# Dependencies
+node_modules/
+
+# Ignore all JSON files
+*.json
+
+# Ignore config.js files
+*.config.js
