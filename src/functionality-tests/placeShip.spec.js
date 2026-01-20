@@ -1,5 +1,6 @@
 import { GameBoard } from "../functionality/game-board.js";
 import { Ship } from "../functionality/ship.js";
+import { Direction } from "../functionality/game-board.js";
 
 describe('placeShip method', () => {
     test('placeShip method is defined', () => {
@@ -14,12 +15,12 @@ describe('placeShip method', () => {
 
     test('placeShip method returns true with correct coordinate', () => {
         const board = new GameBoard();
-        expect(board.placeShip({x: 2, y: 4})).toBe(true);
+        expect(board.placeShip({x: 2, y: 4}, 3, Direction.HORIZONTAL)).toBe(true);
     })
 
     test('value of key is instance of Ship class', () => {
         const board = new GameBoard();
-        board.placeShip({x: 2, y: 3}, 1)
+        board.placeShip({x: 2, y: 3}, 1, Direction.HORIZONTAL)
         const ship = board.occupiedCoordinate['2, 3'];
         expect(ship).toBeInstanceOf(Ship);
     })
@@ -28,7 +29,7 @@ describe('placeShip method', () => {
 describe('placeShip horizontal case', () => {
     test('a ship of a certain length occupies coordinates equal to length', () => {
         const board = new GameBoard();
-        board.placeShip({x: 1, y: 1}, 3);
+        board.placeShip({x: 1, y: 1}, 3, Direction.HORIZONTAL);
         const ship = board.occupiedCoordinate['1, 1'];
         expect(board.occupiedCoordinate).toHaveProperty('1, 1', ship);
         expect(board.occupiedCoordinate).toHaveProperty('2, 1', ship);
@@ -37,26 +38,26 @@ describe('placeShip horizontal case', () => {
 
     test('return false if place a ship on occupied coordinates', ()  => {
         const board = new GameBoard();
-        board.placeShip({x: 2, y: 2}, 2);
-        expect(board.placeShip({x: 2, y: 2}, 3)).toBe(false);
+        board.placeShip({x: 2, y: 2}, 2, Direction.HORIZONTAL);
+        expect(board.placeShip({x: 2, y: 2}, 3, Direction.HORIZONTAL)).toBe(false);
     })
 
     test('return true if place a ship on avail coordinates', ()  => {
         const board = new GameBoard();
-        board.placeShip({x: 2, y: 2}, 2);
-        expect(board.placeShip({x: 4, y: 2}, 3)).toBe(true);
+        board.placeShip({x: 2, y: 2}, 2, Direction.HORIZONTAL);
+        expect(board.placeShip({x: 4, y: 2}, 3, Direction.HORIZONTAL)).toBe(true);
     })
 
     test('return false if place a ship with given length on occupied coordinates', () => {
         const board = new GameBoard();
-        board.placeShip({x: 5, y: 4}, 4);
-        expect(board.placeShip({x: 3, y: 4}, 3)).toBe(false);
+        board.placeShip({x: 5, y: 4}, 4, Direction.HORIZONTAL);
+        expect(board.placeShip({x: 3, y: 4}, 3, Direction.HORIZONTAL)).toBe(false);
     })
 
     test('return true if place a ship with given length on occupied coordinates', () => {
         const board = new GameBoard();
-        board.placeShip({x: 3, y: 3}, 2);
-        expect(board.placeShip({x: 1, y: 3}, 2)).toBe(true);
+        board.placeShip({x: 3, y: 3}, 2, Direction.HORIZONTAL);
+        expect(board.placeShip({x: 1, y: 3}, 2, Direction.HORIZONTAL)).toBe(true);
     })
 })
 
