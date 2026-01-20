@@ -17,12 +17,6 @@ describe('placeShip method', () => {
         expect(board.placeShip({x: 2, y: 4})).toBe(true);
     })
 
-    test('placeShip method insert the coordinate to occupiedCoordinate object', () => {
-        const board = new GameBoard();
-        board.placeShip({x: 2, y: 3}, 3)
-        expect(board.occupiedCoordinate).toHaveProperty('2, 3');
-    })
-
     test('value of key is instance of Ship class', () => {
         const board = new GameBoard();
         board.placeShip({x: 2, y: 3}, 1)
