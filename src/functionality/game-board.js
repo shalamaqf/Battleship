@@ -1,5 +1,10 @@
 import { Ship } from "./ship.js";
 
+const direction = Object.freeze({
+    HORIZONTAL: 'horizontal',
+    VERTICAL: 'vertical'
+})
+
 export class GameBoard {
     constructor() {
         this.availCoordinate = {};
