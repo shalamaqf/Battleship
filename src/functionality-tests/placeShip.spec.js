@@ -27,7 +27,7 @@ describe('placeShip method', () => {
 });
 
 describe('placeShip horizontal case', () => {
-    test('a ship of a certain length occupies coordinates equal to length', () => {
+    test('place a ship with the given length in horizontal direction', () => {
         const board = new GameBoard();
         board.placeShip({x: 1, y: 1}, 3, Direction.HORIZONTAL);
         const ship = board.occupiedCoordinate['1, 1'];
@@ -62,5 +62,12 @@ describe('placeShip horizontal case', () => {
 })
 
 describe('placeShip vertical case', () => {
-    
+    test('place a ship with the given length in vertical direction', () => {
+        const board = new GameBoard();
+        board.placeShip({x: 4, y: 2}, 3, Direction.VERTICAL);
+        const ship = board.occupiedCoordinate['4, 2'];
+        expect(board.occupiedCoordinate).toHaveProperty('4, 2', ship);
+        expect(board.occupiedCoordinate).toHaveProperty('4, 3', ship);
+        expect(board.occupiedCoordinate).toHaveProperty('4, 4', ship);
+    })
 })

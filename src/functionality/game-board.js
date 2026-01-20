@@ -25,11 +25,20 @@ export class GameBoard {
 
         const ship = new Ship(length);
         
-        for (let i = 0; i < length; i++) {
-            if (`${x + i}, ${y}` in this.occupiedCoordinate) return false;
-            this.occupiedCoordinate[`${x + i}, ${y}`] = ship;
+        if (direction === Direction.HORIZONTAL) {
+            for (let i = 0; i < length; i++) {
+                if (`${x + i}, ${y}` in this.occupiedCoordinate) return false;
+                this.occupiedCoordinate[`${x + i}, ${y}`] = ship;
+            }
+            return true;
         }
 
-        return true;
+        if (direction === Direction.VERTICAL) {
+            for (let i = 0; i < length; i++) {
+                if (`${x}, ${y + i}` in this.occupiedCoordinate) return false;
+                this.occupiedCoordinate[`${x}, ${y + i}`] = ship;
+            }
+            return true;
+        }
     }
 }
