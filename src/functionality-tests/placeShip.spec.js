@@ -44,4 +44,10 @@ describe('placeShip method', () => {
         board.placeShip({x: 2, y: 2}, 2);
         expect(board.placeShip({x: 4, y: 2}, 3)).toBe(true);
     })
+
+    test('return false if place a ship with given length on occupied coordinates', () => {
+        const board = new GameBoard();
+        board.placeShip({x: 5, y: 4}, 4);
+        expect(board.placeShip({x: 3, y: 4}, 3)).toBe(false);
+    })
 })

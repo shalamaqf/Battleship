@@ -21,6 +21,7 @@ export class GameBoard {
         const ship = new Ship(length);
         
         for (let i = 0; i < length; i++) {
+            if (`${x + i}, ${y}` in this.occupiedCoordinate) return false;
             this.occupiedCoordinate[`${x + i}, ${y}`] = ship;
         }
 
