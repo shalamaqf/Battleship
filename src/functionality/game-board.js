@@ -10,4 +10,8 @@ export class GameBoard {
         if (y > 8 || y < 1) return false;
         return true;
     }
+
+    placeShip() {
+        
+    }
 }
