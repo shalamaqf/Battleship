@@ -17,7 +17,11 @@ export class GameBoard {
         if (!this.isAvailCoordinate({x, y})) return false;
 
         const ship = new Ship(length);
-        this.occupiedCoordinate[`${x}, ${y}`] = ship;
+        
+        for (let i = 0; i < length; i++) {
+            this.occupiedCoordinate[`${x + i}, ${y}`] = ship;
+        }
+
         return true;
     }
 }
