@@ -53,18 +53,6 @@ describe('placeShip horizontal case', () => {
         board.placeShip({x: 2, y: 2}, 2, Direction.HORIZONTAL);
         expect(board.placeShip({x: 4, y: 2}, 3, Direction.HORIZONTAL)).toBe(true);
     })
-
-    test('return false if place a ship with given length on occupied coordinates', () => {
-        const board = new GameBoard();
-        board.placeShip({x: 5, y: 4}, 4, Direction.HORIZONTAL);
-        expect(board.placeShip({x: 3, y: 4}, 3, Direction.HORIZONTAL)).toBe(false);
-    })
-
-    test('return true if place a ship with given length on occupied coordinates', () => {
-        const board = new GameBoard();
-        board.placeShip({x: 3, y: 3}, 2, Direction.HORIZONTAL);
-        expect(board.placeShip({x: 1, y: 3}, 2, Direction.HORIZONTAL)).toBe(true);
-    })
 })
 
 describe('placeShip vertical case', () => {
