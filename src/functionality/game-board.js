@@ -11,7 +11,7 @@ export class GameBoard {
         return true;
     }
 
-    placeShip() {
-        
+    placeShip({x, y}) {
+        return false;
     }
 }
