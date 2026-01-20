@@ -1,6 +1,6 @@
 import { Ship } from "./ship.js";
 
-const direction = Object.freeze({
+export const Direction = Object.freeze({
     HORIZONTAL: 'horizontal',
     VERTICAL: 'vertical'
 })
@@ -18,7 +18,7 @@ export class GameBoard {
         return true;
     }
 
-    placeShip({x, y}, length) {
+    placeShip({x, y}, length, direction) {
         if (!this.isAvailCoordinate({x, y})) return false;
 
         if (`${x}, ${y}` in this.occupiedCoordinate) return false;
