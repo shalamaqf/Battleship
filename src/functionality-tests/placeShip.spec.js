@@ -32,4 +32,10 @@ describe('placeShip method', () => {
         expect(board.occupiedCoordinate).toHaveProperty('2, 1', ship);
         expect(board.occupiedCoordinate).toHaveProperty('3, 1', ship);
     })
+
+    test('return false if place a ship on occupied coordinates', ()  => {
+        const board = new GameBoard();
+        board.placeShip({x: 2, y: 2}, 2);
+        expect(board.placeShip({x: 2, y: 2}, 3)).toBe(false);
+    })
 })

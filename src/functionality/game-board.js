@@ -16,6 +16,8 @@ export class GameBoard {
     placeShip({x, y}, length) {
         if (!this.isAvailCoordinate({x, y})) return false;
 
+        if (`${x}, ${y}` in this.occupiedCoordinate) return false;
+
         const ship = new Ship(length);
         
         for (let i = 0; i < length; i++) {
