@@ -20,4 +20,10 @@ describe('placeShip method', () => {
         board.placeShip({x: 2, y: 3})
         expect(board.occupiedCoordinate).toHaveProperty('2, 3');
     })
+
+    test('value of key is instance of Ship class', () => {
+        board.placeShip({x: 2, y: 3}, 1)
+        const ship = board.occupiedCoordinate['2, 3'];
+        expect(ship).toBeInstanceOf(Ship);
+    })
 })

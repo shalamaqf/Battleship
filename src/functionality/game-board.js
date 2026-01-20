@@ -13,10 +13,11 @@ export class GameBoard {
         return true;
     }
 
-    placeShip({x, y}) {
+    placeShip({x, y}, length) {
         if (!this.isAvailCoordinate({x, y})) return false;
 
-        this.occupiedCoordinate[`${x}, ${y}`] = undefined;
+        const ship = new Ship(length);
+        this.occupiedCoordinate[`${x}, ${y}`] = ship;
         return true;
     }
 }
