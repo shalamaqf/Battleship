@@ -36,10 +36,16 @@ describe('placeShip horizontal case', () => {
         expect(board.occupiedCoordinate).toHaveProperty('3, 1', ship);
     })
 
-    test('return false if place a ship on occupied coordinates', ()  => {
+    test('return false if place a ship on occupied coordinates (horizontal case)', ()  => {
         const board = new GameBoard();
         board.placeShip({x: 2, y: 2}, 2, Direction.HORIZONTAL);
         expect(board.placeShip({x: 2, y: 2}, 3, Direction.HORIZONTAL)).toBe(false);
+    })
+
+    test('return false if place a ship on occupied coordinates (vertical case)', ()  => {
+        const board = new GameBoard();
+        board.placeShip({x: 2, y: 2}, 3, Direction.VERTICAL);
+        expect(board.placeShip({x: 1, y: 4}, 4, Direction.HORIZONTAL)).toBe(false);
     })
 
     test('return true if place a ship on avail coordinates', ()  => {
