@@ -7,8 +7,12 @@ describe('isAvailCoordinate method', () => {
         expect(board.isAvailCoordinate).toBeDefined();
     });
 
-    test('returns true when coordinate object {0, 1}', () => {
+    test('returns false when coordinate object {0, 1}', () => {
         expect(board.isAvailCoordinate({x: 0, y: 1})).toBe(false);
+    })
+
+    test('returns true when coordinate object {4, 7}', () => {
+        expect(board.isAvailCoordinate({x: 4, y: 7})).toBe(true);
     })
 });
 
