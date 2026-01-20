@@ -6,6 +6,6 @@ export class GameBoard {
     }
 
     isAvailCoordinate({x, y}) {
-
+        return false;
     }
 }
