@@ -23,7 +23,9 @@ describe('placeShip method', () => {
         const ship = board.occupiedCoordinate['2, 3'];
         expect(ship).toBeInstanceOf(Ship);
     })
+});
 
+describe('placeShip horizontal case', () => {
     test('a ship of a certain length occupies coordinates equal to length', () => {
         const board = new GameBoard();
         board.placeShip({x: 1, y: 1}, 3);
@@ -56,4 +58,8 @@ describe('placeShip method', () => {
         board.placeShip({x: 3, y: 3}, 2);
         expect(board.placeShip({x: 1, y: 3}, 2)).toBe(true);
     })
+})
+
+describe('placeShip vertical case', () => {
+    
 })
