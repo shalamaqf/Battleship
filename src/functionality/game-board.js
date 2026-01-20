@@ -13,6 +13,8 @@ export class GameBoard {
 
     placeShip({x, y}) {
         if (!this.isAvailCoordinate({x, y})) return false;
+
+        this.occupiedCoordinate[`${x}, ${y}`] = undefined;
         return true;
     }
 }
