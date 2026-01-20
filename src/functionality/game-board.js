@@ -1,3 +1,5 @@
+import { Ship } from "./ship.js";
+
 export class GameBoard {
     constructor() {
         this.availCoordinate = {};
