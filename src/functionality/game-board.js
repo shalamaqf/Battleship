@@ -12,6 +12,7 @@ export class GameBoard {
     }
 
     placeShip({x, y}) {
-        return false;
+        if (!this.isAvailCoordinate({x, y})) return false;
+        return true;
     }
 }
