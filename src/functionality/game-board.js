@@ -48,6 +48,8 @@ export class GameBoard {
     receiveAttack({x, y}) {
         if (`${x}, ${y}` in this.occupiedCoordinate) {
             this.succeedAttacks[`${x}, ${y}`] = true;
+            const ship = this.occupiedCoordinate[`${x}, ${y}`];
+            ship.hit();
             return true;
         };
 

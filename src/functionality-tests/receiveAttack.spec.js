@@ -31,4 +31,12 @@ describe('receiveAttack method', () => {
         board.receiveAttack({x: 6, y: 4});
         expect(board.succeedAttacks).toHaveProperty('6, 4', true);
     })
+
+    test('ship hits increased if got attacked', () => {
+        const board = new GameBoard();
+        board.placeShip({x: 6, y: 3}, 2, Direction.VERTICAL);
+        const ship = board.occupiedCoordinate[`6, 3`];
+        board.receiveAttack({x: 6, y: 4})
+        expect(ship.hits).toBe(1);
+    })
 })
