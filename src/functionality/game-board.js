@@ -27,6 +27,7 @@ export class GameBoard {
         
         if (direction === Direction.HORIZONTAL) {
             for (let i = 0; i < length; i++) {
+                if (!this.isAvailCoordinate({x: x + i, y: y})) return false;
                 if (`${x + i}, ${y}` in this.occupiedCoordinate) return false;
                 this.occupiedCoordinate[`${x + i}, ${y}`] = ship;
             }
