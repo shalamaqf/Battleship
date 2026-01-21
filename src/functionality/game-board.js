@@ -56,4 +56,8 @@ export class GameBoard {
         this.missedAttacks[`${x}, ${y}`] = true;
         return false;
     }
+
+    areAllShipsSunk() {
+        
+    }
 }
