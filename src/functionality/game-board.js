@@ -62,6 +62,15 @@ export class GameBoard {
     }
 
     getAllShips() {
+        const ships = [];
+        const duplicateShips = Object.values(this.occupiedCoordinate);
         
+        duplicateShips.forEach(ship => {
+            if (!ships.includes(ship)) {
+                ships.push(ship);
+            }
+        });
+
+        return ships;
     }
 }
