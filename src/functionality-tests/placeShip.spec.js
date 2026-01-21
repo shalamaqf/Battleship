@@ -87,4 +87,9 @@ describe('placeShip vertical case', () => {
         board.placeShip({x: 2, y: 2}, 2, Direction.VERTICAL);
         expect(board.placeShip({x: 2, y: 4}, 3, Direction.VERTICAL)).toBe(true);
     })
+
+    test('return false if ship length exceeds the board coordinate', () => {
+        const board = new GameBoard();
+        expect(board.placeShip({x: 4, y: 6}, 4, Direction.VERTICAL)).toBe(false);
+    })
 })
