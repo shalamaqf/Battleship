@@ -43,4 +43,8 @@ export class GameBoard {
             return true;
         }
     }
+
+    receiveAttack({x, y}) {
+
+    }
 }
