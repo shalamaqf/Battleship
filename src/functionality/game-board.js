@@ -46,7 +46,10 @@ export class GameBoard {
     }
 
     receiveAttack({x, y}) {
-        if (`${x}, ${y}` in this.occupiedCoordinate) return true;
+        if (`${x}, ${y}` in this.occupiedCoordinate) {
+            this.succeedAttacks[`${x}, ${y}`] = true;
+            return true;
+        };
 
         this.missedAttacks[`${x}, ${y}`] = true;
         return false;

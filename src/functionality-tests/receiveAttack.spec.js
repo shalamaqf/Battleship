@@ -24,4 +24,11 @@ describe('receiveAttack method', () => {
         board.receiveAttack({x: 3, y: 4});
         expect(board.missedAttacks).toHaveProperty('3, 4', true);
     })
+
+    test('succeed attack is inserted to succeedAttacks object', () => {
+        const board = new GameBoard();
+        board.placeShip({x: 6, y: 3}, 2, Direction.VERTICAL);
+        board.receiveAttack({x: 6, y: 4});
+        expect(board.succeedAttacks).toHaveProperty('6, 4', true);
+    })
 })
