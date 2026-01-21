@@ -8,7 +8,7 @@ export const Direction = Object.freeze({
 export class GameBoard {
     constructor() {
         this.availCoordinate = {};
-        this.missedCoordinate = {};
+        this.missedAttacks = {};
         this.successAttacks = {};
         this.occupiedCoordinate = {};
     }
