@@ -60,4 +60,8 @@ export class GameBoard {
     areAllShipsSunk() {
         
     }
+
+    getAllShips() {
+        
+    }
 }
