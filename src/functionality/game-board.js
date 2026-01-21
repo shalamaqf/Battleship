@@ -9,7 +9,7 @@ export class GameBoard {
     constructor() {
         this.availCoordinate = {};
         this.missedAttacks = {};
-        this.successAttacks = {};
+        this.succeedAttacks = {};
         this.occupiedCoordinate = {};
     }
 
