@@ -11,3 +11,11 @@ function newGameSetUp() {
     computerPlayer.board.placeShip({x: 7, y: 4}, 2, Direction.HORIZONTAL);
     computerPlayer.board.placeShip({x: 2, y: 4}, 4, Direction.V);
 }
+
+function renderPlayerBoard(boardElement) {
+    for (let i = 0; i < 64; i++) {
+        const button = document.createElement('button');
+        button.classList.add('coordinate-button');
+        boardElement.append(button);
+    }
+}
