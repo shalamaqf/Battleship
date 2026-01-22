@@ -19,3 +19,11 @@ function renderPlayerBoard(boardElement) {
         boardElement.append(button);
     }
 }
+
+function renderBoards() {
+    const realPlayerBoard = document.querySelector('.board.real-player');
+    const computerPlayerBoard = document.querySelector('.board.computer-player');
+
+    renderPlayerBoard(realPlayerBoard);
+    renderPlayerBoard(computerPlayerBoard);
+}
