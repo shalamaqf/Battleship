@@ -46,11 +46,10 @@ function renderBoards() {
 }
 
 function attack(button, board) {
-    const coordinateX = button.dataset.x;
-    const coordinateY = button.dataset.y;
-    const coordinate = {coordinateX, coordinateY};
+    const coordinateX = parseInt(button.dataset.x);
+    const coordinateY = parseInt(button.dataset.y);
 
-    if (board.receiveAttack(coordinate)) {
+    if (board.receiveAttack({x: coordinateX, y: coordinateY})) {
         button.textContent = 'HIT';
         button.classList.add('hit');
         button.disabled = true;
