@@ -1,5 +1,5 @@
-export function computerAttack() {
-
+export function computerAttack({x, y}, playerBoard) {
+    return (playerBoard.receiveAttack({x: x, y: y}));
 }
 
 function generateCoordinate() {
