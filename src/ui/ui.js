@@ -28,7 +28,7 @@ function renderPlayerBoard(boardElement) {
 }
 
 function bindBoardButtons(board, player) {
-    const buttons = board.querySelectorAll('coordinate-button');
+    const buttons = board.querySelectorAll('.coordinate-button');
 
     buttons.forEach(button => {
         button.addEventListener('click', () => {
