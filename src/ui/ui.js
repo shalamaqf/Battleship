@@ -9,7 +9,7 @@ function newGameSetUp() {
     realPlayer.board.placeShip({x: 7, y: 5}, 2, Direction.VERTICAL);
 
     computerPlayer.board.placeShip({x: 7, y: 4}, 2, Direction.HORIZONTAL);
-    computerPlayer.board.placeShip({x: 2, y: 4}, 4, Direction.V);
+    computerPlayer.board.placeShip({x: 2, y: 4}, 4, Direction.VERTICAL);
 }
 
 function renderPlayerBoard(boardElement) {
