@@ -24,6 +24,16 @@ function renderPlayerBoard(boardElement) {
     }
 }
 
+function bindBoardButtons(board) {
+    const buttons = board.querySelectorAll('coordinate-button');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            attack(button, board);
+        })
+    });
+}
+
 function renderBoards() {
     const realPlayerBoard = document.querySelector('.board.real-player');
     const computerPlayerBoard = document.querySelector('.board.computer-player');
