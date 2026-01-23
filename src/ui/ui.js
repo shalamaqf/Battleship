@@ -13,10 +13,14 @@ function newGameSetUp() {
 }
 
 function renderPlayerBoard(boardElement) {
-    for (let i = 0; i < 64; i++) {
-        const button = document.createElement('button');
-        button.classList.add('coordinate-button');
-        boardElement.append(button);
+    for (let i = 8; i > 0; i--) {
+        for (let j = 1; j < 9; j++) {
+            const button = document.createElement('button');
+            button.classList.add('coordinate-button');
+            button.dataset.x = j;
+            button.dataset.y = i;
+            boardElement.append(button);
+        }
     }
 }
 
