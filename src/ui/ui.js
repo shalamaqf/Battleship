@@ -34,15 +34,15 @@ function bindBoardButtons(board, player) {
     });
 }
 
-function renderBoards() {
+function renderBoards(realPlayer, computerPlayer) {
     const realPlayerBoard = document.querySelector('.board.real-player');
     const computerPlayerBoard = document.querySelector('.board.computer-player');
 
     renderPlayerBoard(realPlayerBoard);
     renderPlayerBoard(computerPlayerBoard);
 
-    bindBoardButtons(realPlayerBoard);
-    bindBoardButtons(computerPlayerBoard);
+    bindBoardButtons(realPlayerBoard, realPlayer);
+    bindBoardButtons(computerPlayerBoard, computerPlayer);
 }
 
 function attack(button, board) {
