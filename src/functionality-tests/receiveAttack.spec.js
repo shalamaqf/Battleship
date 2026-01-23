@@ -39,4 +39,11 @@ describe('receiveAttack method', () => {
         board.receiveAttack({x: 6, y: 4})
         expect(ship.hits).toBe(1);
     })
+
+    test('return false if attack on coordinate that have been attacked', () => {
+        const board = new GameBoard();
+        board.placeShip({x: 6, y: 3}, 2, Direction.VERTICAL);
+        board.receiveAttack({x: 6, y: 3});
+        expect(board.receiveAttack({x: 6, y: 3})).toBe(false);
+    })
 })
