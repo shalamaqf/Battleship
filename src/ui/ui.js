@@ -31,3 +31,21 @@ function renderBoards() {
     renderPlayerBoard(realPlayerBoard);
     renderPlayerBoard(computerPlayerBoard);
 }
+
+function attack(button, board) {
+    const coordinateX = button.dataset.x;
+    const coordinateY = button.dataset.y;
+    const coordinate = {coordinateX, coordinateY};
+
+    if (board.receiveAttack(coordinate)) {
+        button.textContent = 'HIT';
+        button.classList.add('hit');
+        button.disabled = true;
+        return true;
+    }
+
+    button.textContent = 'X';
+    button.classList.add('miss');
+    button.disabled = true;
+    return false;
+}
