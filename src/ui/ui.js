@@ -24,12 +24,12 @@ function renderPlayerBoard(boardElement) {
     }
 }
 
-function bindBoardButtons(board) {
+function bindBoardButtons(board, player) {
     const buttons = board.querySelectorAll('coordinate-button');
 
     buttons.forEach(button => {
         button.addEventListener('click', () => {
-            attack(button, board);
+            attack(button, player.board);
         })
     });
 }
