@@ -40,6 +40,9 @@ function renderBoards() {
 
     renderPlayerBoard(realPlayerBoard);
     renderPlayerBoard(computerPlayerBoard);
+
+    bindBoardButtons(realPlayerBoard);
+    bindBoardButtons(computerPlayerBoard);
 }
 
 function attack(button, board) {
