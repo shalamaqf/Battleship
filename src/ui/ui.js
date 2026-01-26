@@ -76,3 +76,10 @@ function disableBoard(boardElement) {
         button.disabled = true;
     });
 }
+
+function enableBoard(boardElement) {
+    const boardButtons = boardElement.querySelectorAll('button');
+    boardButtons.forEach(button => {
+        button.disabled = false;
+    });
+}
