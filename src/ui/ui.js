@@ -1,9 +1,4 @@
-import { Player } from '../functionality/player.js';
 import { Direction } from '../functionality/game-board.js';
-
-export function createPlayer(name) {
-    return new Player(name);
-}
 
 export function newGameSetUp(realPlayer, computerPlayer) {
     renderBoards(realPlayer, computerPlayer);
