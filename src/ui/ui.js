@@ -47,17 +47,16 @@ function attack(button, board) {
     const coordinateX = parseInt(button.dataset.x);
     const coordinateY = parseInt(button.dataset.y);
 
-    if (board.receiveAttack({x: coordinateX, y: coordinateY})) {
+function reactToAttack(button, result) {
+    if (result === true) {
         button.textContent = 'HIT';
         button.classList.add('hit');
-        button.disabled = true;
-        return true;
+    } else {
+        button.textContent = 'X';
+        button.classList.add('miss');
     }
 
-    button.textContent = 'X';
-    button.classList.add('miss');
     button.disabled = true;
-    return false;
 }
 
 export function switchPlayer(firstPlayer, secondPlayer, playerTurn) {
