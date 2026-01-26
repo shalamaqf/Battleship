@@ -2,7 +2,7 @@ import { computerAttack, generateCoordinate } from '../functionality/computer-lo
 import { Direction } from '../functionality/game-board.js';
 
 export function newGameSetUp(realPlayer, computerPlayer) {
-    renderBoards(realPlayer, computerPlayer);
+    renderBoards(computerPlayer);
    
     realPlayer.board.placeShip({x: 3, y: 3}, 3, Direction.HORIZONTAL);
     realPlayer.board.placeShip({x: 7, y: 5}, 2, Direction.VERTICAL);
@@ -33,14 +33,13 @@ function bindBoardButtons(board, player) {
     });
 }
 
-function renderBoards(realPlayer, computerPlayer) {
+function renderBoards(computerPlayer) {
     const realPlayerBoard = document.querySelector('.board.real-player');
     const computerPlayerBoard = document.querySelector('.board.computer-player');
 
     renderPlayerBoard(realPlayerBoard);
     renderPlayerBoard(computerPlayerBoard);
 
-    bindBoardButtons(realPlayerBoard, realPlayer);
     bindBoardButtons(computerPlayerBoard, computerPlayer);
 }
 
