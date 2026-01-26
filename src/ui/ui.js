@@ -83,3 +83,8 @@ function enableBoard(boardElement) {
         button.disabled = false;
     });
 }
+
+function showPlayerTurn(currentPlayer) {
+    const playerTurn = document.getElementById('player-turn');
+    playerTurn.textContent = currentPlayer.name;
+}
