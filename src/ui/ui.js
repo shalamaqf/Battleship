@@ -58,7 +58,9 @@ function handleComputerAttack(board) {
     const button = board.querySelector(`[data-x="${coordinateX}"][data-y="${coordinateY}"]`);
     const result = computerAttack({x: coordinate.x, y: coordinate.y}, board);
 
-    reactToAttack(button, result)
+    setTimeout(()  => {
+        reactToAttack(button, result)
+    }, 2000);
 }
 
 function reactToAttack(button, result) {
