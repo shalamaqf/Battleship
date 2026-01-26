@@ -65,4 +65,7 @@ function attack(button, board) {
     return false;
 }
 
-newGameSetUp();
+function switchPlayer(firstPlayer, secondPlayer, playerTurn) {
+    if (playerTurn === firstPlayer) return secondPlayer;
+    return firstPlayer;
+}
