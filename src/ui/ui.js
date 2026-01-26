@@ -69,3 +69,10 @@ function switchPlayer(firstPlayer, secondPlayer, playerTurn) {
     if (playerTurn === firstPlayer) return secondPlayer;
     return firstPlayer;
 }
+
+function disableBoard(boardElement) {
+    const boardButtons = boardElement.querySelectorAll('button');
+    boardButtons.forEach(button => {
+        button.disabled = true;
+    });
+}
