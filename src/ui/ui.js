@@ -28,7 +28,7 @@ function bindBoardButtons(board, player) {
 
     buttons.forEach(button => {
         button.addEventListener('click', () => {
-            attack(button, player.board);
+            handleRealPlayerAttack(button, player.board)
         })
     });
 }
