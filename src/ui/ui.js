@@ -43,7 +43,7 @@ function renderBoards(realPlayer, computerPlayer) {
     bindBoardButtons(computerPlayerBoard, computerPlayer);
 }
 
-function attack(button, board) {
+function handleRealPlayerAttack(button, board) {
     const coordinateX = parseInt(button.dataset.x);
     const coordinateY = parseInt(button.dataset.y);
     const result = board.receiveAttack({x: coordinateX, y: coordinateY});
