@@ -1,6 +1,10 @@
 import { Player } from '../functionality/player.js';
 import { Direction } from '../functionality/game-board.js';
 
+function createPlayer(name) {
+    return new Player(name);
+}
+
 function newGameSetUp() {
     const realPlayer = new Player('You');
     const computerPlayer = new Player('Computer');
