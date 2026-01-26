@@ -84,6 +84,12 @@ function enableBoard(boardElement) {
     });
 }
 
+function showWinner(player) {
+    const winner = document.getElementById('player-turn');
+    winner.textContent = 'The Winner is ' + player.name;
+    winner.classList.add('winner');
+}
+
 function showPlayerTurn(currentPlayer) {
     const playerTurn = document.getElementById('player-turn');
     playerTurn.textContent = currentPlayer.name;
