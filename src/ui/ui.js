@@ -1,11 +1,11 @@
 import { Player } from '../functionality/player.js';
 import { Direction } from '../functionality/game-board.js';
 
-function createPlayer(name) {
+export function createPlayer(name) {
     return new Player(name);
 }
 
-function newGameSetUp(realPlayer, computerPlayer) {
+export function newGameSetUp(realPlayer, computerPlayer) {
     renderBoards(realPlayer, computerPlayer);
    
     realPlayer.board.placeShip({x: 3, y: 3}, 3, Direction.HORIZONTAL);
@@ -65,32 +65,32 @@ function attack(button, board) {
     return false;
 }
 
-function switchPlayer(firstPlayer, secondPlayer, playerTurn) {
+export function switchPlayer(firstPlayer, secondPlayer, playerTurn) {
     if (playerTurn === firstPlayer) return secondPlayer;
     return firstPlayer;
 }
 
-function disableBoard(boardElement) {
+export function disableBoard(boardElement) {
     const boardButtons = boardElement.querySelectorAll('button');
     boardButtons.forEach(button => {
         button.disabled = true;
     });
 }
 
-function enableBoard(boardElement) {
+export function enableBoard(boardElement) {
     const boardButtons = boardElement.querySelectorAll('button');
     boardButtons.forEach(button => {
         button.disabled = false;
     });
 }
 
-function showWinner(player) {
+export function showWinner(player) {
     const winner = document.getElementById('player-turn');
     winner.textContent = 'The Winner is ' + player.name;
     winner.classList.add('winner');
 }
 
-function showPlayerTurn(currentPlayer) {
+export function showPlayerTurn(currentPlayer) {
     const playerTurn = document.getElementById('player-turn');
     playerTurn.textContent = currentPlayer.name;
 }
