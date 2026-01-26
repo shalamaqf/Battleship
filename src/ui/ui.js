@@ -1,3 +1,4 @@
+import { computerAttack, generateCoordinate } from '../functionality/computer-logic.js';
 import { Direction } from '../functionality/game-board.js';
 
 export function newGameSetUp(realPlayer, computerPlayer) {
@@ -49,6 +50,16 @@ function handleRealPlayerAttack(button, board) {
     const result = board.receiveAttack({x: coordinateX, y: coordinateY});
 
     reactToAttack(button, result);
+}
+
+function handleComputerAttack(board) {
+    const coordinate = generateCoordinate();
+    const coordinateX = toString(coordinate.x);
+    const coordinateY = toString(coordinate.y);
+    const button = board.querySelector(`[data-x="${coordinateX}"][data-y="${coordinateY}"]`);
+    const result = computerAttack({x: coordinate.x, y: coordinate.y}, board);
+
+    reactToAttack(button, result)
 }
 
 function reactToAttack(button, result) {
