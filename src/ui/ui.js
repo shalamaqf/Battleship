@@ -5,10 +5,7 @@ function createPlayer(name) {
     return new Player(name);
 }
 
-function newGameSetUp() {
-    const realPlayer = new Player('You');
-    const computerPlayer = new Player('Computer');
-
+function newGameSetUp(realPlayer, computerPlayer) {
     renderBoards(realPlayer, computerPlayer);
    
     realPlayer.board.placeShip({x: 3, y: 3}, 3, Direction.HORIZONTAL);
@@ -16,7 +13,6 @@ function newGameSetUp() {
 
     computerPlayer.board.placeShip({x: 7, y: 4}, 2, Direction.HORIZONTAL);
     computerPlayer.board.placeShip({x: 2, y: 4}, 4, Direction.VERTICAL);
-
 }
 
 function renderPlayerBoard(boardElement) {
