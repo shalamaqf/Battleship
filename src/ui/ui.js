@@ -46,6 +46,10 @@ function renderBoards(realPlayer, computerPlayer) {
 function attack(button, board) {
     const coordinateX = parseInt(button.dataset.x);
     const coordinateY = parseInt(button.dataset.y);
+    const result = board.receiveAttack({x: coordinateX, y: coordinateY});
+
+    reactToAttack(button, result);
+}
 
 function reactToAttack(button, result) {
     if (result === true) {
