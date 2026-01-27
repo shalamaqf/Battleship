@@ -65,10 +65,15 @@ const gameController = ( function () {
         return currentPlayer;
     }
 
+    function isGameOver() {
+        return gameOver;
+    }
+
     return {
         setupGame: setupGame,
         playTurn: playTurn,
         getCurrentPlayer: getCurrentPlayer,
-        getWinner: getWinner
+        getWinner: getWinner,
+        isGameOver: isGameOver
     }
 })();
