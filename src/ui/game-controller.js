@@ -69,11 +69,16 @@ const gameController = ( function () {
         return gameOver;
     }
 
+    function getRealPlayerBoard() {
+        return realPlayer.board;
+    }
+
     return {
         setupGame: setupGame,
         playTurn: playTurn,
         getCurrentPlayer: getCurrentPlayer,
         getWinner: getWinner,
-        isGameOver: isGameOver
+        isGameOver: isGameOver,
+        getRealPlayerBoard: getRealPlayerBoard
     }
 })();
