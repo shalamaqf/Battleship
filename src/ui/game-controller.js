@@ -15,7 +15,7 @@ const gameController = ( function () {
         computerPlayer.board.placeShip({x: 5, y: 1}, 3, Direction.VERTICAL);
     }
 
-    function attack({x, y}) {
+    function attack({x, y}, opponent) {
         return opponent.board.receiveAttack({x, y});
     }
 
@@ -43,7 +43,7 @@ const gameController = ( function () {
         }
 
         // Attack the opponent board
-        hit = attack({x, y});
+        hit = attack({x, y}, opponent);
 
         // Check if all opponent's ships are sunk
         gameOver = checkWin(opponent);
