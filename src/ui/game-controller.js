@@ -35,6 +35,10 @@ const gameController = ( function () {
         }
     }
 
+    function checkWin(opponent) {
+        return opponent.board.areAllShipsSunk();
+    }
+
     return {
         setupGame: setupGame,
     }
