@@ -16,14 +16,6 @@ const gameController = ( function () {
     }
 
     function attack({x, y}) {
-        let opponent;
-
-        if (currentPlayer === realPlayer) {
-            opponent = computerPlayer;
-        } else {
-            opponent = realPlayer;
-        }
-
         return opponent.board.receiveAttack({x, y});
     }
 
