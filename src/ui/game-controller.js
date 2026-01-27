@@ -61,9 +61,14 @@ const gameController = ( function () {
         return currentPlayer;
     }
 
+    function getWinner() {
+        return currentPlayer;
+    }
+
     return {
         setupGame: setupGame,
         playTurn: playTurn,
-        getCurrentPlayer: getCurrentPlayer
+        getCurrentPlayer: getCurrentPlayer,
+        getWinner: getWinner
     }
 })();
