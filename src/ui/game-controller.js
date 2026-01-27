@@ -49,7 +49,7 @@ const gameController = ( function () {
         gameOver = checkWin(opponent);
 
         // Switch player if the game is not over
-        if (gameOver === false) currentPlayer = switchTurn();
+        if (gameOver === false) switchTurn();
 
         return {
             hit,
