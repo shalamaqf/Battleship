@@ -15,6 +15,18 @@ const gameController = ( function () {
         computerPlayer.board.placeShip({x: 5, y: 1}, 3, Direction.VERTICAL);
     }
 
+    function attack({x, y}) {
+        let opponent;
+
+        if (currentPlayer === realPlayer) {
+            opponent = computerPlayer;
+        } else {
+            opponent = realPlayer;
+        }
+
+        return opponent.board.receiveAttack({x, y});
+    }
+
     return {
         setupGame: setupGame,
     }
