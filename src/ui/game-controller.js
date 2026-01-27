@@ -59,5 +59,6 @@ const gameController = ( function () {
 
     return {
         setupGame: setupGame,
+        playTurn: playTurn
     }
 })();
