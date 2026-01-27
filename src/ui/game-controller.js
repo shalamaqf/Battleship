@@ -27,6 +27,14 @@ const gameController = ( function () {
         return opponent.board.receiveAttack({x, y});
     }
 
+    function switchTurn() {
+        if (currentPlayer === realPlayer) {
+            currentPlayer = computerPlayer;
+        } else {
+            currentPlayer = realPlayer;
+        }
+    }
+
     return {
         setupGame: setupGame,
     }
