@@ -30,7 +30,33 @@ const gameController = ( function () {
     function checkWin(opponent) {
         return opponent.board.areAllShipsSunk();
     }
-    
+
+    function playTurn({x, y}) {
+        let opponent;
+        let hit;
+
+        // Determine the opponent
+        if (currentPlayer === realPlayer) {
+            opponent = computerPlayer;
+        } else {
+            opponent = realPlayer;
+        }
+
+        // Attack the opponent board
+        hit = attack({x, y});
+
+        // Check if all opponent's ships are sunk
+        gameOver = checkWin(opponent);
+
+        // Switch player if the game is not over
+        if (gameOver === false) currentPlayer = switchTurn();
+
+        return {
+            hit,
+            gameOver
+        }
+    }
+
     return {
         setupGame: setupGame,
     }
