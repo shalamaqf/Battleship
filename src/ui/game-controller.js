@@ -4,7 +4,7 @@ import { Player } from "../functionality/player.js";
 const gameController = ( function () {
     const realPlayer = new Player('You');
     const computerPlayer = new Player('Computer');
-    let currentPlayer;
+    let currentPlayer = realPlayer;
     let gameOver = false;
 
     function setupGame() {
@@ -30,7 +30,7 @@ const gameController = ( function () {
     function checkWin(opponent) {
         return opponent.board.areAllShipsSunk();
     }
-
+    
     return {
         setupGame: setupGame,
     }
