@@ -57,8 +57,13 @@ const gameController = ( function () {
         }
     }
 
+    function getCurrentPlayer() {
+        return currentPlayer;
+    }
+
     return {
         setupGame: setupGame,
-        playTurn: playTurn
+        playTurn: playTurn,
+        getCurrentPlayer: getCurrentPlayer
     }
 })();
