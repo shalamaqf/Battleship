@@ -64,6 +64,13 @@ const gameUI = (function () {
         });
     }
 
+    function enableBoard(boardElement) {
+        const buttons = boardElement.querySelectorAll('.coordinate-button');
+        buttons.forEach(button => {
+            button.disabled = false;
+        });
+    }
+
     function renderPlayersBoards() {
         createButtons(computerBoardDOM);
         createButtons(realPlayerBoardDOM);
