@@ -67,7 +67,14 @@ const gameUI = (function () {
         });
     }
 
+    function computerTurn() {
+        const result = getComputerCoordinate();
+        const opponentBoard = gameController.getRealPlayerBoard();
+        handleAttack(result.coordinate, result.button, opponentBoard);
+    }
+
     return {
-        renderPlayersBoards: renderPlayersBoards
+        renderPlayersBoards: renderPlayersBoards,
+        computerTurn: computerTurn
     }
 })();
