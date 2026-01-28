@@ -84,7 +84,7 @@ const gameUI = (function () {
         createButtons(computerBoardDOM);
         createButtons(realPlayerBoardDOM);
 
-        const buttons = realPlayerBoardDOM.querySelectorAll('.coordinate-button');
+        const buttons = computerBoardDOM.querySelectorAll('.coordinate-button');
         buttons.forEach(button => {
             handleButtonClick(button);
         });
