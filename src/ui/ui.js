@@ -44,4 +44,9 @@ const gameUI = (function () {
         return {button, coordinate};
     }
 
+    function handleAttack(coordinate, button, opponentBoard) {
+        const result = gameController.playTurn(coordinate, opponentBoard);
+        updateButtonDOM(result, button)
+    }
+
 })();
