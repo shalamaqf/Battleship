@@ -13,7 +13,7 @@ const gameUI = (function () {
                 button.classList.add('coordinate-button');
                 button.dataset.x = j;
                 button.dataset.y = i;
-                button.type = 'button'
+                button.type = 'button';
                 boardDOM.append(button);
             }
         }
@@ -55,5 +55,19 @@ const gameUI = (function () {
             const opponentBoard = gameController.getComputerPlayerBoard();
             handleAttack(coordinate, button, opponentBoard);
         })
+    }
+
+    function renderPlayersBoards() {
+        createButtons(computerBoardDOM);
+        createButtons(realPlayerBoardDOM);
+
+        const buttons = realPlayerBoardDOM.querySelectorAll('.coordinate-button');
+        buttons.forEach(button => {
+            handleButtonClick(button);
+        });
+    }
+
+    return {
+        renderPlayersBoards: renderPlayersBoards
     }
 })();
