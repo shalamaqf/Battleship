@@ -46,6 +46,7 @@ export const gameUI = (function () {
 
     function handleAttack(coordinate, button, opponentBoard) {
         const result = gameController.playTurn(coordinate, opponentBoard);
+        showWinner(result.gameOver);
         updateButtonDOM(result, button);
         handleBoardState();
     }
@@ -114,6 +115,5 @@ export const gameUI = (function () {
         computerTurn: computerTurn,
         showPlayerTurn: showPlayerTurn,
         handleBoardState: handleBoardState,
-        showWinner: showWinner
     }
 })();
