@@ -28,4 +28,11 @@ const gameUI = (function () {
         }
     }
 
+    function getRealPlayerCoordinate(button) {
+        const coordinateX = parseInt(button.dataset.x)
+        const coordinateY = parseInt(button.dataset.y)
+        const coordinate = {x: coordinateX, y: coordinateY};
+        return coordinate;
+    }
+
 })();
