@@ -49,4 +49,11 @@ const gameUI = (function () {
         updateButtonDOM(result, button)
     }
 
+    function handleButtonClick(button) {
+        button.addEventListener('click', () => {
+            const coordinate = getRealPlayerCoordinate(button);
+            const opponentBoard = gameController.getComputerPlayerBoard();
+            handleAttack(coordinate, button, opponentBoard);
+        })
+    }
 })();
