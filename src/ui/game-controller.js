@@ -69,6 +69,11 @@ export const gameController = ( function () {
         return computerPlayer.board;
     }
 
+    function isHumanTurn() {
+        if (currentPlayer === realPlayer) return true;
+        return false;
+    }
+
     return {
         setupGame: setupGame,
         playTurn: playTurn,
@@ -76,6 +81,7 @@ export const gameController = ( function () {
         getWinner: getWinner,
         isGameOver: isGameOver,
         getRealPlayerBoard: getRealPlayerBoard,
-        getComputerPlayerBoard: getComputerPlayerBoard
+        getComputerPlayerBoard: getComputerPlayerBoard,
+        isHumanTurn: isHumanTurn
     }
 })();
