@@ -15,8 +15,8 @@ export const gameController = ( function () {
         computerPlayer.board.placeShip({x: 5, y: 1}, 3, Direction.VERTICAL);
     }
 
-    function attack({x, y}, opponent) {
-        return opponent.board.receiveAttack({x, y});
+    function attack({x, y}, opponentBoard) {
+        return opponentBoard.receiveAttack({x, y});
     }
 
     function switchTurn() {
@@ -27,8 +27,8 @@ export const gameController = ( function () {
         }
     }
 
-    function checkWin(opponent) {
-        return opponent.board.areAllShipsSunk();
+    function checkWin(opponentBoard) {
+        return opponentBoard.areAllShipsSunk();
     }
 
     function playTurn({x, y}, opponentBoard) {
