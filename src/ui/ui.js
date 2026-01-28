@@ -104,6 +104,7 @@ const gameUI = (function () {
     return {
         renderPlayersBoards: renderPlayersBoards,
         computerTurn: computerTurn,
-        showPlayerTurn: showPlayerTurn
+        showPlayerTurn: showPlayerTurn,
+        handleBoardState: handleBoardState
     }
 })();
