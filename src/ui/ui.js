@@ -73,8 +73,14 @@ const gameUI = (function () {
         handleAttack(result.coordinate, result.button, opponentBoard);
     }
 
+    function showPlayerTurn() {
+        const currentPlayer = gameController.getCurrentPlayer();
+        playerTurn.textContent = currentPlayer.name;
+    }
+
     return {
         renderPlayersBoards: renderPlayersBoards,
-        computerTurn: computerTurn
+        computerTurn: computerTurn,
+        showPlayerTurn: showPlayerTurn
     }
 })();
