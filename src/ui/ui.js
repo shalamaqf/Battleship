@@ -1,7 +1,7 @@
 import { generateCoordinate } from "../functionality/computer-logic";
 import { gameController } from "./game-controller";
 
-const gameUI = (function () {
+export const gameUI = (function () {
     const realPlayerBoardDOM = document.querySelector('.board.real-player');
     const computerBoardDOM = document.querySelector('.board.computer-player');
     const playerTurn = document.getElementById('player-turn');
