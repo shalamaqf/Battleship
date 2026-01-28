@@ -1,3 +1,4 @@
+import { generateCoordinate } from "../functionality/computer-logic";
 import { gameController } from "./game-controller";
 
 const gameUI = (function () {
@@ -33,6 +34,14 @@ const gameUI = (function () {
         const coordinateY = parseInt(button.dataset.y)
         const coordinate = {x: coordinateX, y: coordinateY};
         return coordinate;
+    }
+
+    function getComputerCoordinate() {
+        const coordinateX = generateCoordinate();
+        const coordinateY = generateCoordinate();
+        const coordinate = {x: coordinateX, y: coordinateY};
+        const button = realPlayerBoardDOM.querySelector(`[data-x="${coordinateX}"][data-y="${coordinateY}"]`);
+        return {button, coordinate};
     }
 
 })();
