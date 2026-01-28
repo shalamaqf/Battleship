@@ -57,6 +57,13 @@ const gameUI = (function () {
         })
     }
 
+    function disableBoard(boardElement) {
+        const buttons = boardElement.querySelectorAll('.coordinate-button');
+        buttons.forEach(button => {
+            button.disabled = true;
+        });
+    }
+
     function renderPlayersBoards() {
         createButtons(computerBoardDOM);
         createButtons(realPlayerBoardDOM);
