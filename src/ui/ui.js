@@ -46,7 +46,7 @@ const gameUI = (function () {
 
     function handleAttack(coordinate, button, opponentBoard) {
         const result = gameController.playTurn(coordinate, opponentBoard);
-        updateButtonDOM(result, button)
+        updateButtonDOM(result, button);
     }
 
     function handleButtonClick(button) {
@@ -69,6 +69,14 @@ const gameUI = (function () {
         buttons.forEach(button => {
             button.disabled = false;
         });
+    }
+
+    function handleBoardState() {
+        if (gameController.isHumanTurn()) {
+            enableBoard(computerBoardDOM);
+        } else {
+            disableBoard(computerBoardDOM);
+        }
     }
 
     function renderPlayersBoards() {
