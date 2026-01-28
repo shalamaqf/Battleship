@@ -16,4 +16,9 @@ const gameUI = (function () {
         }
     }
 
+    function renderPlayersBoards() {
+        createButtons(realPlayerBoardDOM);
+        createButtons(computerBoardDOM);
+    }
+
 })();
