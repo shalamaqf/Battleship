@@ -18,9 +18,14 @@ const gameUI = (function () {
         }
     }
 
-    function renderPlayersBoards() {
-        createButtons(realPlayerBoardDOM);
-        createButtons(computerBoardDOM);
+    function updateButtonDOM(result, button) {
+        if (result.hit === true) {
+            button.textContent = 'HIT';
+            button.classList.add('hit');
+        } else {
+            button.textContent = 'X';
+            button.classList.add('miss');
+        }
     }
 
 })();
