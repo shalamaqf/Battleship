@@ -134,6 +134,12 @@ export const gameUI = (function () {
         infoSection.append(randomizeButton);
     }
 
+    function handleRandomizeButton(randomizeButton) {
+        randomizeButton.addEventListener('click', () => {
+            gameController.shuffleShip();
+        })
+    }
+
     return {
         renderPlayersBoards: renderPlayersBoards,
         computerTurn: computerTurn,

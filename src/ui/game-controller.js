@@ -103,6 +103,7 @@ export const gameController = ( function () {
         isGameOver: isGameOver,
         getRealPlayerBoard: getRealPlayerBoard,
         getComputerPlayerBoard: getComputerPlayerBoard,
-        isHumanTurn: isHumanTurn
+        isHumanTurn: isHumanTurn,
+        shuffleShip: shuffleShip
     }
 })();
