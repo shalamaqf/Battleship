@@ -29,6 +29,13 @@ export const gameController = ( function () {
         }
     }
 
+    function shuffleShip() {
+        const length = [5, 4, 3, 3, 2];
+        for (let i = 0; i < length.length; i++) {
+            randomShipPlacement(length[i]);
+        }
+    }
+
     function attack({x, y}, opponentBoard) {
         return opponentBoard.receiveAttack({x, y});
     }
