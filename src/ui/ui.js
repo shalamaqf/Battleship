@@ -102,12 +102,8 @@ export const gameUI = (function () {
         playerTurn.textContent = currentPlayer.name;
     }
 
-    function showWinner(isGameOver) {
-        const winner = gameController.getWinner();
-
-        if (isGameOver) {
-            playerTurn.textContent = 'The winner is ' +  winner.name;
-        }
+    function showWinner(winner) {
+        playerTurn.textContent = 'The winner is ' +  winner.name;
     }
 
     return {
