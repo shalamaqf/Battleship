@@ -5,6 +5,15 @@ export const Direction = Object.freeze({
     VERTICAL: 'vertical'
 })
 
+function generateDirection() {
+    const number = Math.floor(Math.random() * 2) + 1;
+    if (number === 1) {
+        return Direction.HORIZONTAL;
+    } else {
+        return Direction.VERTICAL;
+    }
+}
+
 export class GameBoard {
     constructor() {
         this.availCoordinate = {};
