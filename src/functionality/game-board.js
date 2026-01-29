@@ -23,8 +23,8 @@ export class GameBoard {
     }
 
     isAvailCoordinate({x, y}) {
-        if (x > 8 || x < 1) return false;
-        if (y > 8 || y < 1) return false;
+        if (x > 10 || x < 1) return false;
+        if (y > 10 || y < 1) return false;
         return true;
     }
 

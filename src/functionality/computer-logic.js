@@ -3,8 +3,8 @@ export function computerAttack({x, y}, playerBoard) {
 }
 
 export function generateCoordinate() {
-    const coordinateX = Math.floor(Math.random() * 8) + 1;
-    const coordinateY = Math.floor(Math.random() * 8) + 1;
+    const coordinateX = Math.floor(Math.random() * 10) + 1;
+    const coordinateY = Math.floor(Math.random() * 10) + 1;
     const coordinate = {x: coordinateX, y: coordinateY};
     return coordinate;
 }

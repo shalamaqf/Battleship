@@ -7,8 +7,8 @@ export const gameUI = (function () {
     const playerTurn = document.getElementById('player-turn');
 
     function createButtons(boardDOM) {
-        for (let i = 8; i > 0; i--) {
-            for (let j = 1; j < 9; j++) {
+        for (let i = 10; i > 0; i--) {
+            for (let j = 1; j < 11; j++) {
                 const button = document.createElement('button');
                 button.classList.add('coordinate-button');
                 button.dataset.x = j;
