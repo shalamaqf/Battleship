@@ -76,7 +76,11 @@ export const gameUI = (function () {
     function enableBoard(boardElement) {
         const buttons = boardElement.querySelectorAll('.coordinate-button');
         buttons.forEach(button => {
-            button.disabled = false;
+            if ('clicked' in button.dataset) {
+                button.disabled = true;
+            } else {
+                button.disabled = false;
+            }
         });
     }
 
