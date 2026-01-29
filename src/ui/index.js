@@ -5,7 +5,7 @@ function init() {
     gameController.setupGame();
     gameUI.renderPlayersBoards();
     gameUI.showPlayerTurn();
-    gameUI.handleBoardState();
+    gameUI.handleComputerBoardState();
 
     if (!gameController.isHumanTurn()) {
         setTimeout(() => {

@@ -50,7 +50,7 @@ export const gameUI = (function () {
         const result = gameController.playTurn(coordinate, opponentBoard);
         updateButtonDOM(result, button);
         showPlayerTurn();
-        handleBoardState();
+        handleComputerBoardState();
         handleGameOver(result.gameOver);
 
         if (!gameController.isHumanTurn() && !result.gameOver) {
@@ -84,7 +84,7 @@ export const gameUI = (function () {
         });
     }
 
-    function handleBoardState() {
+    function handleComputerBoardState() {
         if (gameController.isHumanTurn()) {
             enableBoard(computerBoardDOM);
         } else {
@@ -130,6 +130,6 @@ export const gameUI = (function () {
         renderPlayersBoards: renderPlayersBoards,
         computerTurn: computerTurn,
         showPlayerTurn: showPlayerTurn,
-        handleBoardState: handleBoardState,
+        handleComputerBoardState: handleComputerBoardState,
     }
 })();
