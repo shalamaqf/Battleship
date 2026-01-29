@@ -1,4 +1,5 @@
-import { Direction } from "../functionality/game-board.js";
+import { generateCoordinate } from "../functionality/computer-logic.js";
+import { Direction, generateDirection } from "../functionality/game-board.js";
 import { Player } from "../functionality/player.js";
 
 export const gameController = ( function () {
@@ -13,6 +14,19 @@ export const gameController = ( function () {
 
         computerPlayer.board.placeShip({x: 4, y: 7}, 2, Direction.HORIZONTAL);
         computerPlayer.board.placeShip({x: 5, y: 1}, 3, Direction.VERTICAL);
+    }
+
+    function randomShipPlacement(length) {
+        const coordinate = generateCoordinate();
+        const coordinateX = coordinate.x;
+        const coordinateY = coordinate.y;
+        const direction = generateDirection();
+
+        if (realPlayer.board.placeShip({x: coordinateX, y: coordinateY}, length, direction)) {
+            return;
+        } else {
+            randomShipPlacement(length);
+        }
     }
 
     function attack({x, y}, opponentBoard) {

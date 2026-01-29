@@ -5,7 +5,7 @@ export const Direction = Object.freeze({
     VERTICAL: 'vertical'
 })
 
-function generateDirection() {
+export function generateDirection() {
     const number = Math.floor(Math.random() * 2) + 1;
     if (number === 1) {
         return Direction.HORIZONTAL;
