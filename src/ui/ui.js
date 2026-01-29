@@ -131,6 +131,7 @@ export const gameUI = (function () {
         const randomizeButton = document.createElement('button');
         randomizeButton.textContent = 'Randomize';
         randomizeButton.classList.add('randomize');
+        handleRandomizeButton(randomizeButton);
         infoSection.append(randomizeButton);
     }
 
