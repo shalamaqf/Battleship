@@ -126,6 +126,14 @@ export const gameUI = (function () {
         }
     }
 
+    function createRandomizeButton() {
+        const infoSection = document.getElementById('info-section');
+        const randomizeButton = document.createElement('button');
+        randomizeButton.textContent = 'Randomize';
+        randomizeButton.classList.add('randomize');
+        infoSection.append(randomizeButton);
+    }
+
     return {
         renderPlayersBoards: renderPlayersBoards,
         computerTurn: computerTurn,
