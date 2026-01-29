@@ -90,6 +90,11 @@ export const gameController = ( function () {
         return computerPlayer.board;
     }
 
+    function getOccupiedCoordinates() {
+        const occupiedCoordinates = Object.keys(realPlayer.board.occupiedCoordinate);
+        return occupiedCoordinates;
+    }
+
     function isHumanTurn() {
         if (currentPlayer === realPlayer) return true;
         return false;
@@ -104,6 +109,7 @@ export const gameController = ( function () {
         getRealPlayerBoard: getRealPlayerBoard,
         getComputerPlayerBoard: getComputerPlayerBoard,
         isHumanTurn: isHumanTurn,
-        shuffleShip: shuffleShip
+        shuffleShip: shuffleShip,
+        getOccupiedCoordinates: getOccupiedCoordinates
     }
 })();
