@@ -37,9 +37,9 @@ export const gameUI = (function () {
     }
 
     function getComputerCoordinate() {
-        const coordinateX = generateCoordinate();
-        const coordinateY = generateCoordinate();
-        const coordinate = {x: coordinateX, y: coordinateY};
+        const coordinate = generateCoordinate();
+        const coordinateX = coordinate.x;
+        const coordinateY = coordinate.y;
         const button = realPlayerBoardDOM.querySelector(`[data-x="${coordinateX}"][data-y="${coordinateY}"]`);
         return {button, coordinate};
     }
