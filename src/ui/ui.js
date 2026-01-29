@@ -141,6 +141,21 @@ export const gameUI = (function () {
         })
     }
 
+    function highlightButtons(boardDOM) {
+        const coordinates = gameController.getOccupiedCoordinates();
+
+        coordinates.forEach(coordinate => {
+            const coord = coordinate.split(',');
+            const x = coord[0].trim();
+            const y = coord[1].trim();
+            const button = boardDOM.querySelector(`[data-x="${x}"][data-y="${y}"]`);
+
+            if (button) {
+                button.style.backgroundColor = 'green';
+            }
+        });
+    }
+
     return {
         renderPlayersBoards: renderPlayersBoards,
         computerTurn: computerTurn,
