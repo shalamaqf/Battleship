@@ -50,6 +50,10 @@ export const gameUI = (function () {
         showPlayerTurn();
         handleBoardState();
         handleGameOver(result.gameOver);
+
+        if (!gameController.isHumanTurn() && !result.gameOver) {
+            setTimeout(() => computerTurn(), 2000);
+        }
     }
 
     function handleButtonClick(button) {
