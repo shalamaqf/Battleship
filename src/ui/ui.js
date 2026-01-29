@@ -1,5 +1,5 @@
-import { generateCoordinate } from "../functionality/computer-logic";
-import { gameController } from "./game-controller";
+import { generateCoordinate } from "../functionality/computer-logic.js";
+import { gameController } from "./game-controller.js";
 
 export const gameUI = (function () {
     const realPlayerBoardDOM = document.querySelector('.board.real-player');
