@@ -106,6 +106,15 @@ export const gameUI = (function () {
         playerTurn.textContent = 'The winner is ' +  winner.name;
     }
 
+    function handleGameOver(gameOver) {
+        if (gameOver) {
+            const winner = gameController.getWinner();
+            showWinner(winner);
+            disableBoard(realPlayerBoardDOM);
+            disableBoard(computerBoardDOM);
+        }
+    }
+
     return {
         renderPlayersBoards: renderPlayersBoards,
         computerTurn: computerTurn,
