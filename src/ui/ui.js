@@ -23,9 +23,11 @@ export const gameUI = (function () {
         if (result.hit === true) {
             button.textContent = 'HIT';
             button.classList.add('hit');
+            button.dataset.clicked = true;
         } else {
             button.textContent = 'X';
             button.classList.add('miss');
+            button.dataset.clicked = true;
         }
     }
 
