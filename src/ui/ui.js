@@ -167,6 +167,14 @@ export const gameUI = (function () {
         });
     }
 
+    function createStartGameButton() {
+        const infoSection = document.getElementById('info-section');
+        const startGameButton = document.createElement('button');
+        startGameButton.textContent ='Start Game';
+        startGameButton.classList.add('start-game');
+        infoSection.append(startGameButton);
+    }
+
     return {
         renderPlayersBoards: renderPlayersBoards,
         computerTurn: computerTurn,
