@@ -174,6 +174,10 @@ export const gameUI = (function () {
         startGameButton.classList.add('start-game');
         infoSection.append(startGameButton);
     }
+    
+    function deleteButton(button) {
+        if (button) button.remove();
+    }
 
     return {
         renderPlayersBoards: renderPlayersBoards,
