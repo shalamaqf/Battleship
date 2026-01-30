@@ -29,6 +29,7 @@ export const gameController = ( function () {
     }
 
     function shuffleShip(playerBoard) {
+        playerBoard.resetBoard();
         const length = [5, 4, 3, 3, 2];
         for (let i = 0; i < length.length; i++) {
             randomShipPlacement(length[i], playerBoard);
