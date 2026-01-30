@@ -3,10 +3,7 @@ import { gameUI } from "./ui.js";
 
 function init() {
     gameController.setupGame();
-    gameUI.renderPlayersBoards();
-    gameUI.showPlayerTurn();
-    gameUI.handleComputerBoardState();
-    gameUI.createRandomizeButton();
+    gameUI.setupGameUI();
 
     if (!gameController.isHumanTurn()) {
         setTimeout(() => {
