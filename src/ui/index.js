@@ -2,8 +2,7 @@ import { gameController } from "./game-controller.js";
 import { gameUI } from "./ui.js";
 
 function init() {
-    const computerBoard = gameController.getComputerPlayerBoard();
-    gameController.shuffleShip(computerBoard);
+    gameController.setupGame();
     gameUI.renderPlayersBoards();
     gameUI.showPlayerTurn();
     gameUI.handleComputerBoardState();
