@@ -17,15 +17,14 @@ export const gameController = ( function () {
     }
 
     function randomShipPlacement(length) {
-        const coordinate = generateCoordinate();
-        const coordinateX = coordinate.x;
-        const coordinateY = coordinate.y;
-        const direction = generateDirection();
+        let placed = false;
 
-        if (realPlayer.board.placeShip({x: coordinateX, y: coordinateY}, length, direction)) {
-            return;
-        } else {
-            randomShipPlacement(length);
+        while (!placed) {
+            const coordinate = generateCoordinate();
+            const coordinateX = coordinate.x;
+            const coordinateY = coordinate.y;
+            const direction = generateDirection();
+            placed = realPlayer.board.placeShip({x: coordinateX, y: coordinateY}, length, direction);
         }
     }
 
