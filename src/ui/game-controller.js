@@ -16,7 +16,7 @@ export const gameController = ( function () {
         computerPlayer.board.placeShip({x: 5, y: 1}, 3, Direction.VERTICAL);
     }
 
-    function randomShipPlacement(length) {
+    function randomShipPlacement(length, playerBoard) {
         let placed = false;
 
         while (!placed) {
@@ -24,14 +24,14 @@ export const gameController = ( function () {
             const coordinateX = coordinate.x;
             const coordinateY = coordinate.y;
             const direction = generateDirection();
-            placed = realPlayer.board.placeShip({x: coordinateX, y: coordinateY}, length, direction);
+            placed = playerBoard.placeShip({x: coordinateX, y: coordinateY}, length, direction);
         }
     }
 
-    function shuffleShip() {
+    function shuffleShip(playerBoard) {
         const length = [5, 4, 3, 3, 2];
         for (let i = 0; i < length.length; i++) {
-            randomShipPlacement(length[i]);
+            randomShipPlacement(length[i], playerBoard);
         }
     }
 
