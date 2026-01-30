@@ -9,6 +9,7 @@ export const gameController = ( function () {
     let gameOver = false;
 
     function setupGame() {
+        shuffleShip(realPlayer.board);
         shuffleShip(computerPlayer.board);
     }
 
