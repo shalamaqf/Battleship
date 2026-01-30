@@ -179,6 +179,17 @@ export const gameUI = (function () {
         if (button) button.remove();
     }
 
+    function handleStartGameButton(startGameButton) {
+        const randomizeButton = document.querySelector('.randomize');
+
+        startGameButton.addEventListener('click', () => {
+            deleteButton(startGameButton);
+            deleteButton(randomizeButton);
+            handleComputerBoardState();
+            showPlayerTurn();
+        })
+    }
+
     return {
         renderPlayersBoards: renderPlayersBoards,
         computerTurn: computerTurn,
