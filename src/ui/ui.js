@@ -139,6 +139,7 @@ export const gameUI = (function () {
         randomizeButton.addEventListener('click', () => {
             const realPlayerBoard = gameController.getRealPlayerBoard();
             gameController.shuffleShip(realPlayerBoard);
+            deleteButtonsHighlight(realPlayerBoardDOM);
             highlightButtons(realPlayerBoardDOM);
         })
     }
