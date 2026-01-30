@@ -158,6 +158,14 @@ export const gameUI = (function () {
         });
     }
 
+    function deleteButtonsHighlight(boardDOM) {
+        const buttons = boardDOM.querySelectorAll('.coordinate-button');
+
+        buttons.forEach(button => {
+            button.style.backgroundColor = '';
+        });
+    }
+
     return {
         renderPlayersBoards: renderPlayersBoards,
         computerTurn: computerTurn,
