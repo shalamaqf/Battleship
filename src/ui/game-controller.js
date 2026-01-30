@@ -9,11 +9,7 @@ export const gameController = ( function () {
     let gameOver = false;
 
     function setupGame() {
-        realPlayer.board.placeShip({x: 2, y: 4}, 3, Direction.HORIZONTAL);
-        realPlayer.board.placeShip({x: 7, y: 5}, 2, Direction.VERTICAL);
-
-        computerPlayer.board.placeShip({x: 4, y: 7}, 2, Direction.HORIZONTAL);
-        computerPlayer.board.placeShip({x: 5, y: 1}, 3, Direction.VERTICAL);
+        shuffleShip(computerPlayer.board);
     }
 
     function randomShipPlacement(length, playerBoard) {
