@@ -162,5 +162,6 @@ export const gameUI = (function () {
         computerTurn: computerTurn,
         showPlayerTurn: showPlayerTurn,
         handleComputerBoardState: handleComputerBoardState,
+        createRandomizeButton: createRandomizeButton
     }
 })();
