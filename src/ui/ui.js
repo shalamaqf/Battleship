@@ -195,6 +195,7 @@ export const gameUI = (function () {
         renderPlayersBoards();
         createRandomizeButton();
         createStartGameButton();
+        highlightButtons(realPlayerBoardDOM);
     }
 
     return {
