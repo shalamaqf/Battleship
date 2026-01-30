@@ -90,4 +90,11 @@ export class GameBoard {
 
         return ships;
     }
+
+    resetBoard() {
+        this.availCoordinate = {};
+        this.missedAttacks = {};
+        this.succeedAttacks = {};
+        this.occupiedCoordinate = {};
+    }
 }
