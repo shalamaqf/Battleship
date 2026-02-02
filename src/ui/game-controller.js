@@ -63,7 +63,7 @@ export const gameController = ( function () {
         gameOver = checkWin(opponentBoard);
 
         // Switch player if the game is not over
-        if (gameOver === false) switchTurn();
+        if (hit === false && gameOver === false) switchTurn();
 
         return {
             hit,
