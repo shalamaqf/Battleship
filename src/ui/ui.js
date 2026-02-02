@@ -216,11 +216,7 @@ export const gameUI = (function () {
     }
 
     return {
-        renderPlayersBoards: renderPlayersBoards,
         computerTurn: computerTurn,
-        showPlayerTurn: showPlayerTurn,
-        handleComputerBoardState: handleComputerBoardState,
-        createRandomizeButton: createRandomizeButton,
         setupGameUI: setupGameUI
     }
 })();
