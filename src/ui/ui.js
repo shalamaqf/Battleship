@@ -132,12 +132,12 @@ export const gameUI = (function () {
     }
 
     function createRandomizeButton() {
-        const infoSection = document.getElementById('info-section');
+        const container = document.getElementById('info-container');
         const randomizeButton = document.createElement('button');
         randomizeButton.textContent = 'Randomize';
         randomizeButton.classList.add('randomize');
         handleRandomizeButton(randomizeButton);
-        infoSection.append(randomizeButton);
+        container.append(randomizeButton);
     }
 
     function handleRandomizeButton(randomizeButton) {
@@ -173,12 +173,12 @@ export const gameUI = (function () {
     }
 
     function createStartGameButton() {
-        const infoSection = document.getElementById('info-section');
+        const container = document.getElementById('info-container');
         const startGameButton = document.createElement('button');
         startGameButton.textContent ='Start Game';
         startGameButton.classList.add('start-game');
         handleStartGameButton(startGameButton);
-        infoSection.append(startGameButton);
+        container.append(startGameButton);
     }
     
     function deleteButton(button) {
