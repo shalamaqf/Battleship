@@ -55,6 +55,10 @@ export const gameController = ( function () {
         // Attack the opponent board
         hit = attack({x, y}, opponentBoard);
 
+        if (hit === null) {
+            return {hit: null, gameOver: false};
+        }
+
         // Check if all opponent's ships are sunk
         gameOver = checkWin(opponentBoard);
 
