@@ -189,8 +189,10 @@ export const gameUI = (function () {
         const randomizeButton = document.querySelector('.randomize');
 
         startGameButton.addEventListener('click', () => {
+            resetBoardUI();
             deleteButton(startGameButton);
             deleteButton(randomizeButton);
+            deleteButtonsHighlight(realPlayerBoardDOM);
             handleComputerBoardState();
             showPlayerTurn();
         })
