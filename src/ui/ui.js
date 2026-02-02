@@ -134,12 +134,13 @@ export const gameUI = (function () {
     }
 
     function createRandomizeButton() {
-        const container = document.getElementById('info-container');
+        const infoSection = document.getElementById('info-section');
         const randomizeButton = document.createElement('button');
         randomizeButton.textContent = 'Randomize';
         randomizeButton.classList.add('randomize');
         handleRandomizeButton(randomizeButton);
-        container.append(randomizeButton);
+        buttonContainer.append(randomizeButton);
+        infoSection.append(buttonContainer);
     }
 
     function handleRandomizeButton(randomizeButton) {
@@ -175,12 +176,13 @@ export const gameUI = (function () {
     }
 
     function createStartGameButton() {
-        const container = document.getElementById('info-container');
+        const infoSection = document.getElementById('info-section');
         const startGameButton = document.createElement('button');
         startGameButton.textContent ='Start Game';
         startGameButton.classList.add('start-game');
         handleStartGameButton(startGameButton);
-        container.append(startGameButton);
+        buttonContainer.append(startGameButton);
+        infoSection.append(buttonContainer);
     }
     
     function deleteButton(button) {
