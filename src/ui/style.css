@@ -25,3 +25,9 @@ main {
     display: flex;
     gap: 1rem;
 }
+
+#player-board-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
