@@ -48,13 +48,18 @@ export const gameUI = (function () {
 
     function handleAttack(coordinate, button, opponentBoard) {
         const result = gameController.playTurn(coordinate, opponentBoard);
-        updateButtonDOM(result, button);
-        showPlayerTurn();
-        handleComputerBoardState();
-        handleGameOver(result.gameOver);
 
-        if (!gameController.isHumanTurn() && !result.gameOver) {
-            setTimeout(() => computerTurn(), 2000);
+        if (result.hit === null && !gameController.isHumanTurn()) {
+            computerTurn();
+        } else {
+            updateButtonDOM(result, button);
+            showPlayerTurn();
+            handleComputerBoardState();
+            handleGameOver(result.gameOver);
+
+            if (!gameController.isHumanTurn() && !result.gameOver) {
+                setTimeout(() => computerTurn(), 2000);
+            }
         }
     }
 
