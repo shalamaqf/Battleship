@@ -18,7 +18,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 4rem;
+    min-height: 5rem;
 }
 
 #button-container {
