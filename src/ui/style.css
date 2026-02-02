@@ -13,3 +13,10 @@ main {
 
     margin: 2rem;
 }
+
+#info-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 4rem;
+}
