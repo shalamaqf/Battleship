@@ -196,6 +196,16 @@ export const gameUI = (function () {
         })
     }
 
+    function resetBoardUI() {
+        const buttons = realPlayerBoardDOM.querySelectorAll('.coordinate-button');
+
+        buttons.forEach(button => {
+            button.textContent = '';
+            button.classList.remove('hit', 'miss');
+            button.removeAttribute('clicked');
+        });
+    }
+
     function setupGameUI() {
         renderPlayersBoards();
         createRandomizeButton();
