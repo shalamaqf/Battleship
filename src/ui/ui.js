@@ -5,6 +5,8 @@ export const gameUI = (function () {
     const realPlayerBoardDOM = document.querySelector('.board.real-player');
     const computerBoardDOM = document.querySelector('.board.computer-player');
     const playerTurn = document.getElementById('player-turn');
+    const buttonContainer = document.createElement('div');
+    buttonContainer.id = 'button-container';
 
     function createButtons(boardDOM) {
         for (let i = 10; i > 0; i--) {
