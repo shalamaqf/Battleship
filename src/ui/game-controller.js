@@ -11,6 +11,14 @@ const shipRole = Object.freeze({
     DESTROYER: 'destroyer'
 })
 
+const shipSize = {
+    [shipRole.CARRIER]: 5,
+    [shipRole.BATTLESHIP]: 4,
+    [shipRole.CRUISER1]: 3,
+    [shipRole.CRUISER2]: 3,
+    [shipRole.DESTROYER]: 2,
+}
+
 export const gameController = ( function () {
     const realPlayer = new Player('You');
     const computerPlayer = new Player('Computer');
