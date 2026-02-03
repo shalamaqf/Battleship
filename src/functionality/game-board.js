@@ -101,4 +101,8 @@ export class GameBoard {
         this.succeedAttacks = {};
         this.occupiedCoordinate = {};
     }
+
+    isPlacementValid() {
+        
+    }
 }
