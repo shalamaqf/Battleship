@@ -7,6 +7,7 @@ export const gameController = ( function () {
     const computerPlayer = new Player('Computer');
     let currentPlayer = realPlayer;
     let gameOver = false;
+    const shipsDetails = {};
 
     function setupGame() {
         shuffleShip(realPlayer.board);
