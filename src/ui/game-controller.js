@@ -3,7 +3,7 @@ import { generateDirection } from "../functionality/game-board.js";
 import { Player } from "../functionality/player.js";
 import { Ship } from "../functionality/ship.js";
 
-const shipRole = Object.freeze({
+export const shipRole = Object.freeze({
     CARRIER: 'carrier',
     BATTLESHIP: 'battleship',
     CRUISER1: 'cruiser1',
