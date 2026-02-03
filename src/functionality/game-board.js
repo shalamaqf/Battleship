@@ -102,7 +102,31 @@ export class GameBoard {
         this.occupiedCoordinate = {};
     }
 
-    isPlacementValid() {
+    isPlacementValid({x, y}, length, direction) {
+        const shipCoordinates = {};
+
+        if (direction === Direction.HORIZONTAL) {
+            for (let i = 0; i < length; i++) {
+                const coordinate = `${x + i}, ${y}`;
+                shipCoordinates[coordinate] = true;
+            }
+        }
+
+        if (direction === Direction.VERTICAL) {
+            for (let i = 0; i < length; i++) {
+                const coordinate = `${x}, ${y + i}`;
+                shipCoordinates[coordinate] = true;
+            }
+        } 
         
+        const keys = Object.keys(shipCoordinates);
+        let isValid = true;
+        keys.forEach(key => {
+            if (key in this.occupiedCoordinate) {
+                isValid = false;
+            }
+        });
+        
+        return isValid;
     }
 }
