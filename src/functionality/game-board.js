@@ -28,30 +28,28 @@ export class GameBoard {
         return true;
     }
 
-    placeShip({x, y}, length, direction) {
+    placeShip({x, y}, ship) {
         if (!this.isAvailCoordinate({x, y})) return false;
 
         if (`${x}, ${y}` in this.occupiedCoordinate) return false;
-
-        const ship = new Ship(length);
         
-        if (direction === Direction.HORIZONTAL) {
-            for (let i = 0; i < length; i++) {
+        if (ship.direction === Direction.HORIZONTAL) {
+            for (let i = 0; i < ship.length; i++) {
                 if (!this.isAvailCoordinate({x: x + i, y: y})) return false;
                 if (`${x + i}, ${y}` in this.occupiedCoordinate) return false;
             }
-            for (let i = 0; i < length; i++) {
+            for (let i = 0; i < ship.length; i++) {
                 this.occupiedCoordinate[`${x + i}, ${y}`] = ship;
             }
             return true;
         }
 
-        if (direction === Direction.VERTICAL) {
-            for (let i = 0; i < length; i++) {
+        if (ship.direction === Direction.VERTICAL) {
+            for (let i = 0; i < ship.length; i++) {
                 if (!this.isAvailCoordinate({x: x, y: y + i})) return false;
                 if (`${x}, ${y + i}` in this.occupiedCoordinate) return false;
             }
-            for (let i = 0; i < length; i++) {
+            for (let i = 0; i < ship.length; i++) {
                 this.occupiedCoordinate[`${x}, ${y + i}`] = ship;
             }
             return true;
