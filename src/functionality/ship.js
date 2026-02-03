@@ -1,6 +1,7 @@
 export class Ship {
     constructor(length) {
         this.length = length;
+        this.direction;
         this.hits = 0;
         this.isSunk = false;
     }
