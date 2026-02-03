@@ -52,6 +52,10 @@ export const gameController = ( function () {
         }
     }
 
+    function storeShip(ship) {
+        shipsDetails[ship.role] = ship;
+    }
+
     function attack({x, y}, opponentBoard) {
         return opponentBoard.receiveAttack({x, y});
     }
