@@ -1,5 +1,5 @@
 import { generateCoordinate } from "../functionality/computer-logic.js";
-import { Direction, generateDirection } from "../functionality/game-board.js";
+import { generateDirection } from "../functionality/game-board.js";
 import { Player } from "../functionality/player.js";
 import { Ship } from "../functionality/ship.js";
 
@@ -28,9 +28,11 @@ export const gameController = ( function () {
 
     function shuffleShip(playerBoard) {
         playerBoard.resetBoard();
-        const length = [5, 4, 3, 3, 2];
-        for (let i = 0; i < length.length; i++) {
-            randomShipPlacement(length[i], playerBoard);
+        const size = [5, 4, 3, 3, 2];
+        for (let i = 0; i < size.length; i++) {
+            const direction = generateDirection();
+            const ship = new Ship(size[i], direction);
+            randomShipPlacement(ship, playerBoard);
         }
     }
 
