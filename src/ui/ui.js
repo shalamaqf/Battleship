@@ -57,7 +57,7 @@ export const gameUI = (function () {
             showShipSunk();
             updateButtonDOM(result, button);
             handleGameOver(result.gameOver);
-            return;
+            return { result, coordinate }
         }
 
         if (result.hit === null && !gameController.isHumanTurn()) {
@@ -72,6 +72,8 @@ export const gameUI = (function () {
                 setTimeout(() => computerTurn(), 2000);
             }
         }
+
+        return {result, coordinate}
     }
 
     function handleButtonClick(button) {
