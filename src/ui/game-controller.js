@@ -102,7 +102,7 @@ export const gameController = ( function () {
         const ship = opponentBoard.occupiedCoordinate[`${x}, ${y}`];
         if (!ship) return undefined;
 
-        if (ship.isShipSunk) return true;
+        if (ship.isShipSunk()) return true;
         return false;
     }
 
