@@ -51,6 +51,13 @@ export const gameUI = (function () {
     function handleAttack(coordinate, button, opponentBoard) {
         const result = gameController.playTurn(coordinate, opponentBoard);
 
+        if (result.isShipSunk) {
+            showShipSunk();
+            updateButtonDOM(result, button);
+            handleGameOver(result.gameOver);
+            return;
+        }
+
         if (result.hit === null && !gameController.isHumanTurn()) {
             computerTurn();
         } else {
