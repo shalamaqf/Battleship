@@ -74,6 +74,7 @@ export const gameController = ( function () {
 
     function playTurn({x, y}, opponentBoard) {
         let hit;
+        let isShipSunk;
 
         // Attack the opponent board
         hit = attack({x, y}, opponentBoard);
@@ -81,6 +82,8 @@ export const gameController = ( function () {
         if (hit === null) {
             return {hit: null, gameOver: false};
         }
+
+        isShipSunk = isOpponentShipIsSunk({x, y}, opponentBoard)
 
         // Check if all opponent's ships are sunk
         gameOver = checkWin(opponentBoard);
@@ -90,6 +93,7 @@ export const gameController = ( function () {
 
         return {
             hit,
+            isShipSunk,
             gameOver
         }
     }
