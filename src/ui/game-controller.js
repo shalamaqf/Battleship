@@ -93,6 +93,14 @@ export const gameController = ( function () {
             gameOver
         }
     }
+    
+    function isOpponentShipIsSunk({x, y}, opponentBoard) {
+        const ship = opponentBoard.occupiedCoordinate[`${x}, ${y}`];
+        if (!ship) return undefined;
+
+        if (ship.isShipSunk) return true;
+        return false;
+    }
 
     function getCurrentPlayer() {
         return currentPlayer;
