@@ -12,7 +12,10 @@ export class Ship {
     }
 
     isShipSunk() {
-        if (this.hits === this.length) return true;
+        if (this.hits === this.length) {
+            this.isSunk = true;
+            return true;
+        }
         return false;
     }   
 }
