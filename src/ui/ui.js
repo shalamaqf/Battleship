@@ -26,10 +26,12 @@ export const gameUI = (function () {
             button.textContent = 'HIT';
             button.classList.add('hit');
             button.dataset.clicked = true;
+            button.disabled = true;
         } else {
             button.textContent = 'X';
             button.classList.add('miss');
             button.dataset.clicked = true;
+            button.disabled = true;
         }
     }
 
