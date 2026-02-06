@@ -124,6 +124,14 @@ export const gameUI = (function () {
         playerTurn.textContent = 'The winner is ' +  winner.name;
     }
 
+    function showShipSunk() {
+        if (gameController.isHumanTurn()) {
+            playerTurn.textContent = "Computer's ship is sunk!";
+        } else {
+            playerTurn.textContent = "Your ship is sunk!";
+        }
+    }
+
     function handleGameOver(gameOver) {
         if (gameOver) {
             const winner = gameController.getWinner();
