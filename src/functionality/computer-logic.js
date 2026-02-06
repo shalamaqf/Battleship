@@ -1,3 +1,9 @@
+class ComputerAI {
+    constructor() {
+
+    }
+}
+
 
 export function generateCoordinate() {
     const coordinateX = Math.floor(Math.random() * 10) + 1;
