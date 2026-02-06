@@ -50,7 +50,7 @@ export const gameUI = (function () {
         return {button, coordinate};
     }
 
-    function handleAttack(coordinate, button, opponentBoard) {
+    function handleAttack(coordinate, button, opponentBoard, isAI = false) {
         const result = gameController.playTurn(coordinate, opponentBoard);
 
         if (result.isShipSunk) {
@@ -68,7 +68,7 @@ export const gameUI = (function () {
             handleComputerBoardState();
             handleGameOver(result.gameOver);
 
-            if (!gameController.isHumanTurn() && !result.gameOver) {
+            if (!gameController.isHumanTurn() && !result.gameOver && !isAI) {
                 setTimeout(() => computerTurn(), 2000);
             }
         }
