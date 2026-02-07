@@ -17,7 +17,18 @@ export class ComputerAI {
     }
 
     generateAdjacentCoordinates() {
-        
+        const coordinateX = this.lastHit.x;
+        const coordinateY = this.lastHit.y;
+
+        const firstCoordinate = {x: coordinateX, y: coordinateY + 1};
+        const secondCoordinate = {x: coordinateX + 1, y: coordinateY};
+        const thirdCoordinate = {x: coordinateX, y: coordinateY - 1};
+        const fourthCoordinate = {x: coordinateX - 1, y: coordinateY};
+        const coordinates = [firstCoordinate, secondCoordinate, thirdCoordinate, fourthCoordinate];
+
+        for (let i = 0; i < coordinates.length; i++) {
+            this.nextCandidateCoordinates.push(coordinates[i]);
+        }
     }
 }
 
