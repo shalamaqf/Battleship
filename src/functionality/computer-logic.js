@@ -6,7 +6,8 @@ export class ComputerAI {
     }
 
     getNextCoordinate() {
-        
+        const coordinate = generateCoordinate();
+        return coordinate;
     }
 }
 
