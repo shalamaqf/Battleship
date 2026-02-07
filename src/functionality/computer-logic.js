@@ -1,8 +1,12 @@
-class ComputerAI {
+export class ComputerAI {
     constructor() {
         this.lastHit = null;
         this.direction = null;
         this.nextCandidateCoordinates = [];
+    }
+
+    getNextCoordinate() {
+        
     }
 }
 
