@@ -20,4 +20,12 @@ describe('getNextCoordinate method', () => {
         const coordinate = computer.getNextCoordinate();
         expect(coordinate).toMatchObject({x: 1, y: 3});
     })
+
+    test('First element of queue is removed after being returned', () => {
+        const computer = new ComputerAI();
+        computer.nextCandidateCoordinates = [{x: 1, y: 3}, {x: 2, y: 2}, {x: 3, y: 3}, {x: 2, y: 4}];
+        const coordinate = computer.getNextCoordinate();
+        expect(coordinate).toMatchObject({x: 1, y: 3});
+        expect(computer.nextCandidateCoordinates[0]).toMatchObject({x: 2, y: 2});
+    })
 })

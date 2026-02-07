@@ -6,10 +6,14 @@ export class ComputerAI {
     }
 
     getNextCoordinate() {
+        let coordinate;
+
         if (this.nextCandidateCoordinates.length !== 0) {
-            return this.nextCandidateCoordinates[0];
+            coordinate = this.nextCandidateCoordinates[0];
+            this.nextCandidateCoordinates.shift();
+            return coordinate;
         }
-        return generateCoordinate();
+        return coordinate = generateCoordinate();
     }
 }
 
