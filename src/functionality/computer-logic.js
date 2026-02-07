@@ -2,7 +2,7 @@ class ComputerAI {
     constructor() {
         this.lastHit = null;
         this.direction = null;
-        this.potentialCoordinates = [];
+        this.nextCandidateCoordinates = [];
     }
 }
 
