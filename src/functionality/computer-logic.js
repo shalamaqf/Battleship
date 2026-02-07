@@ -6,8 +6,10 @@ export class ComputerAI {
     }
 
     getNextCoordinate() {
-        const coordinate = generateCoordinate();
-        return coordinate;
+        if (this.nextCandidateCoordinates.length !== 0) {
+            return this.nextCandidateCoordinates[0];
+        }
+        return generateCoordinate();
     }
 }
 
