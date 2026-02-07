@@ -15,6 +15,10 @@ export class ComputerAI {
         }
         return coordinate = generateCoordinate();
     }
+
+    generateAdjacentCoordinates() {
+        
+    }
 }
 
 
