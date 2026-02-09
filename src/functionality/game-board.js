@@ -93,6 +93,10 @@ export class GameBoard {
         return ships;
     }
 
+    getShipByCoordinate(coordinate) {
+        
+    }
+
     resetBoard() {
         this.availCoordinate = {};
         this.missedAttacks = {};
