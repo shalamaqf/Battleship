@@ -64,6 +64,14 @@ export class ComputerAI {
     }
 
     updateState(coordinate, result) {
+        let isFirstHit;
+
+        if (this.nextCandidateCoordinates.length === 0) {
+            isFirstHit = true;
+        } else {
+            isFirstHit = false;
+        }
+
         if (result.hit === null) {
             return;
         } else if (result.hit === true) {
@@ -78,6 +86,10 @@ export class ComputerAI {
             this.nextCandidateCoordinates = this.nextCandidateCoordinates.filter(coordinate => {
                                                 return !(coordinate.x === x && coordinate.y === y)
                                             })
+        }
+
+        if (this.lastHit === coordinate && isFirstHit) {
+            this.generateAdjacentCoordinates();
         }
     }
 

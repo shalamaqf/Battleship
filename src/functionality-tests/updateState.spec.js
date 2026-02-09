@@ -39,4 +39,19 @@ describe('updateState method', () => {
         
         expect(computer.nextCandidateCoordinates).not.toEqual(expect.arrayContaining([{x: 1, y: 7}]));
     })
+
+    test("The queue is contain the generated adjacent coordinates if the hit is successful and it's the first hit", () => {
+        const computer = new ComputerAI();
+        const result = {
+            hit: true
+        }
+        const coordinate = {x: 4, y: 2};
+
+        computer.updateState(coordinate, result);
+        
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 4, y: 3});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 3, y: 2});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 4, y: 1});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 5, y: 2});
+    })
 })
