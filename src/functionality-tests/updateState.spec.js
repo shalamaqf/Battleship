@@ -25,4 +25,18 @@ describe('updateState method', () => {
         computer.updateState(coordinate, result);
         expect(computer.lastHit).toBe(null);
     })
+
+    test('Remove the coordinate from the queue if the hit is miss', () => {
+        const computer = new ComputerAI();
+        const result = {
+            hit: false
+        }
+        const coordinate = {x: 1, y: 7};
+        
+        computer.lastHit = {x: 2, y: 7};
+        computer.generateAdjacentCoordinates();
+        computer.updateState(coordinate, result);
+        
+        expect(computer.nextCandidateCoordinates).not.toEqual(expect.arrayContaining([{x: 1, y: 7}]));
+    })
 })

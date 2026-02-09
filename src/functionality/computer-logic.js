@@ -71,6 +71,14 @@ export class ComputerAI {
         } else {
             this.lastHit = null;
         }
+
+        if (this.lastHit === null) {
+            const x = coordinate.x;
+            const y = coordinate.y;
+            this.nextCandidateCoordinates = this.nextCandidateCoordinates.filter(coordinate => {
+                                                return !(coordinate.x === x && coordinate.y === y)
+                                            })
+        }
     }
 
     resetState() {
