@@ -31,6 +31,10 @@ export class ComputerAI {
         }
     }
 
+    generateDirectionalCoordinates() {
+        
+    }
+
     resetState() {
         this.direction = null;
         this.lastHit = null;
