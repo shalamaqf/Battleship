@@ -34,35 +34,33 @@ export class ComputerAI {
     }
 
     generateDirectionalCoordinates(direction) {
-        const coordinates = [];
         const x = this.lastHit.x;
         const y = this.lastHit.y;
+        this.nextCandidateCoordinates = [];
 
         if (direction === Direction.HORIZONTAL) {
             for (let i = 1; i < 4; i++) {
                 const coordinate = {x: x + i, y: y};
-                coordinates.push(coordinate);
+                this.nextCandidateCoordinates.push(coordinate);
             }
 
             for (let i = 1; i < 4; i++) {
                 const coordinate = {x: x - i, y: y};
-                coordinates.push(coordinate);
+                this.nextCandidateCoordinates.push(coordinate);
             }
         }
 
         if (direction === Direction.VERTICAL) {
             for (let i = 1; i < 4; i++) {
                 const coordinate = {x: x, y: y + i};
-                coordinates.push(coordinate);
+                this.nextCandidateCoordinates.push(coordinate);
             }
 
             for (let i = 1; i < 4; i++) {
                 const coordinate = {x: x, y: y - i};
-                coordinates.push(coordinate);
+                this.nextCandidateCoordinates.push(coordinate);
             }
         }
-
-        return coordinates;
     }
 
     resetState() {

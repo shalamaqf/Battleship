@@ -7,33 +7,37 @@ describe('generateDirectionalCoordinates method', () => {
         expect(computer.generateDirectionalCoordinates).toBeDefined();
     })
 
-    test('generate 6 coordinates based on horizontal direction and the last hit', () => {
+    test("the queue contain the generated coordinates based on the ship's direction (horizontal)", () => {
         const computer = new ComputerAI();
         const direction = Direction.HORIZONTAL;
-        computer.lastHit = {x: 2, y: 3};
-        const horizontalCoordinates = computer.generateDirectionalCoordinates(direction);
+        computer.lastHit = {x: 7, y: 3};
+        computer.nextCandidateCoordinates = [{x: 6, y: 4}, {x: 5, y: 3}, {x: 6, y: 2}]
 
-        expect(horizontalCoordinates).toContainEqual({x: 3, y: 3});
-        expect(horizontalCoordinates).toContainEqual({x: 4, y: 3});
-        expect(horizontalCoordinates).toContainEqual({x: 5, y: 3});
+        computer.generateDirectionalCoordinates(direction);
+
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 8, y: 3});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 9, y: 3});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 10, y: 3});
         
-        expect(horizontalCoordinates).toContainEqual({x: 1, y: 3});
-        expect(horizontalCoordinates).toContainEqual({x: 0, y: 3});
-        expect(horizontalCoordinates).toContainEqual({x: -1, y: 3});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 6, y: 3});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 5, y: 3});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 4, y: 3});
     })
 
-    test('generate 6 coordinates based on vertical direction and the last hit', () => {
+    test("the queue contain the generated coordinates based on the ship's direction (vertical)", () => {
         const computer = new ComputerAI();
         const direction = Direction.VERTICAL;
-        computer.lastHit = {x: 4, y: 5};
-        const horizontalCoordinates = computer.generateDirectionalCoordinates(direction);
+        computer.lastHit = {x: 2, y: 4};
+        computer.nextCandidateCoordinates = [{x: 2, y: 6}, {x: 1, y: 5}, {x: 3, y: 5}]
 
-        expect(horizontalCoordinates).toContainEqual({x: 4, y: 6});
-        expect(horizontalCoordinates).toContainEqual({x: 4, y: 7});
-        expect(horizontalCoordinates).toContainEqual({x: 4, y: 8});
+        computer.generateDirectionalCoordinates(direction);
+
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 2, y: 5});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 2, y: 6});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 2, y: 7});
         
-        expect(horizontalCoordinates).toContainEqual({x: 4, y: 4});
-        expect(horizontalCoordinates).toContainEqual({x: 4, y: 3});
-        expect(horizontalCoordinates).toContainEqual({x: 4, y: 2});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 2, y: 3});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 2, y: 2});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 2, y: 1});
     })
 })
