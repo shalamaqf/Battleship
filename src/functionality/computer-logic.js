@@ -63,6 +63,10 @@ export class ComputerAI {
         }
     }
 
+    updateState() {
+        
+    }
+
     resetState() {
         this.direction = null;
         this.lastHit = null;
