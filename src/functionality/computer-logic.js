@@ -1,3 +1,5 @@
+import { Direction } from "./game-board";
+
 export class ComputerAI {
     constructor() {
         this.lastHit = null;
@@ -31,8 +33,24 @@ export class ComputerAI {
         }
     }
 
-    generateDirectionalCoordinates() {
-        
+    generateDirectionalCoordinates(direction) {
+        const coordinates = [];
+        const x = this.lastHit.x;
+        const y = this.lastHit.y;
+
+        if (direction === Direction.HORIZONTAL) {
+            for (let i = 1; i < 4; i++) {
+                const coordinate = {x: x + i, y};
+                coordinates.push(coordinate);
+            }
+
+            for (let i = 1; i < 4; i++) {
+                const coordinate = {x: x - i, y};
+                coordinates.push(coordinate);
+            }
+        }
+
+        return coordinates;
     }
 
     resetState() {
