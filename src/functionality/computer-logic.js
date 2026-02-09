@@ -65,13 +65,7 @@ export class ComputerAI {
     }
 
     updateState(coordinate, result) {
-        let isFirstHit;
-
-        if (this.nextCandidateCoordinates.length === 0) {
-            isFirstHit = true;
-        } else {
-            isFirstHit = false;
-        }
+        let isFirstHit = !this.lastHit;
 
         if (result.hit === null) {
             return;
@@ -91,6 +85,13 @@ export class ComputerAI {
 
         if (this.lastHit === coordinate && isFirstHit) {
             this.generateAdjacentCoordinates();
+        }
+
+        if (this.lastHit === coordinate && !isFirstHit) {
+            const ship = this.opponentBoard.getShipByCoordinate(coordinate);
+            const direction = ship.direction;
+
+            this.generateDirectionalCoordinates(direction);
         }
     }
 

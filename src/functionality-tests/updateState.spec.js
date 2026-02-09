@@ -1,4 +1,8 @@
-const { ComputerAI } = require("../functionality/computer-logic")
+const { ComputerAI } = require("../functionality/computer-logic");
+const { Direction } = require("../functionality/game-board");
+const { Player } = require("../functionality/player");
+const { Ship } = require("../functionality/ship");
+const { shipRole } = require("../ui/game-controller");
 
 describe('updateState method', () => {
     test('updateState method is defined', () => {
@@ -53,5 +57,29 @@ describe('updateState method', () => {
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 3, y: 2});
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 4, y: 1});
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 5, y: 2});
+    })
+
+    test("The queue is contain the generated directional coordinates if the hit is successful and it's not the first hit", () => {
+        const realPlayer = new Player('Real Player');
+        const ship = new Ship(4, Direction.VERTICAL, shipRole.BATTLESHIP);
+        realPlayer.board.placeShip({x: 4, y: 2}, ship);
+      
+        const computer = new ComputerAI(realPlayer.board);
+
+        const result_1 = { hit: true };
+        const result_2 = { hit: true };
+       
+        // First hit
+        computer.updateState({x: 4, y: 2}, result_1)
+
+        // Second hit
+        computer.updateState({x: 4, y: 3}, result_1)
+        
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 4, y: 4});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 4, y: 5});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 4, y: 6});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 4, y: 2});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 4, y: 1});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 4, y: 0});
     })
 })
