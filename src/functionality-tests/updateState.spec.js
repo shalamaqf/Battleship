@@ -15,4 +15,14 @@ describe('updateState method', () => {
         computer.updateState(coordinate, result);
         expect(computer.lastHit).toMatchObject({x: 4, y: 8});
     })
+
+    test('Set the last hit to null if the result is false', () => {
+        const computer = new ComputerAI();
+        const result = {
+            hit: false
+        }
+        const coordinate = {x: 1, y: 7};
+        computer.updateState(coordinate, result);
+        expect(computer.lastHit).toBe(null);
+    })
 })

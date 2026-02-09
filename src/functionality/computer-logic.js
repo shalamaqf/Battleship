@@ -64,8 +64,12 @@ export class ComputerAI {
     }
 
     updateState(coordinate, result) {
-        if (result.hit) {
+        if (result.hit === null) {
+            return;
+        } else if (result.hit === true) {
             this.lastHit = coordinate;
+        } else {
+            this.lastHit = null;
         }
     }
 
