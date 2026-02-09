@@ -30,6 +30,10 @@ export class ComputerAI {
             this.nextCandidateCoordinates.push(coordinates[i]);
         }
     }
+
+    resetState() {
+        
+    }
 }
 
 
