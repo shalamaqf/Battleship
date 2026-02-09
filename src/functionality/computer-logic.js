@@ -63,8 +63,10 @@ export class ComputerAI {
         }
     }
 
-    updateState() {
-        
+    updateState(coordinate, result) {
+        if (result.hit) {
+            this.lastHit = coordinate;
+        }
     }
 
     resetState() {
