@@ -40,12 +40,24 @@ export class ComputerAI {
 
         if (direction === Direction.HORIZONTAL) {
             for (let i = 1; i < 4; i++) {
-                const coordinate = {x: x + i, y};
+                const coordinate = {x: x + i, y: y};
                 coordinates.push(coordinate);
             }
 
             for (let i = 1; i < 4; i++) {
-                const coordinate = {x: x - i, y};
+                const coordinate = {x: x - i, y: y};
+                coordinates.push(coordinate);
+            }
+        }
+
+        if (direction === Direction.VERTICAL) {
+            for (let i = 1; i < 4; i++) {
+                const coordinate = {x: x, y: y + i};
+                coordinates.push(coordinate);
+            }
+
+            for (let i = 1; i < 4; i++) {
+                const coordinate = {x: x, y: y - i};
                 coordinates.push(coordinate);
             }
         }

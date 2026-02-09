@@ -21,4 +21,19 @@ describe('generateDirectionalCoordinates method', () => {
         expect(horizontalCoordinates).toContainEqual({x: 0, y: 3});
         expect(horizontalCoordinates).toContainEqual({x: -1, y: 3});
     })
+
+    test('generate 6 coordinates based on vertical direction and the last hit', () => {
+        const computer = new ComputerAI();
+        const direction = Direction.VERTICAL;
+        computer.lastHit = {x: 4, y: 5};
+        const horizontalCoordinates = computer.generateDirectionalCoordinates(direction);
+
+        expect(horizontalCoordinates).toContainEqual({x: 4, y: 6});
+        expect(horizontalCoordinates).toContainEqual({x: 4, y: 7});
+        expect(horizontalCoordinates).toContainEqual({x: 4, y: 8});
+        
+        expect(horizontalCoordinates).toContainEqual({x: 4, y: 4});
+        expect(horizontalCoordinates).toContainEqual({x: 4, y: 3});
+        expect(horizontalCoordinates).toContainEqual({x: 4, y: 2});
+    })
 })
