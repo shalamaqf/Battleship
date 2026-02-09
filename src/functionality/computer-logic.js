@@ -32,7 +32,9 @@ export class ComputerAI {
     }
 
     resetState() {
-        
+        this.direction = null;
+        this.lastHit = null;
+        this.nextCandidateCoordinates = [];
     }
 }
 
