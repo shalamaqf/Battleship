@@ -1,10 +1,11 @@
 import { Direction } from "./game-board";
 
 export class ComputerAI {
-    constructor() {
+    constructor(realPlayerBoard) {
         this.lastHit = null;
         this.direction = null;
         this.nextCandidateCoordinates = [];
+        this.opponentBoard = realPlayerBoard;
     }
 
     getNextCoordinate() {
