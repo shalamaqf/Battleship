@@ -75,6 +75,9 @@ export class ComputerAI {
             this.lastHit = null;
         }
 
+        // Reset computer state if the ship is sunk
+        this.resetState(result);
+
         if (this.lastHit === null) {
             const x = coordinate.x;
             const y = coordinate.y;

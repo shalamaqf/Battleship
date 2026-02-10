@@ -82,4 +82,25 @@ describe('updateState method', () => {
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 4, y: 1});
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 4, y: 0});
     })
+
+    test("Reset the computer AI's state if the ship is sunk", () => {
+        const realPlayer = new Player('Real Player');
+        const ship = new Ship(2, Direction.HORIZONTAL, shipRole.DESTROYER);
+        realPlayer.board.placeShip({x: 7, y: 4}, ship);
+
+        const computer = new ComputerAI(realPlayer.board);
+
+        const result_1 = { hit: true, isShipSunk: false };
+        const result_2 = { hit: true, isShipSunk: true };
+
+        // First hit
+        computer.updateState({x: 7, y: 4}, result_1);
+
+        // Second hit
+        computer.updateState({x: 8, y: 4}, result_2);
+
+        expect(computer.lastHit).toBeNull();
+        expect(computer.direction).toBeNull();
+        expect(computer.nextCandidateCoordinates.length).toBe(0);
+    })
 })
