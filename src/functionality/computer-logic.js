@@ -95,10 +95,12 @@ export class ComputerAI {
         }
     }
 
-    resetState() {
-        this.direction = null;
-        this.lastHit = null;
-        this.nextCandidateCoordinates = [];
+    resetState(result) {
+        if (result.isShipSunk) {
+            this.direction = null;
+            this.lastHit = null;
+            this.nextCandidateCoordinates = [];
+        }
     }
 }
 
