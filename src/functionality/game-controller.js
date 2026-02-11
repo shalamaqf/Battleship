@@ -28,7 +28,7 @@ export const gameController = ( function () {
         const result = opponentBoard.receiveAttack({x, y});
 
         if (result.hit === null) {
-            return {hit: result.hit, isShipSunk: result.isShipSunk, gameOver: false};
+            return {hit: result.hit, isShipSunk: result.isOpponentShipSunk, gameOver: false};
         }
 
         gameOver = checkWin(opponentBoard);
@@ -36,7 +36,7 @@ export const gameController = ( function () {
         // Switch player if the game is not over and the attack is miss
         if (result.hit === false && gameOver === false) switchTurn();
 
-        return { hit: result.hit, isShipSunk: result.isShipSunk, gameOver: gameOver }
+        return { hit: result.hit, isShipSunk: result.isOpponentShipSunk, gameOver: gameOver }
     }
 
     function getCurrentPlayer() {

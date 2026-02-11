@@ -40,16 +40,16 @@ describe('playTurn function', () => {
 
         expect(currentPlayer.name).toBe('Computer');
         expect(result_1.hit).toBe(false);
-        expect(result_1.isShipSunk).toBe(undefined);
+        expect(result_1.isShipSunk).toBe(false);
         expect(result_1.gameOver).toBe(false);
 
         // Computer player attack
-        const result_2 = gameController.playTurn({x: 5, y: 3}, realPlayerBoard);
+        const result_2 = gameController.playTurn({x: 6, y: 3}, realPlayerBoard);
         currentPlayer = gameController.getCurrentPlayer();
 
         expect(currentPlayer.name).toBe('You');
         expect(result_2.hit).toBe(false);
-        expect(result_2.isShipSunk).toBe(undefined);
+        expect(result_2.isShipSunk).toBe(false);
         expect(result_2.gameOver).toBe(false);
     })
 })
