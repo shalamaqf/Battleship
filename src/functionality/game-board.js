@@ -139,4 +139,8 @@ export class GameBoard {
             placed = this.placeShip({x: x, y: y}, ship);
         }
     }
+
+    shuffleShips() {
+        
+    }
 }
