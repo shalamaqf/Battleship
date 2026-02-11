@@ -1,4 +1,4 @@
-import { Player } from "./player.js";
+import { Player } from "../functionality/player.js";
 
 export const gameController = ( function () {
     const realPlayer = new Player('You');
