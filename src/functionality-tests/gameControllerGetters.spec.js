@@ -18,7 +18,7 @@ describe('getRealPlayerBoard function', () => {
         expect(gameController.getRealPlayerBoard).toBeDefined();
     })
 
-    test('return the current player', () => {
+    test("return the real player's board", () => {
         gameController.setupGame();
         expect(gameController.getRealPlayerBoard()).toBeInstanceOf(GameBoard);
     })
@@ -29,8 +29,19 @@ describe('getComputerPlayerBoard function', () => {
         expect(gameController.getComputerPlayerBoard).toBeDefined();
     })
 
-    test('return the current player', () => {
+    test("return the computer player's board", () => {
         gameController.setupGame();
         expect(gameController.getComputerPlayerBoard()).toBeInstanceOf(GameBoard);
+    })
+})
+
+describe('getWinner function', () => {
+    test('getWinner is defined', () => {
+        expect(gameController.getWinner).toBeDefined();
+    })
+
+    test('return the current player/winner', () => {
+        gameController.setupGame();
+        expect(gameController.getWinner()).toBeInstanceOf(Player);
     })
 })
