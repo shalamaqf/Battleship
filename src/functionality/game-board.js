@@ -127,4 +127,8 @@ export class GameBoard {
         
         return isValid;
     }
+
+    randomizeShipPlacement() {
+
+    }
 }
