@@ -24,29 +24,19 @@ export const gameController = ( function () {
     }
 
     function playTurn({x, y}, opponentBoard) {
-        let hit;
-        let isShipSunk;
-
         // Attack the opponent board
-        hit = attack({x, y}, opponentBoard);
+        const result = opponentBoard.receiveAttack({x, y});
 
-        if (hit === null) {
-            return {hit: null, gameOver: false};
+        if (result.hit === null) {
+            return {hit: result.hit, isShipSunk: result.isShipSunk, gameOver: false};
         }
 
-        isShipSunk = isOpponentShipIsSunk({x, y}, opponentBoard)
-
-        // Check if all opponent's ships are sunk
         gameOver = checkWin(opponentBoard);
 
-        // Switch player if the game is not over
-        if (hit === false && gameOver === false) switchTurn();
+        // Switch player if the game is not over and the attack is miss
+        if (result.hit === false && gameOver === false) switchTurn();
 
-        return {
-            hit,
-            isShipSunk,
-            gameOver
-        }
+        return { hit: result.hit, isShipSunk: result.isShipSunk, gameOver: gameOver }
     }
 
     function getCurrentPlayer() {
