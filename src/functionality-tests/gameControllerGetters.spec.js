@@ -45,3 +45,14 @@ describe('getWinner function', () => {
         expect(gameController.getWinner()).toBeInstanceOf(Player);
     })
 })
+
+describe('isGameOver function', () => {
+    test('isGameOver is defined', () => {
+        expect(gameController.isGameOver).toBeDefined();
+    })
+
+    test('return false if no winner yet', () => {
+        gameController.setupGame();
+        expect(gameController.isGameOver()).toBe(false);
+    })
+})
