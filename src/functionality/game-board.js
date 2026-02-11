@@ -152,6 +152,11 @@ export class GameBoard {
     }
 
     getShipByCoordinate(coordinate) {
-
+        let ship;
+        const key = `${coordinate.x}, ${coordinate.y}`;
+        if (key in this.occupiedCoordinate) {
+            ship = this.occupiedCoordinate[key];
+        }
+        return ship;
     }
 }
