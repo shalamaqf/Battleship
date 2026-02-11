@@ -3,28 +3,11 @@ import { generateDirection } from "../functionality/game-board.js";
 import { Player } from "../functionality/player.js";
 import { Ship } from "../functionality/ship.js";
 
-export const shipRole = Object.freeze({
-    CARRIER: 'carrier',
-    BATTLESHIP: 'battleship',
-    CRUISER1: 'cruiser1',
-    CRUISER2: 'cruiser2',
-    DESTROYER: 'destroyer'
-})
-
-const shipSize = {
-    [shipRole.CARRIER]: 5,
-    [shipRole.BATTLESHIP]: 4,
-    [shipRole.CRUISER1]: 3,
-    [shipRole.CRUISER2]: 3,
-    [shipRole.DESTROYER]: 2,
-}
-
 export const gameController = ( function () {
     const realPlayer = new Player('You');
     const computerPlayer = new Player('Computer');
     let currentPlayer = realPlayer;
     let gameOver = false;
-    const shipsDetails = {};
 
     function setupGame() {
         shuffleShip(realPlayer.board);
@@ -50,10 +33,6 @@ export const gameController = ( function () {
             const ship = new Ship(size[i], direction);
             randomShipPlacement(ship, playerBoard);
         }
-    }
-
-    function storeShip(ship) {
-        shipsDetails[ship.role] = ship;
     }
 
     function attack({x, y}, opponentBoard) {
@@ -97,14 +76,6 @@ export const gameController = ( function () {
             gameOver
         }
     }
-    
-    function isOpponentShipIsSunk({x, y}, opponentBoard) {
-        const ship = opponentBoard.occupiedCoordinate[`${x}, ${y}`];
-        if (!ship) return undefined;
-
-        if (ship.isShipSunk()) return true;
-        return false;
-    }
 
     function getCurrentPlayer() {
         return currentPlayer;
@@ -126,11 +97,6 @@ export const gameController = ( function () {
         return computerPlayer.board;
     }
 
-    function getOccupiedCoordinates() {
-        const occupiedCoordinates = Object.keys(realPlayer.board.occupiedCoordinate);
-        return occupiedCoordinates;
-    }
-
     function isHumanTurn() {
         if (currentPlayer === realPlayer) return true;
         return false;
@@ -146,6 +112,5 @@ export const gameController = ( function () {
         getComputerPlayerBoard: getComputerPlayerBoard,
         isHumanTurn: isHumanTurn,
         shuffleShip: shuffleShip,
-        getOccupiedCoordinates: getOccupiedCoordinates
     }
 })();
