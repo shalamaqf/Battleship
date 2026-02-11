@@ -141,6 +141,13 @@ export class GameBoard {
     }
 
     shuffleShips() {
-        
+        this.resetBoard();
+
+        const size = [2, 3, 3, 4, 5];
+        for (let i = 0; i < size.length; i++) {
+            const direction = generateDirection();
+            const ship = new Ship(size[i], direction);
+            this.randomizeShipPlacement(ship);
+        }
     }
 }
