@@ -62,13 +62,13 @@ export class GameBoard {
 
         if (`${x}, ${y}` in this.occupiedCoordinate) {
             this.succeedAttacks[`${x}, ${y}`] = true;
-            const ship = this.occupiedCoordinate[`${x}, ${y}`];
+            const ship = this.getShipByCoordinate({x, y});
             ship.hit();
-            return true;
+            return { hit: true, isOpponentShipSunk: ship ? ship.isShipSunk() : false };
         };
 
         this.missedAttacks[`${x}, ${y}`] = true;
-        return false;
+        return { hit: false, isOpponentShipSunk: false };
     }
 
     areAllShipsSunk() {
