@@ -150,4 +150,8 @@ export class GameBoard {
             this.randomizeShipPlacement(ship);
         }
     }
+
+    getShipByCoordinate(coordinate) {
+
+    }
 }
