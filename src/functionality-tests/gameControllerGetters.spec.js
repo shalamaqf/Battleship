@@ -56,3 +56,14 @@ describe('isGameOver function', () => {
         expect(gameController.isGameOver()).toBe(false);
     })
 })
+
+describe('isHumanTurn function', () => {
+    test('isHumanTurn is defined', () => {
+        expect(gameController.isHumanTurn).toBeDefined();
+    })
+
+    test('return true if the current player is real player', () => {
+        gameController.setupGame();
+        expect(gameController.isHumanTurn()).toBe(true);
+    })
+})
