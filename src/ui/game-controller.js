@@ -11,10 +11,6 @@ export const gameController = ( function () {
         shuffleShip(computerPlayer.board);
     }
 
-    function attack({x, y}, opponentBoard) {
-        return opponentBoard.receiveAttack({x, y});
-    }
-
     function switchTurn() {
         if (currentPlayer === realPlayer) {
             currentPlayer = computerPlayer;
