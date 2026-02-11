@@ -1,3 +1,4 @@
+import { generateCoordinate } from "./computer-logic.js";
 import { Ship } from "./ship.js";
 
 export const Direction = Object.freeze({
@@ -128,7 +129,14 @@ export class GameBoard {
         return isValid;
     }
 
-    randomizeShipPlacement() {
+    randomizeShipPlacement(ship) {
+        let placed;
 
+        while(!placed) {
+            const coordinate = generateCoordinate();
+            const x = coordinate.x;
+            const y = coordinate.y;
+            placed = this.placeShip({x: x, y: y}, ship);
+        }
     }
 }
