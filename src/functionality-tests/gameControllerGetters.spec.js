@@ -23,3 +23,14 @@ describe('getRealPlayerBoard function', () => {
         expect(gameController.getRealPlayerBoard()).toBeInstanceOf(GameBoard);
     })
 })
+
+describe('getComputerPlayerBoard function', () => {
+    test('getComputerPlayerBoard is defined', () => {
+        expect(gameController.getComputerPlayerBoard).toBeDefined();
+    })
+
+    test('return the current player', () => {
+        gameController.setupGame();
+        expect(gameController.getComputerPlayerBoard()).toBeInstanceOf(GameBoard);
+    })
+})
