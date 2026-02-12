@@ -77,6 +77,10 @@ export const gameController = ( function () {
         const result = playTurn(coordinate, computerPlayer.board);
         return result;
     }
+    
+    function computerTurn({x, y}) {
+
+    }
 
     return {
         setupGame: setupGame,
@@ -87,6 +91,7 @@ export const gameController = ( function () {
         getRealPlayerBoard: getRealPlayerBoard,
         getComputerPlayerBoard: getComputerPlayerBoard,
         isHumanTurn: isHumanTurn,
-        humanTurn: humanTurn
+        humanTurn: humanTurn,
+        computerTurn: computerTurn
     }
 })();
