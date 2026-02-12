@@ -96,6 +96,13 @@ export const gameUI = (function () {
         createButtons(realPlayerBoardDOM);
     }
 
+    function attachEventClickComputerBoard() {
+        const buttons = computerBoardDOM.querySelectorAll('.coordinate-button');
+        buttons.forEach(button => {
+            handleButtonClick(button);
+        });
+    }
+
     function showPlayerTurn() {
         const currentPlayer = gameController.getCurrentPlayer();
         playerTurn.textContent = currentPlayer.name;
