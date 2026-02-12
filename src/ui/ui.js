@@ -53,7 +53,7 @@ export const gameUI = (function () {
         showPlayerTurn();
         handleGameOver();
     }
-    
+
     function updateBoard(result, button) {
         const hit = result.hit;
         updateButtonDOM(hit, button);
@@ -75,10 +75,10 @@ export const gameUI = (function () {
     function enableBoard(boardElement) {
         const buttons = boardElement.querySelectorAll('.coordinate-button');
         buttons.forEach(button => {
-            if ('clicked' in button.dataset) {
-                button.disabled = true;
-            } else {
+            if (!button.dataset.clicked) {
                 button.disabled = false;
+            } else {
+                button.disabled = true;
             }
         });
     }
