@@ -37,9 +37,11 @@ export const gameUI = (function () {
 
     function handleButtonClick(button) {
         button.addEventListener('click', () => {
-            const coordinate = getRealPlayerCoordinate(button);
-            const opponentBoard = gameController.getComputerPlayerBoard();
-            handleAttack(coordinate, button, opponentBoard);
+            const {x, y} = {x: parseInt(button.dataset.x), y: parseInt(button.dataset.y)};
+            const result = gameController.humanTurn({x, y});
+            updateBoard(result, button);
+            showPlayerTurn();
+            handleGameOver();
         })
     }
 
