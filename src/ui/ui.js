@@ -45,6 +45,15 @@ export const gameUI = (function () {
         })
     }
 
+    function handleComputerMove() {
+        const result = gameController.computerTurn();
+        const coordinate = result.coordinate;
+        const button = realPlayerBoardDOM.querySelector(`[data-x="${coordinate.x}"][data-y="${coordinate.y}"]`)
+        updateBoard(result, button);
+        showPlayerTurn();
+        handleGameOver();
+    }
+    
     function updateBoard(result, button) {
         const hit = result.hit;
         updateButtonDOM(hit, button);
