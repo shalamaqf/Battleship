@@ -82,7 +82,7 @@ export const gameController = ( function () {
     function computerTurn() {
         const coordinate = getComputerCoordinate();
         const result = playTurn(coordinate, realPlayer.board);
-        return result;
+        return { result, coordinate };
     }
 
     function getComputerCoordinate() {
