@@ -73,7 +73,9 @@ export const gameController = ( function () {
     }
 
     function humanTurn({x, y}) {
-
+        const coordinate = {x, y};
+        const result = playTurn(coordinate, computerPlayer.board);
+        return result;
     }
 
     return {
