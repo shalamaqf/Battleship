@@ -1,4 +1,5 @@
 import { Player } from "../functionality/player.js";
+import { generateCoordinate } from "./computer-logic.js";
 
 export const gameController = ( function () {
     let realPlayer = new Player('You');
@@ -78,10 +79,15 @@ export const gameController = ( function () {
         return result;
     }
     
-    function computerTurn({x, y}) {
-        const coordinate = {x, y};
+    function computerTurn() {
+        const coordinate = getComputerCoordinate();
         const result = playTurn(coordinate, realPlayer.board);
         return result;
+    }
+
+    function getComputerCoordinate() {
+        const coordinate = generateCoordinate();
+        return coordinate;
     }
 
     return {
