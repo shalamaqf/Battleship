@@ -72,6 +72,14 @@ export const gameUI = (function () {
         });
     }
 
+    function handleGameOver() {
+        if (gameController.isGameOver()) {
+            disableBoard(realPlayerBoardDOM);
+            disableBoard(computerBoardDOM);
+            showWinner();
+        }
+    }
+
     function renderPlayersBoards() {
         createButtons(computerBoardDOM);
         createButtons(realPlayerBoardDOM);
@@ -87,7 +95,8 @@ export const gameUI = (function () {
         playerTurn.textContent = currentPlayer.name;
     }
 
-    function showWinner(winner) {
+    function showWinner() {
+        const winner = gameController.getWinner();
         playerTurn.textContent = 'The winner is ' +  winner.name;
     }
 
