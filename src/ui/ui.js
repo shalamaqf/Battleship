@@ -35,45 +35,6 @@ export const gameUI = (function () {
         }
     }
 
-    function getRealPlayerCoordinate(button) {
-        const coordinateX = parseInt(button.dataset.x)
-        const coordinateY = parseInt(button.dataset.y)
-        const coordinate = {x: coordinateX, y: coordinateY};
-        return coordinate;
-    }
-
-    function getComputerCoordinate() {
-        const coordinate = generateCoordinate();
-        const coordinateX = coordinate.x;
-        const coordinateY = coordinate.y;
-        const button = realPlayerBoardDOM.querySelector(`[data-x="${coordinateX}"][data-y="${coordinateY}"]`);
-        return {button, coordinate};
-    }
-
-    function handleAttack(coordinate, button, opponentBoard) {
-        const result = gameController.playTurn(coordinate, opponentBoard);
-
-        if (result.isShipSunk) {
-            showShipSunk();
-            updateButtonDOM(result, button);
-            handleGameOver(result.gameOver);
-            return;
-        }
-
-        if (result.hit === null && !gameController.isHumanTurn()) {
-            computerTurn();
-        } else {
-            updateButtonDOM(result, button);
-            showPlayerTurn();
-            handleComputerBoardState();
-            handleGameOver(result.gameOver);
-
-            if (!gameController.isHumanTurn() && !result.gameOver) {
-                setTimeout(() => computerTurn(), 2000);
-            }
-        }
-    }
-
     function handleButtonClick(button) {
         button.addEventListener('click', () => {
             const coordinate = getRealPlayerCoordinate(button);
@@ -100,14 +61,6 @@ export const gameUI = (function () {
         });
     }
 
-    function handleComputerBoardState() {
-        if (gameController.isHumanTurn()) {
-            enableBoard(computerBoardDOM);
-        } else {
-            disableBoard(computerBoardDOM);
-        }
-    }
-
     function renderPlayersBoards() {
         createButtons(computerBoardDOM);
         createButtons(realPlayerBoardDOM);
@@ -116,12 +69,6 @@ export const gameUI = (function () {
         buttons.forEach(button => {
             handleButtonClick(button);
         });
-    }
-
-    function computerTurn() {
-        const result = getComputerCoordinate();
-        const opponentBoard = gameController.getRealPlayerBoard();
-        handleAttack(result.coordinate, result.button, opponentBoard);
     }
 
     function showPlayerTurn() {
