@@ -1,12 +1,13 @@
 import { Player } from "../functionality/player.js";
 
 export const gameController = ( function () {
-    const realPlayer = new Player('You');
-    const computerPlayer = new Player('Computer');
+    let realPlayer = new Player('You');
+    let computerPlayer = new Player('Computer');
     let currentPlayer = realPlayer;
     let gameOver = false;
 
     function setupGame() {
+        resetState();
         realPlayer.board.shuffleShips();
         computerPlayer.board.shuffleShips();
     }
@@ -62,6 +63,13 @@ export const gameController = ( function () {
     function isHumanTurn() {
         if (currentPlayer === realPlayer) return true;
         return false;
+    }
+
+    function resetState() {
+        realPlayer = new Player('You');
+        computerPlayer = new Player('Computer');
+        currentPlayer = realPlayer;
+        gameOver = false;
     }
 
     return {

@@ -90,4 +90,67 @@ describe('playTurn function', () => {
         expect(result_2.isShipSunk).toBe(false);
         expect(result_2.gameOver).toBe(false);
     })
+
+    test("test the object value and switch turn in player's ship is sunk scenario (real player case)", () => {
+        gameController.setupGame();
+        const realPlayerBoard = gameController.getRealPlayerBoard();
+        const computerPlayerBoard = gameController.getComputerPlayerBoard();
+        let currentPlayer;
+
+        // Setup
+        realPlayerBoard.resetBoard();
+        computerPlayerBoard.resetBoard();
+
+        const realPlayerShip = new Ship(2, Direction.HORIZONTAL);
+        const computerPlayerShip = new Ship(2, Direction.VERTICAL);
+
+        realPlayerBoard.placeShip({x: 3, y: 2}, realPlayerShip);
+        computerPlayerBoard.placeShip({x: 6, y: 8}, computerPlayerShip);
+
+        // Real player attack
+        gameController.playTurn({x: 6, y: 8}, computerPlayerBoard);
+        const result_1 = gameController.playTurn({x: 6, y: 9}, computerPlayerBoard);
+        currentPlayer = gameController.getCurrentPlayer();
+
+        expect(currentPlayer.name).toBe('You');
+        expect(result_1.hit).toBe(true);
+        expect(result_1.isShipSunk).toBe(true);
+        expect(result_1.gameOver).toBe(true);
+    })
+
+    test("test the object value and switch turn in player's ship is sunk scenario (computer case)", () => {
+        gameController.setupGame();
+        const realPlayerBoard = gameController.getRealPlayerBoard();
+        const computerPlayerBoard = gameController.getComputerPlayerBoard();
+        let currentPlayer;
+
+        // Setup
+        realPlayerBoard.resetBoard();
+        computerPlayerBoard.resetBoard();
+
+        const realPlayerShip = new Ship(2, Direction.HORIZONTAL);
+        const computerPlayerShip = new Ship(2, Direction.VERTICAL);
+
+        realPlayerBoard.placeShip({x: 4, y: 3}, realPlayerShip);
+        computerPlayerBoard.placeShip({x: 9, y: 3}, computerPlayerShip);
+
+        // Real player missed attack
+        const result_1 = gameController.playTurn({x: 9, y: 5}, computerPlayerBoard);
+        currentPlayer = gameController.getCurrentPlayer();
+
+        expect(currentPlayer.name).toBe('Computer');
+        expect(result_1.hit).toBe(false);
+        expect(result_1.isShipSunk).toBe(false);
+        expect(result_1.gameOver).toBe(false);
+
+        // Computer player attack
+        gameController.playTurn({x: 5, y: 3}, realPlayerBoard);
+        const result_2 = gameController.playTurn({x: 4, y: 3}, realPlayerBoard);
+        currentPlayer = gameController.getCurrentPlayer();
+
+        expect(currentPlayer.name).toBe('Computer');
+        expect(result_2.hit).toBe(true);
+        expect(result_2.isShipSunk).toBe(true);
+        expect(result_2.gameOver).toBe(true);
+    })
 })
