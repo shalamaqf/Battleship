@@ -1,5 +1,5 @@
 import { generateCoordinate } from "../functionality/computer-logic.js";
-import { gameController } from "./game-controller.js";
+import { gameController } from "../functionality/game-controller.js";
 
 export const gameUI = (function () {
     const realPlayerBoardDOM = document.querySelector('.board.real-player');
@@ -21,8 +21,8 @@ export const gameUI = (function () {
         }
     }
 
-    function updateButtonDOM(result, button) {
-        if (result.hit === true) {
+    function updateButtonDOM(hit, button) {
+        if (hit === true) {
             button.textContent = 'HIT';
             button.classList.add('hit');
             button.dataset.clicked = true;
@@ -41,6 +41,17 @@ export const gameUI = (function () {
             const opponentBoard = gameController.getComputerPlayerBoard();
             handleAttack(coordinate, button, opponentBoard);
         })
+    }
+
+    function updateBoard(result, button) {
+        const hit = result.hit;
+        updateButtonDOM(hit, button);
+
+        if (gameController.isHumanTurn()) {
+            enableBoard(computerBoardDOM);
+        } else {
+            disableBoard(computerBoardDOM);
+        }
     }
 
     function disableBoard(boardElement) {
