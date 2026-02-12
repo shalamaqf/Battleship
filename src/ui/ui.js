@@ -94,11 +94,6 @@ export const gameUI = (function () {
     function renderPlayersBoards() {
         createButtons(computerBoardDOM);
         createButtons(realPlayerBoardDOM);
-
-        const buttons = computerBoardDOM.querySelectorAll('.coordinate-button');
-        buttons.forEach(button => {
-            handleButtonClick(button);
-        });
     }
 
     function showPlayerTurn() {
