@@ -152,17 +152,14 @@ export const gameUI = (function () {
         handleRandomizeButton(randomizeButton);
     }
 
-    function highlightButtons(boardDOM) {
-        const coordinates = gameController.getOccupiedCoordinates();
-
-        coordinates.forEach(coordinate => {
-            const coord = coordinate.split(',');
-            const x = coord[0].trim();
-            const y = coord[1].trim();
-            const button = boardDOM.querySelector(`[data-x="${x}"][data-y="${y}"]`);
+    function highlightButtons(occupiedCoordinates) {
+        occupiedCoordinates.forEach(coordinate => {
+            const x = coordinate.x
+            const y = coordinate.y;
+            const button = realPlayerBoardDOM.querySelector(`[data-x="${x}"][data-y="${y}"]`)
 
             if (button) {
-                button.style.backgroundColor = 'green';
+                button.style.backgroundColor = 'rgb(0, 255, 0)';
             }
         });
     }
@@ -218,11 +215,11 @@ export const gameUI = (function () {
         createRandomizeButton();
         createStartGameButton();
         disableBoard(computerBoardDOM);
-        highlightButtons(realPlayerBoardDOM);
     }
 
     return {
         computerTurn: computerTurn,
-        setupGameUI: setupGameUI
+        setupGameUI: setupGameUI,
+        highlightButtons: highlightButtons
     }
 })();
