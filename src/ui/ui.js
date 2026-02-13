@@ -185,6 +185,10 @@ export const gameUI = (function () {
         if (button) button.remove();
     }
 
+    function deleteButtonContainer(container) {
+        if (container) container.remove();
+    }
+
     function handleStartGameButton(startGameButton) {
         const randomizeButton = document.querySelector('.randomize');
 
