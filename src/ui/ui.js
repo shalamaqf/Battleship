@@ -40,6 +40,7 @@ export const gameUI = (function () {
             const result = gameController.humanTurn({x, y});
             updateBoard(result, button);
             showPlayerTurn();
+            showShipSunk(result);
             handleGameOver();
         })
     }
@@ -50,6 +51,7 @@ export const gameUI = (function () {
         const button = realPlayerBoardDOM.querySelector(`[data-x="${coordinate.x}"][data-y="${coordinate.y}"]`)
         updateBoard(result, button);
         showPlayerTurn();
+        showShipSunk(result);
         handleGameOver();
     }
 
