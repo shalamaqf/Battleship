@@ -189,16 +189,13 @@ export const gameUI = (function () {
         if (container) container.remove();
     }
 
-    function handleStartGameButton(startGameButton) {
-        const randomizeButton = document.querySelector('.randomize');
-
+    function handleStartGameButton(startGameButton, randomizeButton, buttonContainer) {
         startGameButton.addEventListener('click', () => {
             resetBoardUI();
             deleteButton(startGameButton);
             deleteButton(randomizeButton);
+            deleteButtonContainer(buttonContainer);
             deleteButtonsHighlight(realPlayerBoardDOM);
-            handleComputerBoardState();
-            showPlayerTurn();
         })
     }
 
