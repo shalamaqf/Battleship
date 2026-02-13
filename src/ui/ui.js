@@ -200,6 +200,8 @@ export const gameUI = (function () {
             deleteButton(randomizeButton);
             deleteButtonContainer(buttonContainer);
             deleteButtonsHighlight(realPlayerBoardDOM);
+            enableBoard(computerBoardDOM);
+            showPlayerTurn();
         })
     }
 
