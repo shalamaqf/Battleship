@@ -38,12 +38,9 @@ export const gameUI = (function () {
         button.addEventListener('click', () => {
             const {x, y} = {x: parseInt(button.dataset.x), y: parseInt(button.dataset.y)};
             const result = gameController.humanTurn({x, y});
-            updateBoard(result.hit, button);
-            showPlayerTurn();
-            showShipSunk(result);
-            handleGameOver();
+            reactOnTurn(result, button);
 
-            if (!gameController.isHumanTurn() && !gameController.isGameOver()) {
+            if (!gameController.isHumanTurn() && result.hit === false) {
                 setTimeout(() => { handleComputerMove() }, 2000);
             }
         })
