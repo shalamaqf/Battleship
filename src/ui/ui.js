@@ -63,6 +63,17 @@ export const gameUI = (function () {
         }
     }
 
+    function reactOnTurn(result, button) {
+        updateBoard(result, button);
+        showPlayerTurn();
+        showShipSunk(result);
+        handleGameOver();
+
+        if (result.hit === true && !gameController.isHumanTurn()) {
+            setTimeout(() => { handleComputerMove() }, 2000);
+        }
+    }
+
     function updateBoard(result, button) {
         const hit = result.hit;
         updateButtonDOM(hit, button);
