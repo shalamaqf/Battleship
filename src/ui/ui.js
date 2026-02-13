@@ -39,10 +39,6 @@ export const gameUI = (function () {
             const {x, y} = {x: parseInt(button.dataset.x), y: parseInt(button.dataset.y)};
             const result = gameController.humanTurn({x, y});
             reactOnTurn(result, button);
-
-            if (!gameController.isHumanTurn() && result.hit === false) {
-                setTimeout(() => { handleComputerMove() }, 2000);
-            }
         })
     }
 
