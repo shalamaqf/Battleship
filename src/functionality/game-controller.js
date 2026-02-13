@@ -90,6 +90,10 @@ export const gameController = ( function () {
         return coordinate;
     }
 
+    function getRealPlayerOccupiedCoordinates() {
+
+    }
+
     return {
         setupGame: setupGame,
         playTurn: playTurn,
@@ -101,6 +105,7 @@ export const gameController = ( function () {
         isHumanTurn: isHumanTurn,
         humanTurn: humanTurn,
         computerTurn: computerTurn,
-        switchTurn: switchTurn
+        switchTurn: switchTurn,
+        getRealPlayerOccupiedCoordinates: getRealPlayerOccupiedCoordinates
     }
 })();
