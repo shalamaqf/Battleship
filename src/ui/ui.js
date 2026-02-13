@@ -230,11 +230,7 @@ export const gameUI = (function () {
 
     function setupGameUI() {
         renderPlayersBoards();
-        createRandomizeButton();
-        createStartGameButton();
-        attachEventClickComputerBoard();
-        attachEventRandomizeButton();
-        attachEventStartGameButton();
+        attachEvents();
         disableBoard(computerBoardDOM);
 
         // Highlight the real player's board
