@@ -112,8 +112,8 @@ export const gameUI = (function () {
         playerTurn.textContent = 'The winner is ' +  winner.name;
     }
 
-    function showShipSunk() {
-        if (gameController.isHumanTurn()) {
+    function showShipSunk(result) {
+        if (result.isShipSunk && gameController.isHumanTurn()) {
             playerTurn.textContent = "Computer's ship is sunk!";
         } else {
             playerTurn.textContent = "Your ship is sunk!";
