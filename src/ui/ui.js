@@ -54,12 +54,13 @@ export const gameUI = (function () {
     }
 
     function reactOnTurn(result, button) {
+        deleteShowShipSunk();
         updateBoard(result, button);
         showPlayerTurn();
         showShipSunk(result);
         handleGameOver();
 
-        if (result.hit === true && !gameController.isHumanTurn()) {
+        if (!gameController.isHumanTurn() && !gameController.isGameOver()) {
             setTimeout(() => { handleComputerMove() }, 2000);
         }
     }
@@ -215,7 +216,6 @@ export const gameUI = (function () {
             deleteButton(startGameButton);
             deleteButton(randomizeButton);
             deleteButtonContainer(buttonContainer);
-            deleteButtonsHighlight(realPlayerBoardDOM);
             enableBoard(computerBoardDOM);
             showPlayerTurn();
         })
