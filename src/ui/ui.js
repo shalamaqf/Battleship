@@ -145,8 +145,9 @@ export const gameUI = (function () {
     function handleRandomizeButton(randomizeButton) {
         randomizeButton.addEventListener('click', () => {
             gameController.setupGame();
+            const occupiedCoordinates = gameController.getRealPlayerOccupiedCoordinates();
             deleteButtonsHighlight(realPlayerBoardDOM);
-            highlightButtons(realPlayerBoardDOM);
+            highlightButtons(occupiedCoordinates);
         })
     }
 
@@ -231,6 +232,6 @@ export const gameUI = (function () {
 
     return {
         setupGameUI: setupGameUI,
-        highlightButtons: highlightButtons
+        handleComputerMove: handleComputerMove
     }
 })();
