@@ -199,6 +199,13 @@ export const gameUI = (function () {
         })
     }
 
+    function attachEventStartGameButton() {
+        const startGameButton = document.querySelector('.start-game');
+        const randomizeButton = document.querySelector('.randomize');
+        const buttonContainer = document.getElementById('button-container');
+        handleStartGameButton(startGameButton, randomizeButton, buttonContainer);
+    }
+
     function resetBoardUI() {
         const buttons = realPlayerBoardDOM.querySelectorAll('.coordinate-button');
 
