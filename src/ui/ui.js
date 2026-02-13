@@ -209,6 +209,14 @@ export const gameUI = (function () {
         const buttonContainer = document.getElementById('button-container');
         handleStartGameButton(startGameButton, randomizeButton, buttonContainer);
     }
+    
+    function attachEvents() {
+        createRandomizeButton();
+        createStartGameButton();
+        attachEventClickComputerBoard();
+        attachEventRandomizeButton();
+        attachEventStartGameButton();
+    }
 
     function resetBoardUI() {
         const buttons = realPlayerBoardDOM.querySelectorAll('.coordinate-button');
@@ -228,6 +236,10 @@ export const gameUI = (function () {
         attachEventRandomizeButton();
         attachEventStartGameButton();
         disableBoard(computerBoardDOM);
+
+        // Highlight the real player's board
+        const occupiedCoordinates = gameController.getRealPlayerOccupiedCoordinates();
+        highlightButtons(occupiedCoordinates);
     }
 
     return {
