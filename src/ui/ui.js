@@ -42,6 +42,10 @@ export const gameUI = (function () {
             showPlayerTurn();
             showShipSunk(result);
             handleGameOver();
+
+            if (!gameController.isHumanTurn() && !gameController.isGameOver()) {
+                setTimeout(() => { handleComputerMove() }, 2000);
+            }
         })
     }
 
