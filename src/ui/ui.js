@@ -50,13 +50,17 @@ export const gameUI = (function () {
     }
 
     function handleComputerMove() {
-        const result = gameController.computerTurn();
-        const coordinate = result.coordinate;
+        const attackResult = gameController.computerTurn();
+        const coordinate = attackResult.coordinate;
         const button = realPlayerBoardDOM.querySelector(`[data-x="${coordinate.x}"][data-y="${coordinate.y}"]`)
-        updateBoard(result, button);
+        updateBoard(attackResult.result.hit, button);
         showPlayerTurn();
-        showShipSunk(result);
+        showShipSunk(attackResult.result);
         handleGameOver();
+        
+        if (gameController.isHumanTurn()) {
+            enableBoard(computerBoardDOM);
+        }
     }
 
     function updateBoard(result, button) {
