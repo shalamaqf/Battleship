@@ -1,4 +1,4 @@
-import { gameController } from "./game-controller.js"; 
+import { gameController } from "../functionality/game-controller.js";
 import { gameUI } from "./ui.js";
 
 function init() {
@@ -7,7 +7,7 @@ function init() {
 
     if (!gameController.isHumanTurn()) {
         setTimeout(() => {
-            gameUI.computerTurn();
+            gameUI.handleComputerMove();
         }, 2000);
     }
 }
