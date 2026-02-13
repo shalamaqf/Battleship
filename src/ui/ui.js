@@ -53,14 +53,7 @@ export const gameUI = (function () {
         const attackResult = gameController.computerTurn();
         const coordinate = attackResult.coordinate;
         const button = realPlayerBoardDOM.querySelector(`[data-x="${coordinate.x}"][data-y="${coordinate.y}"]`)
-        updateBoard(attackResult.result.hit, button);
-        showPlayerTurn();
-        showShipSunk(attackResult.result);
-        handleGameOver();
-        
-        if (gameController.isHumanTurn()) {
-            enableBoard(computerBoardDOM);
-        }
+        reactOnTurn(attackResult.result, button);
     }
 
     function reactOnTurn(result, button) {
