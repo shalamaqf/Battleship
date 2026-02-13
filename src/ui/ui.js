@@ -182,7 +182,6 @@ export const gameUI = (function () {
     }
     
     function deleteButton(button) {
-        if (buttonContainer) buttonContainer.remove();
         if (button) button.remove();
     }
 
