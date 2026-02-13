@@ -1,4 +1,3 @@
-import { generateCoordinate } from "../functionality/computer-logic.js";
 import { gameController } from "../functionality/game-controller.js";
 
 export const gameUI = (function () {
@@ -224,7 +223,6 @@ export const gameUI = (function () {
     }
 
     return {
-        computerTurn: computerTurn,
         setupGameUI: setupGameUI,
         highlightButtons: highlightButtons
     }
