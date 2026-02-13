@@ -38,7 +38,7 @@ export const gameUI = (function () {
         button.addEventListener('click', () => {
             const {x, y} = {x: parseInt(button.dataset.x), y: parseInt(button.dataset.y)};
             const result = gameController.humanTurn({x, y});
-            updateBoard(result, button);
+            updateBoard(result.hit, button);
             showPlayerTurn();
             showShipSunk(result);
             handleGameOver();
