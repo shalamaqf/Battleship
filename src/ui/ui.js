@@ -147,6 +147,11 @@ export const gameUI = (function () {
         })
     }
 
+    function attachEventRandomizeButton() {
+        const randomizeButton = document.querySelector('.randomize');
+        handleRandomizeButton(randomizeButton);
+    }
+
     function highlightButtons(boardDOM) {
         const coordinates = gameController.getOccupiedCoordinates();
 
