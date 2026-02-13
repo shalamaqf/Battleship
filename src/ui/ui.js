@@ -135,6 +135,11 @@ export const gameUI = (function () {
         }
     }
 
+    function deleteShowShipSunk() {
+        const shipSunkInfo = document.getElementById('ship-sunk');
+        shipSunkInfo.textContent = '';
+    }
+
     function handleGameOver(gameOver) {
         if (gameOver) {
             const winner = gameController.getWinner();
