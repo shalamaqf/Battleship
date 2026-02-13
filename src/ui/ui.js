@@ -113,10 +113,12 @@ export const gameUI = (function () {
     }
 
     function showShipSunk(result) {
+        const shipSunkInfo = document.getElementById('ship-sunk');
+        
         if (result.isShipSunk && gameController.isHumanTurn()) {
-            playerTurn.textContent = "Computer's ship is sunk!";
+            shipSunkInfo.textContent = "Computer's ship is sunk!";
         } else {
-            playerTurn.textContent = "Your ship is sunk!";
+            shipSunkInfo.textContent = "Your ship is sunk!";
         }
     }
 
