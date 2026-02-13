@@ -219,6 +219,9 @@ export const gameUI = (function () {
         renderPlayersBoards();
         createRandomizeButton();
         createStartGameButton();
+        attachEventClickComputerBoard();
+        attachEventRandomizeButton();
+        attachEventStartGameButton();
         disableBoard(computerBoardDOM);
     }
 
