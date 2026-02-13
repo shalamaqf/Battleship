@@ -177,7 +177,6 @@ export const gameUI = (function () {
         const startGameButton = document.createElement('button');
         startGameButton.textContent ='Start Game';
         startGameButton.classList.add('start-game');
-        handleStartGameButton(startGameButton);
         buttonContainer.append(startGameButton);
         infoSection.append(buttonContainer);
     }
