@@ -159,4 +159,8 @@ export class GameBoard {
         }
         return ship;
     }
+
+    isCoordinateAvailToAttack(coordinate) {
+        
+    }
 }
