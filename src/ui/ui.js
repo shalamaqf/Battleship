@@ -58,7 +58,6 @@ export const gameUI = (function () {
         updateBoard(result, button);
         showPlayerTurn();
         showShipSunk(result);
-        handleGameOver();
 
         if (!gameController.isHumanTurn() && result.hit === true && !gameController.isGameOver()) {
                 setTimeout(() => { handleComputerMove() }, 2000);
