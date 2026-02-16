@@ -29,10 +29,6 @@ export const gameController = ( function () {
         // Attack the opponent board
         const result = opponentBoard.receiveAttack({x, y});
 
-        if (result.hit === null) {
-            return {hit: result.hit, isShipSunk: result.isOpponentShipSunk, gameOver: false};
-        }
-
         gameOver = checkWin(opponentBoard);
 
         // Switch player if the game is not over and the attack is miss
@@ -86,7 +82,12 @@ export const gameController = ( function () {
     }
 
     function getComputerCoordinate() {
-        const coordinate = generateCoordinate();
+        let coordinate = generateCoordinate();
+
+        while (!realPlayer.board.isCoordinateAvailToAttack(coordinate)) {
+            coordinate = generateCoordinate();
+        }
+
         return coordinate;
     }
 
