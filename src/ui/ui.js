@@ -1,5 +1,4 @@
-import { generateCoordinate } from "../functionality/computer-logic.js";
-import { gameController } from "./game-controller.js";
+import { gameController } from "../functionality/game-controller.js";
 
 export const gameUI = (function () {
     const realPlayerBoardDOM = document.querySelector('.board.real-player');
@@ -21,8 +20,8 @@ export const gameUI = (function () {
         }
     }
 
-    function updateButtonDOM(result, button) {
-        if (result.hit === true) {
+    function updateButtonDOM(hit, button) {
+        if (hit === true) {
             button.textContent = 'HIT';
             button.classList.add('hit');
             button.dataset.clicked = true;
@@ -35,53 +34,47 @@ export const gameUI = (function () {
         }
     }
 
-    function getRealPlayerCoordinate(button) {
-        const coordinateX = parseInt(button.dataset.x)
-        const coordinateY = parseInt(button.dataset.y)
-        const coordinate = {x: coordinateX, y: coordinateY};
-        return coordinate;
-    }
-
-    function getComputerCoordinate() {
-        const coordinate = generateCoordinate();
-        const coordinateX = coordinate.x;
-        const coordinateY = coordinate.y;
-        const button = realPlayerBoardDOM.querySelector(`[data-x="${coordinateX}"][data-y="${coordinateY}"]`);
-        return {button, coordinate};
-    }
-
-    function handleAttack(coordinate, button, opponentBoard, isAI = false) {
-        const result = gameController.playTurn(coordinate, opponentBoard);
-
-        if (result.isShipSunk) {
-            showShipSunk();
-            updateButtonDOM(result, button);
-            handleGameOver(result.gameOver);
-            return { result, coordinate }
-        }
-
-        if (result.hit === null && !gameController.isHumanTurn()) {
-            computerTurn();
-        } else {
-            updateButtonDOM(result, button);
-            showPlayerTurn();
-            handleComputerBoardState();
-            handleGameOver(result.gameOver);
-
-            if (!gameController.isHumanTurn() && !result.gameOver && !isAI) {
-                setTimeout(() => computerTurn(), 2000);
-            }
-        }
-
-        return {result, coordinate}
-    }
-
     function handleButtonClick(button) {
         button.addEventListener('click', () => {
-            const coordinate = getRealPlayerCoordinate(button);
-            const opponentBoard = gameController.getComputerPlayerBoard();
-            handleAttack(coordinate, button, opponentBoard);
+            const {x, y} = {x: parseInt(button.dataset.x), y: parseInt(button.dataset.y)};
+            const result = gameController.humanTurn({x, y});
+            reactOnTurn(result, button);
+            handleGameOver();
+
+            if (!gameController.isHumanTurn() && !gameController.isGameOver()) {
+                setTimeout(() => { handleComputerMove() }, 2000);
+            }
         })
+    }
+
+    function handleComputerMove() {
+        const attackResult = gameController.computerTurn();
+        const coordinate = attackResult.coordinate;
+        const button = realPlayerBoardDOM.querySelector(`[data-x="${coordinate.x}"][data-y="${coordinate.y}"]`)
+        reactOnTurn(attackResult.result, button);
+        handleGameOver();
+    }
+
+    function reactOnTurn(result, button) {
+        deleteShowShipSunk();
+        updateBoard(result, button);
+        showPlayerTurn();
+        showShipSunk(result);
+
+        if (!gameController.isHumanTurn() && result.hit === true && !gameController.isGameOver()) {
+                setTimeout(() => { handleComputerMove() }, 2000);
+        }
+    }
+
+    function updateBoard(result, button) {
+        const hit = result.hit;
+        updateButtonDOM(hit, button);
+
+        if (gameController.isHumanTurn()) {
+            enableBoard(computerBoardDOM);
+        } else {
+            disableBoard(computerBoardDOM);
+        }
     }
 
     function disableBoard(boardElement) {
@@ -94,36 +87,33 @@ export const gameUI = (function () {
     function enableBoard(boardElement) {
         const buttons = boardElement.querySelectorAll('.coordinate-button');
         buttons.forEach(button => {
-            if ('clicked' in button.dataset) {
-                button.disabled = true;
-            } else {
+            if (!button.dataset.clicked) {
                 button.disabled = false;
+            } else {
+                button.disabled = true;
             }
         });
     }
 
-    function handleComputerBoardState() {
-        if (gameController.isHumanTurn()) {
-            enableBoard(computerBoardDOM);
-        } else {
+    function handleGameOver() {
+        if (gameController.isGameOver()) {
+            deleteShowShipSunk();
+            disableBoard(realPlayerBoardDOM);
             disableBoard(computerBoardDOM);
+            showWinner();
         }
     }
 
     function renderPlayersBoards() {
         createButtons(computerBoardDOM);
         createButtons(realPlayerBoardDOM);
+    }
 
+    function attachEventClickComputerBoard() {
         const buttons = computerBoardDOM.querySelectorAll('.coordinate-button');
         buttons.forEach(button => {
             handleButtonClick(button);
         });
-    }
-
-    function computerTurn() {
-        const result = getComputerCoordinate();
-        const opponentBoard = gameController.getRealPlayerBoard();
-        handleAttack(result.coordinate, result.button, opponentBoard);
     }
 
     function showPlayerTurn() {
@@ -131,25 +121,26 @@ export const gameUI = (function () {
         playerTurn.textContent = currentPlayer.name;
     }
 
-    function showWinner(winner) {
-        playerTurn.textContent = 'The winner is ' +  winner.name;
+    function showWinner() {
+        const winner = gameController.getWinner();
+        playerTurn.textContent = 'The winner is ' +  winner.name + '!';
     }
 
-    function showShipSunk() {
-        if (gameController.isHumanTurn()) {
-            playerTurn.textContent = "Computer's ship is sunk!";
+    function showShipSunk(result) {
+        const shipSunkInfo = document.getElementById('ship-sunk');
+        
+        if (result.isShipSunk && gameController.isHumanTurn()) {
+            shipSunkInfo.textContent = "Computer's ship is sunk!";
+        } else if (result.isShipSunk && !gameController.isHumanTurn()) {
+            shipSunkInfo.textContent = "Your ship is sunk!";
         } else {
-            playerTurn.textContent = "Your ship is sunk!";
+            return;
         }
     }
 
-    function handleGameOver(gameOver) {
-        if (gameOver) {
-            const winner = gameController.getWinner();
-            showWinner(winner);
-            disableBoard(realPlayerBoardDOM);
-            disableBoard(computerBoardDOM);
-        }
+    function deleteShowShipSunk() {
+        const shipSunkInfo = document.getElementById('ship-sunk');
+        shipSunkInfo.textContent = '';
     }
 
     function createRandomizeButton() {
@@ -157,31 +148,32 @@ export const gameUI = (function () {
         const randomizeButton = document.createElement('button');
         randomizeButton.textContent = 'Randomize';
         randomizeButton.classList.add('randomize');
-        handleRandomizeButton(randomizeButton);
         buttonContainer.append(randomizeButton);
         infoSection.append(buttonContainer);
     }
 
     function handleRandomizeButton(randomizeButton) {
         randomizeButton.addEventListener('click', () => {
-            const realPlayerBoard = gameController.getRealPlayerBoard();
-            gameController.shuffleShip(realPlayerBoard);
+            gameController.setupGame();
+            const occupiedCoordinates = gameController.getRealPlayerOccupiedCoordinates();
             deleteButtonsHighlight(realPlayerBoardDOM);
-            highlightButtons(realPlayerBoardDOM);
+            highlightButtons(occupiedCoordinates);
         })
     }
 
-    function highlightButtons(boardDOM) {
-        const coordinates = gameController.getOccupiedCoordinates();
+    function attachEventRandomizeButton() {
+        const randomizeButton = document.querySelector('.randomize');
+        handleRandomizeButton(randomizeButton);
+    }
 
-        coordinates.forEach(coordinate => {
-            const coord = coordinate.split(',');
-            const x = coord[0].trim();
-            const y = coord[1].trim();
-            const button = boardDOM.querySelector(`[data-x="${x}"][data-y="${y}"]`);
+    function highlightButtons(occupiedCoordinates) {
+        occupiedCoordinates.forEach(coordinate => {
+            const x = coordinate.x
+            const y = coordinate.y;
+            const button = realPlayerBoardDOM.querySelector(`[data-x="${x}"][data-y="${y}"]`)
 
             if (button) {
-                button.style.backgroundColor = 'green';
+                button.style.backgroundColor = 'rgb(0, 255, 0)';
             }
         });
     }
@@ -199,27 +191,43 @@ export const gameUI = (function () {
         const startGameButton = document.createElement('button');
         startGameButton.textContent ='Start Game';
         startGameButton.classList.add('start-game');
-        handleStartGameButton(startGameButton);
         buttonContainer.append(startGameButton);
         infoSection.append(buttonContainer);
     }
     
     function deleteButton(button) {
-        if (buttonContainer) buttonContainer.remove();
         if (button) button.remove();
     }
 
-    function handleStartGameButton(startGameButton) {
-        const randomizeButton = document.querySelector('.randomize');
+    function deleteButtonContainer(container) {
+        if (container) container.remove();
+    }
 
+    function handleStartGameButton(startGameButton, randomizeButton, buttonContainer) {
         startGameButton.addEventListener('click', () => {
             resetBoardUI();
             deleteButton(startGameButton);
             deleteButton(randomizeButton);
+            deleteButtonContainer(buttonContainer);
             deleteButtonsHighlight(realPlayerBoardDOM);
-            handleComputerBoardState();
+            enableBoard(computerBoardDOM);
             showPlayerTurn();
         })
+    }
+
+    function attachEventStartGameButton() {
+        const startGameButton = document.querySelector('.start-game');
+        const randomizeButton = document.querySelector('.randomize');
+        const buttonContainer = document.getElementById('button-container');
+        handleStartGameButton(startGameButton, randomizeButton, buttonContainer);
+    }
+    
+    function attachEvents() {
+        createRandomizeButton();
+        createStartGameButton();
+        attachEventClickComputerBoard();
+        attachEventRandomizeButton();
+        attachEventStartGameButton();
     }
 
     function resetBoardUI() {
@@ -234,14 +242,16 @@ export const gameUI = (function () {
 
     function setupGameUI() {
         renderPlayersBoards();
-        createRandomizeButton();
-        createStartGameButton();
+        attachEvents();
         disableBoard(computerBoardDOM);
-        highlightButtons(realPlayerBoardDOM);
+
+        // Highlight the real player's board
+        const occupiedCoordinates = gameController.getRealPlayerOccupiedCoordinates();
+        highlightButtons(occupiedCoordinates);
     }
 
     return {
-        computerTurn: computerTurn,
-        setupGameUI: setupGameUI
+        setupGameUI: setupGameUI,
+        handleComputerMove: handleComputerMove
     }
 })();

@@ -31,6 +31,11 @@ main {
     margin-top: 1.5rem;
 }
 
+#info-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .player {
     display: flex;
     flex-direction: column;

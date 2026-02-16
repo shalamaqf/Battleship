@@ -1,3 +1,4 @@
+import { generateCoordinate } from "./computer-logic.js";
 import { Ship } from "./ship.js";
 
 export const Direction = Object.freeze({
@@ -61,13 +62,13 @@ export class GameBoard {
 
         if (`${x}, ${y}` in this.occupiedCoordinate) {
             this.succeedAttacks[`${x}, ${y}`] = true;
-            const ship = this.occupiedCoordinate[`${x}, ${y}`];
+            const ship = this.getShipByCoordinate({x, y});
             ship.hit();
-            return true;
+            return { hit: true, isOpponentShipSunk: ship ? ship.isShipSunk() : false };
         };
 
         this.missedAttacks[`${x}, ${y}`] = true;
-        return false;
+        return { hit: false, isOpponentShipSunk: false };
     }
 
     areAllShipsSunk() {
@@ -135,5 +136,43 @@ export class GameBoard {
         });
         
         return isValid;
+    }
+
+    randomizeShipPlacement(ship) {
+        let placed;
+
+        while(!placed) {
+            const coordinate = generateCoordinate();
+            const x = coordinate.x;
+            const y = coordinate.y;
+            placed = this.placeShip({x: x, y: y}, ship);
+        }
+    }
+
+    shuffleShips() {
+        this.resetBoard();
+
+        const size = [2, 3, 3, 4, 5];
+        for (let i = 0; i < size.length; i++) {
+            const direction = generateDirection();
+            const ship = new Ship(size[i], direction);
+            this.randomizeShipPlacement(ship);
+        }
+    }
+
+    getShipByCoordinate(coordinate) {
+        let ship;
+        const key = `${coordinate.x}, ${coordinate.y}`;
+        if (key in this.occupiedCoordinate) {
+            ship = this.occupiedCoordinate[key];
+        }
+        return ship;
+    }
+
+    isCoordinateAvailToAttack(coordinate) {
+        const key = `${coordinate.x}, ${coordinate.y}`;
+        
+        if (key in this.missedAttacks || key in this.succeedAttacks) return false;
+        return true;
     }
 }
