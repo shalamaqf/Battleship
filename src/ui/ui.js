@@ -97,6 +97,7 @@ export const gameUI = (function () {
 
     function handleGameOver() {
         if (gameController.isGameOver()) {
+            deleteShowShipSunk();
             disableBoard(realPlayerBoardDOM);
             disableBoard(computerBoardDOM);
             showWinner();
