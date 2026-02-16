@@ -80,6 +80,7 @@ export const gameController = ( function () {
     function computerTurn() {
         const coordinate = getComputerCoordinate();
         const result = playTurn(coordinate, realPlayer.board);
+        computerAI.updateState(coordinate, result);
         return { result, coordinate };
     }
 
