@@ -39,6 +39,10 @@ export const gameUI = (function () {
             const {x, y} = {x: parseInt(button.dataset.x), y: parseInt(button.dataset.y)};
             const result = gameController.humanTurn({x, y});
             reactOnTurn(result, button);
+
+            if (!gameController.isHumanTurn() && !gameController.isGameOver()) {
+                setTimeout(() => { handleComputerMove() }, 2000);
+            }
         })
     }
 
@@ -56,8 +60,8 @@ export const gameUI = (function () {
         showShipSunk(result);
         handleGameOver();
 
-        if (!gameController.isHumanTurn() && !gameController.isGameOver()) {
-            setTimeout(() => { handleComputerMove() }, 2000);
+        if (!gameController.isHumanTurn() && result.hit === true && !gameController.isGameOver()) {
+                setTimeout(() => { handleComputerMove() }, 2000);
         }
     }
 
