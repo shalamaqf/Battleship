@@ -39,6 +39,7 @@ export const gameUI = (function () {
             const {x, y} = {x: parseInt(button.dataset.x), y: parseInt(button.dataset.y)};
             const result = gameController.humanTurn({x, y});
             reactOnTurn(result, button);
+            handleGameOver();
 
             if (!gameController.isHumanTurn() && !gameController.isGameOver()) {
                 setTimeout(() => { handleComputerMove() }, 2000);
@@ -51,6 +52,7 @@ export const gameUI = (function () {
         const coordinate = attackResult.coordinate;
         const button = realPlayerBoardDOM.querySelector(`[data-x="${coordinate.x}"][data-y="${coordinate.y}"]`)
         reactOnTurn(attackResult.result, button);
+        handleGameOver();
     }
 
     function reactOnTurn(result, button) {
