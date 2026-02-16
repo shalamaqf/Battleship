@@ -42,7 +42,8 @@ export const gameController = ( function () {
     }
 
     function getWinner() {
-        return currentPlayer;
+        if (realPlayer.board.areAllShipsSunk()) return computerPlayer;
+        if (computerPlayer.board.areAllShipsSunk()) return realPlayer;
     }
 
     function isGameOver() {
