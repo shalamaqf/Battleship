@@ -123,7 +123,7 @@ export const gameUI = (function () {
 
     function showWinner() {
         const winner = gameController.getWinner();
-        playerTurn.textContent = 'The winner is ' +  winner.name;
+        playerTurn.textContent = 'The winner is ' +  winner.name + '!';
     }
 
     function showShipSunk(result) {
