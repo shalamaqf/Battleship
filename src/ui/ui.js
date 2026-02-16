@@ -141,15 +141,6 @@ export const gameUI = (function () {
         shipSunkInfo.textContent = '';
     }
 
-    function handleGameOver(gameOver) {
-        if (gameOver) {
-            const winner = gameController.getWinner();
-            showWinner(winner);
-            disableBoard(realPlayerBoardDOM);
-            disableBoard(computerBoardDOM);
-        }
-    }
-
     function createRandomizeButton() {
         const infoSection = document.getElementById('info-section');
         const randomizeButton = document.createElement('button');
