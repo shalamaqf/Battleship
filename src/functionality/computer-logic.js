@@ -1,4 +1,4 @@
-import { Direction } from "./game-board";
+import { Direction } from "./game-board.js";
 
 export class ComputerAI {
     constructor(realPlayerBoard) {

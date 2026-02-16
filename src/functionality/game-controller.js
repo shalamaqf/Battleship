@@ -1,9 +1,10 @@
 import { Player } from "../functionality/player.js";
-import { generateCoordinate } from "./computer-logic.js";
+import { ComputerAI, generateCoordinate } from "./computer-logic.js";
 
 export const gameController = ( function () {
     let realPlayer = new Player('You');
     let computerPlayer = new Player('Computer');
+    const computerAI = new ComputerAI(realPlayer.board);
     let currentPlayer = realPlayer;
     let gameOver = false;
 
@@ -83,7 +84,7 @@ export const gameController = ( function () {
     }
 
     function getComputerCoordinate() {
-        let coordinate = generateCoordinate();
+        let coordinate = computerAI.getNextCoordinate();
 
         while (!realPlayer.board.isCoordinateAvailToAttack(coordinate)) {
             coordinate = generateCoordinate();
