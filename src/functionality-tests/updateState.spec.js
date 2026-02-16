@@ -1,8 +1,7 @@
-const { ComputerAI } = require("../functionality/computer-logic");
-const { Direction } = require("../functionality/game-board");
-const { Player } = require("../functionality/player");
-const { Ship } = require("../functionality/ship");
-const { shipRole } = require("../ui/game-controller");
+const { ComputerAI } = require("../functionality/computer-logic.js");
+const { Direction } = require("../functionality/game-board.js");
+const { Player } = require("../functionality/player.js");
+const { Ship } = require("../functionality/ship.js");
 
 describe('updateState method', () => {
     test('updateState method is defined', () => {
@@ -61,7 +60,7 @@ describe('updateState method', () => {
 
     test("The queue is contain the generated directional coordinates if the hit is successful and it's not the first hit", () => {
         const realPlayer = new Player('Real Player');
-        const ship = new Ship(4, Direction.VERTICAL, shipRole.BATTLESHIP);
+        const ship = new Ship(4, Direction.VERTICAL);
         realPlayer.board.placeShip({x: 4, y: 2}, ship);
       
         const computer = new ComputerAI(realPlayer.board);
@@ -85,7 +84,7 @@ describe('updateState method', () => {
 
     test("Reset the computer AI's state if the ship is sunk", () => {
         const realPlayer = new Player('Real Player');
-        const ship = new Ship(2, Direction.HORIZONTAL, shipRole.DESTROYER);
+        const ship = new Ship(2, Direction.HORIZONTAL);
         realPlayer.board.placeShip({x: 7, y: 4}, ship);
 
         const computer = new ComputerAI(realPlayer.board);
