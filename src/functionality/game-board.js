@@ -161,6 +161,9 @@ export class GameBoard {
     }
 
     isCoordinateAvailToAttack(coordinate) {
+        const key = `${coordinate.x}, ${coordinate.y}`;
         
+        if (key in this.missedAttacks || key in this.succeedAttacks) return false;
+        return true;
     }
 }
