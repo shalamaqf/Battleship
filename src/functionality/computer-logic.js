@@ -82,6 +82,7 @@ export class ComputerAI {
             return;
         } else if (result.hit === true) {
             this.lastHit = coordinate;
+            this.targetShip = this.opponentBoard.getShipByCoordinate(coordinate);
         } else {
             this.lastHit = null;
         }
@@ -102,8 +103,7 @@ export class ComputerAI {
         }
 
         if (this.lastHit === coordinate && !isFirstHit) {
-            const ship = this.opponentBoard.getShipByCoordinate(coordinate);
-            const direction = ship.direction;
+            const direction = this.targetShip.direction;
 
             this.generateDirectionalCoordinates(direction);
         }
