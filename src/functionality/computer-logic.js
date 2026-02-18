@@ -102,7 +102,7 @@ export class ComputerAI {
             this.generateAdjacentCoordinates();
         }
 
-        if (this.lastHit === coordinate && !isFirstHit) {
+        if (this.lastHit === coordinate && !isFirstHit && this.targetShip !== null) {
             const direction = this.targetShip.direction;
 
             this.generateDirectionalCoordinates(direction);
