@@ -12,6 +12,7 @@ describe('generateAdjacentCoordinates method', () => {
         const realPlayer = new Player('Real Player');
         const computer = new ComputerAI(realPlayer.board);
         computer.lastHit = {x: 5, y: 4};
+        computer.anchorHit = {x: 5, y: 4}
         computer.generateAdjacentCoordinates();
         expect(computer.nextCandidateCoordinates.length).toBe(4);
     })
@@ -20,6 +21,7 @@ describe('generateAdjacentCoordinates method', () => {
         const realPlayer = new Player('Real Player');
         const computer = new ComputerAI(realPlayer.board);
         computer.lastHit = {x: 5, y: 4};
+        computer.anchorHit = {x: 5, y: 4};
         computer.generateAdjacentCoordinates();
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 5, y: 5});
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 4, y: 4});
@@ -32,6 +34,7 @@ describe('generateAdjacentCoordinates method', () => {
         const computer = new ComputerAI(realPlayer.board);
       
         computer.lastHit = {x: 10, y: 4};
+        computer.anchorHit = {x: 10, y: 4};
         computer.generateAdjacentCoordinates();
 
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 10, y: 5});
@@ -45,6 +48,7 @@ describe('generateAdjacentCoordinates method', () => {
         const computer = new ComputerAI(realPlayer.board);
       
         computer.lastHit = {x: 3, y: 10};
+        computer.anchorHit = {x: 3, y: 10};
         computer.generateAdjacentCoordinates();
 
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 4, y: 10});

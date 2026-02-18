@@ -22,8 +22,8 @@ export class ComputerAI {
     }
 
     generateAdjacentCoordinates() {
-        const coordinateX = this.lastHit.x;
-        const coordinateY = this.lastHit.y;
+        const coordinateX = this.anchorHit.x;
+        const coordinateY = this.anchorHit.y;
 
         const firstCoordinate = {x: coordinateX, y: coordinateY + 1};
         const secondCoordinate = {x: coordinateX + 1, y: coordinateY};
