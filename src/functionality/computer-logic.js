@@ -30,7 +30,9 @@ export class ComputerAI {
         const coordinates = [firstCoordinate, secondCoordinate, thirdCoordinate, fourthCoordinate];
 
         for (let i = 0; i < coordinates.length; i++) {
-            this.nextCandidateCoordinates.push(coordinates[i]);
+            if (this.opponentBoard.isAvailCoordinate(coordinates[i])) {
+                this.nextCandidateCoordinates.push(coordinates[i]);
+            }
         }
     }
 
