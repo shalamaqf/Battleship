@@ -6,6 +6,7 @@ export class ComputerAI {
         this.direction = null;
         this.nextCandidateCoordinates = [];
         this.opponentBoard = realPlayerBoard;
+        this.targetShip = null;
     }
 
     getNextCoordinate() {
