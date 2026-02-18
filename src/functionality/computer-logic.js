@@ -44,14 +44,14 @@ export class ComputerAI {
         this.nextCandidateCoordinates = [];
 
         if (direction === Direction.HORIZONTAL) {
-            for (let i = 1; i < 4; i++) {
+            for (let i = 1; i < 5; i++) {
                 const coordinate = {x: x + i, y: y};
                 if (this.opponentBoard.isAvailCoordinate(coordinate)) {
                     this.nextCandidateCoordinates.push(coordinate);
                 }
             }
 
-            for (let i = 1; i < 4; i++) {
+            for (let i = 1; i < 5; i++) {
                 const coordinate = {x: x - i, y: y};
                 if (this.opponentBoard.isAvailCoordinate(coordinate)) {
                     this.nextCandidateCoordinates.push(coordinate);
@@ -60,14 +60,14 @@ export class ComputerAI {
         }
 
         if (direction === Direction.VERTICAL) {
-            for (let i = 1; i < 4; i++) {
+            for (let i = 1; i < 5; i++) {
                 const coordinate = {x: x, y: y + i};
                 if (this.opponentBoard.isAvailCoordinate(coordinate)) {
                     this.nextCandidateCoordinates.push(coordinate);
                 }
             }
 
-            for (let i = 1; i < 4; i++) {
+            for (let i = 1; i < 5; i++) {
                 const coordinate = {x: x, y: y - i};
                 if (this.opponentBoard.isAvailCoordinate(coordinate)) {
                     this.nextCandidateCoordinates.push(coordinate);

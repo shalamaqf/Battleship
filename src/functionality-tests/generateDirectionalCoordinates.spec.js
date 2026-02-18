@@ -22,10 +22,12 @@ describe('generateDirectionalCoordinates method', () => {
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 8, y: 3});
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 9, y: 3});
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 10, y: 3});
+        expect(computer.nextCandidateCoordinates).not.toContainEqual({x: 11, y: 3});
         
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 6, y: 3});
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 5, y: 3});
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 4, y: 3});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 3, y: 3});
     })
 
     test("the queue contain the generated coordinates based on the ship's direction (vertical)", () => {
@@ -41,10 +43,13 @@ describe('generateDirectionalCoordinates method', () => {
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 2, y: 5});
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 2, y: 6});
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 2, y: 7});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 2, y: 8});
         
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 2, y: 3});
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 2, y: 2});
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 2, y: 1});
+        expect(computer.nextCandidateCoordinates).not.toContainEqual({x: 2, y: 0});
+        expect(computer.nextCandidateCoordinates).not.toContainEqual({x: 2, y: -1});
     })
 
     test('No generate coordinates that out of board (horizontal case)', () => {
@@ -60,10 +65,12 @@ describe('generateDirectionalCoordinates method', () => {
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 9, y: 5});
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 8, y: 5});
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 7, y: 5});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 6, y: 5});
 
         expect(computer.nextCandidateCoordinates).not.toContainEqual({x: 11, y: 5});
         expect(computer.nextCandidateCoordinates).not.toContainEqual({x: 12, y: 5});
         expect(computer.nextCandidateCoordinates).not.toContainEqual({x: 13, y: 5});
+        expect(computer.nextCandidateCoordinates).not.toContainEqual({x: 14, y: 5});
     })
 
     test('No generate coordinates that out of board (vertical case)', () => {
@@ -79,9 +86,11 @@ describe('generateDirectionalCoordinates method', () => {
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 4, y: 9});
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 4, y: 8});
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 4, y: 7});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 4, y: 6});
 
         expect(computer.nextCandidateCoordinates).not.toContainEqual({x: 4, y: 11});
         expect(computer.nextCandidateCoordinates).not.toContainEqual({x: 4, y: 12});
         expect(computer.nextCandidateCoordinates).not.toContainEqual({x: 4, y: 13});
+        expect(computer.nextCandidateCoordinates).not.toContainEqual({x: 4, y: 14});
     })
 })
