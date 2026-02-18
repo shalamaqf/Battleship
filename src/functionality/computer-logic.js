@@ -39,8 +39,8 @@ export class ComputerAI {
     }
 
     generateDirectionalCoordinates(direction) {
-        const x = this.lastHit.x;
-        const y = this.lastHit.y;
+        const x = this.anchorHit.x;
+        const y = this.anchorHit.y;
         this.nextCandidateCoordinates = [];
 
         if (direction === Direction.HORIZONTAL) {
