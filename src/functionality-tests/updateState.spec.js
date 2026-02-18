@@ -107,6 +107,7 @@ describe('updateState method', () => {
         expect(computer.lastHit).toBeNull();
         expect(computer.direction).toBeNull();
         expect(computer.nextCandidateCoordinates.length).toBe(0);
+        expect(computer.targetShip).toBeNull();
     })
 
     test("set the target ship when it's first hit", () => {

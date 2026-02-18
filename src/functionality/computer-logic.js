@@ -114,6 +114,7 @@ export class ComputerAI {
             this.direction = null;
             this.lastHit = null;
             this.nextCandidateCoordinates = [];
+            this.targetShip = null;
         }
     }
 }
