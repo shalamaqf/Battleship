@@ -44,24 +44,32 @@ export class ComputerAI {
         if (direction === Direction.HORIZONTAL) {
             for (let i = 1; i < 4; i++) {
                 const coordinate = {x: x + i, y: y};
-                this.nextCandidateCoordinates.push(coordinate);
+                if (this.opponentBoard.isAvailCoordinate(coordinate)) {
+                    this.nextCandidateCoordinates.push(coordinate);
+                }
             }
 
             for (let i = 1; i < 4; i++) {
                 const coordinate = {x: x - i, y: y};
-                this.nextCandidateCoordinates.push(coordinate);
+                if (this.opponentBoard.isAvailCoordinate(coordinate)) {
+                    this.nextCandidateCoordinates.push(coordinate);
+                }
             }
         }
 
         if (direction === Direction.VERTICAL) {
             for (let i = 1; i < 4; i++) {
                 const coordinate = {x: x, y: y + i};
-                this.nextCandidateCoordinates.push(coordinate);
+                if (this.opponentBoard.isAvailCoordinate(coordinate)) {
+                    this.nextCandidateCoordinates.push(coordinate);
+                }
             }
 
             for (let i = 1; i < 4; i++) {
                 const coordinate = {x: x, y: y - i};
-                this.nextCandidateCoordinates.push(coordinate);
+                if (this.opponentBoard.isAvailCoordinate(coordinate)) {
+                    this.nextCandidateCoordinates.push(coordinate);
+                }
             }
         }
     }
