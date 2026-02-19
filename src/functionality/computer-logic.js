@@ -128,6 +128,14 @@ export class ComputerAI {
         }
     }
 
+    removeMissedCoordinate() {
+        const x = this.lastHit.x;
+        const y = this.lastHit.y;
+        this.nextCandidateCoordinates = this.nextCandidateCoordinates.filter(coordinate => {
+                                                return !(coordinate.x === x && coordinate.y === y)
+                                            })
+    }
+
     resetState(result) {
         if (result.isShipSunk) {
             this.direction = null;
