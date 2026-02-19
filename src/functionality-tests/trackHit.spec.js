@@ -43,6 +43,7 @@ describe('trackHit method', () => {
         expect(computer.lastHit).toBe(coordinate_2);
         expect(computer.anchorHit).toBe(coordinate_2);
         expect(computer.targetShip).toBe(ship);
+        expect(computer.direction).toBe(null);
         expect(computer.isFirstHit).toBe(true);
     })
 
@@ -80,6 +81,7 @@ describe('trackHit method', () => {
         expect(computer.lastHit).toBe(coordinate_4);
         expect(computer.anchorHit).toBe(coordinate_2);
         expect(computer.targetShip).toBe(ship);
+        expect(computer.direction).toBe(computer.targetShip.direction);
         expect(computer.isFirstHit).toBe(true);
     })
 })
