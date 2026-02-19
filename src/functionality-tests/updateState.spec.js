@@ -91,7 +91,7 @@ describe('updateState method', () => {
         expect(computer.lastHit).toBe(coordinate_3);
         expect(computer.anchorHit).toBe(coordinate_1);
         expect(computer.targetShip).toBe(ship);
-        expect(computer.direction).toBe(computer.targetShip.direction);
+        expect(computer.direction).toBe(Direction.VERTICAL);
         expect(computer.isFirstHit).toBe(true);
 
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 1, y: 5});

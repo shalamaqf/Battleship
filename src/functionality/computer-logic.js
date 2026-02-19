@@ -105,7 +105,14 @@ export class ComputerAI {
                 this.targetShip = this.opponentBoard.getShipByCoordinate(coordinate);
             } else {
                 this.lastHit = coordinate;
-                this.direction = this.targetShip.direction;
+
+                if (this.direction === null) {
+                    if (coordinate.x === this.anchorHit.x) {
+                        this.direction = Direction.VERTICAL;
+                    } else if (coordinate.y === this.anchorHit.y) {
+                        this.direction = Direction.HORIZONTAL;
+                    }
+                }
             }
         }
     }
