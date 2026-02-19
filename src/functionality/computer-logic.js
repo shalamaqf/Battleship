@@ -94,12 +94,19 @@ export class ComputerAI {
                 this.targetShip = this.opponentBoard.getShipByCoordinate(coordinate);
             } else {
                 this.lastHit = coordinate;
+                this.direction = this.targetShip.direction;
             }
         }
     }
 
     determineGenerator() {
-        
+        if (this.isFirstHit && this.direction === null) {
+            this.generateAdjacentCoordinates();
+        } else {
+            if (this.isFirstHit && this.direction !== null) {
+                this.generateDirectionalCoordinates(this.direction);
+            }
+        }
     }
 
     removeMissedCoordinate() {
