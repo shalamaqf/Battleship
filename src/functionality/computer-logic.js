@@ -80,6 +80,11 @@ export class ComputerAI {
     updateState(coordinate, result) {
         this.trackHit(coordinate, result);
 
+        if (result.isShipSunk) {
+            this.resetState();
+            return;
+        }
+
         if (result.hit) {
             this.determineGenerator();
         } else {
@@ -123,14 +128,13 @@ export class ComputerAI {
                                             })
     }
 
-    resetState(result) {
-        if (result.isShipSunk) {
-            this.direction = null;
-            this.lastHit = null;
-            this.nextCandidateCoordinates = [];
-            this.targetShip = null;
-            this.anchorHit = null;
-        }
+    resetState() {
+        this.direction = null;
+        this.lastHit = null;
+        this.nextCandidateCoordinates = [];
+        this.targetShip = null;
+        this.anchorHit = null;
+        this.isFirstHit = false;
     }
 }
 
