@@ -8,6 +8,7 @@ export class ComputerAI {
         this.opponentBoard = realPlayerBoard;
         this.targetShip = null;
         this.anchorHit = null;
+        this.isFirstHit = null;
     }
 
     getNextCoordinate() {
