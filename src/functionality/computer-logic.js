@@ -111,6 +111,10 @@ export class ComputerAI {
         }
     }
 
+    trackHit(coordinate, result) {
+        
+    }
+
     resetState(result) {
         if (result.isShipSunk) {
             this.direction = null;
