@@ -98,6 +98,10 @@ export class ComputerAI {
         }
     }
 
+    determineGenerator() {
+        
+    }
+
     removeMissedCoordinate() {
         const x = this.lastHit.x;
         const y = this.lastHit.y;
