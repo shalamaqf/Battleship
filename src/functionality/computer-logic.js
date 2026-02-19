@@ -78,37 +78,7 @@ export class ComputerAI {
     }
 
     updateState(coordinate, result) {
-        let isFirstHit = !this.lastHit;
-
-        if (result.hit === null) {
-            return;
-        } else if (result.hit === true) {
-            this.lastHit = coordinate;
-            this.targetShip = this.opponentBoard.getShipByCoordinate(coordinate);
-        } else {
-            this.lastHit = null;
-        }
-
-        // Reset computer state if the ship is sunk
-        this.resetState(result);
-
-        if (this.lastHit === null) {
-            const x = coordinate.x;
-            const y = coordinate.y;
-            this.nextCandidateCoordinates = this.nextCandidateCoordinates.filter(coordinate => {
-                                                return !(coordinate.x === x && coordinate.y === y)
-                                            })
-        }
-
-        if (this.lastHit === coordinate && isFirstHit) {
-            this.generateAdjacentCoordinates();
-        }
-
-        if (this.lastHit === coordinate && !isFirstHit && this.targetShip !== null) {
-            const direction = this.targetShip.direction;
-
-            this.generateDirectionalCoordinates(direction);
-        }
+        this.trackHit(coordinate, result);
     }
 
     trackHit(coordinate, result) {
