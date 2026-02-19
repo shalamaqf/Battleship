@@ -115,6 +115,16 @@ export class ComputerAI {
         if (result.hit === false) {
             this.lastHit = coordinate;
         }
+
+        if (result.hit) {
+            // First hit
+            if (this.isFirstHit === false) {
+                this.isFirstHit = true;
+                this.lastHit = coordinate;
+                this.anchorHit = coordinate;
+                this.targetShip = this.opponentBoard.getShipByCoordinate(coordinate);
+            }
+        }
     }
 
     resetState(result) {
