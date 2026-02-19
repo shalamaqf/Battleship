@@ -8,7 +8,7 @@ export class ComputerAI {
         this.opponentBoard = realPlayerBoard;
         this.targetShip = null;
         this.anchorHit = null;
-        this.isFirstHit = null;
+        this.isFirstHit = false;
     }
 
     getNextCoordinate() {
@@ -112,7 +112,9 @@ export class ComputerAI {
     }
 
     trackHit(coordinate, result) {
-        
+        if (result.hit === false) {
+            this.lastHit = coordinate;
+        }
     }
 
     resetState(result) {
