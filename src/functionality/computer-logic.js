@@ -37,44 +37,6 @@ export class ComputerAI {
         }
     }
 
-    generateDirectionalCoordinates(direction) {
-        const x = this.anchorHit.x;
-        const y = this.anchorHit.y;
-        this.nextCandidateCoordinates = [];
-
-        if (direction === Direction.HORIZONTAL) {
-            for (let i = 1; i < 5; i++) {
-                const coordinate = {x: x + i, y: y};
-                if (this.opponentBoard.isAvailCoordinate(coordinate)) {
-                    this.nextCandidateCoordinates.push(coordinate);
-                }
-            }
-
-            for (let i = 1; i < 5; i++) {
-                const coordinate = {x: x - i, y: y};
-                if (this.opponentBoard.isAvailCoordinate(coordinate)) {
-                    this.nextCandidateCoordinates.push(coordinate);
-                }
-            }
-        }
-
-        if (direction === Direction.VERTICAL) {
-            for (let i = 1; i < 5; i++) {
-                const coordinate = {x: x, y: y + i};
-                if (this.opponentBoard.isAvailCoordinate(coordinate)) {
-                    this.nextCandidateCoordinates.push(coordinate);
-                }
-            }
-
-            for (let i = 1; i < 5; i++) {
-                const coordinate = {x: x, y: y - i};
-                if (this.opponentBoard.isAvailCoordinate(coordinate)) {
-                    this.nextCandidateCoordinates.push(coordinate);
-                }
-            }
-        }
-    }
-
     updateState(coordinate, result) {
         this.trackHit(coordinate, result);
 
