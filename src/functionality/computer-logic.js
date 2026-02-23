@@ -52,16 +52,6 @@ export class ComputerAI {
         }
     }
 
-    determineGenerator() {
-        if (this.isFirstHit && this.direction === null) {
-            this.generateAdjacentCoordinates();
-        } else {
-            if (this.isFirstHit && this.direction !== null) {
-                this.generateDirectionalCoordinates(this.direction);
-            }
-        }
-    }
-
     removeMissedCoordinate() {
         const x = this.lastHit.x;
         const y = this.lastHit.y;
