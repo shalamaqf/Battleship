@@ -52,31 +52,6 @@ export class ComputerAI {
         }
     }
 
-    trackHit(coordinate, result) {
-        if (result.hit === false) {
-            this.lastHit = coordinate;
-        }
-
-        if (result.hit) {
-            if (this.isFirstHit === false) {
-                this.isFirstHit = true;
-                this.lastHit = coordinate;
-                this.anchorHit = coordinate;
-                this.targetShip = this.opponentBoard.getShipByCoordinate(coordinate);
-            } else {
-                this.lastHit = coordinate;
-
-                if (this.direction === null) {
-                    if (coordinate.x === this.anchorHit.x) {
-                        this.direction = Direction.VERTICAL;
-                    } else if (coordinate.y === this.anchorHit.y) {
-                        this.direction = Direction.HORIZONTAL;
-                    }
-                }
-            }
-        }
-    }
-
     determineGenerator() {
         if (this.isFirstHit && this.direction === null) {
             this.generateAdjacentCoordinates();
