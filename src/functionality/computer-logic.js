@@ -3,10 +3,8 @@ import { Direction } from "./game-board.js";
 export class ComputerAI {
     constructor(realPlayerBoard) {
         this.lastHit = null;
-        this.direction = null;
         this.nextCandidateCoordinates = [];
         this.opponentBoard = realPlayerBoard;
-        this.targetShip = null;
         this.anchorHit = null;
         this.isFirstHit = false;
     }
