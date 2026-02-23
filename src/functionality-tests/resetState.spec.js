@@ -1,5 +1,5 @@
 const { ComputerAI } = require("../functionality/computer-logic");
-const { Direction } = require("../functionality/game-board");
+const { Player } = require("../functionality/player");
 
 describe('resetState method', () => {
     test('resetState method is defined', () => {
@@ -8,18 +8,18 @@ describe('resetState method', () => {
     })
 
     test('Reset the computer ai state if the result of the ship is sunk is true', () => {
-        const computer = new ComputerAI();
+        const realPlayer = new Player('Real Player');
+        const computer = new ComputerAI(realPlayer.board);
 
-        const result = { hit: true, isShipSunk: true };
+        computer.anchorHit = {x: 3, y: 4};
+        computer.lastHit = {x: 2, y: 4};
+        computer.nextCandidateCoordinates = [{x: 2, y: 5}, {x: 2, y: 3}, {x: 1, y: 4}]
 
-        computer.direction = Direction.HORIZONTAL;
-        computer.lastHit = {x: 3, y: 4};
-        computer.nextCandidateCoordinates = [{x: 4, y: 4}, {x: 5, y: 4}, {x: 6, y: 4}, {x: 7, y: 4}];
+        computer.resetState();
         
-        computer.resetState(result);
-        
-        expect(computer.direction).toBe(null);
         expect(computer.lastHit).toBe(null);
         expect(computer.nextCandidateCoordinates.length).toBe(0);
+        expect(computer.anchorHit).toBe(null);
+        expect(computer.isFirstHit).toBe(false);
     })
 })

@@ -1,5 +1,3 @@
-import { Direction } from "./game-board.js";
-
 export class ComputerAI {
     constructor(realPlayerBoard) {
         this.lastHit = null;
@@ -50,10 +48,8 @@ export class ComputerAI {
     }
 
     resetState() {
-        this.direction = null;
         this.lastHit = null;
         this.nextCandidateCoordinates = [];
-        this.targetShip = null;
         this.anchorHit = null;
         this.isFirstHit = false;
     }
