@@ -38,18 +38,7 @@ export class ComputerAI {
     }
 
     updateState(coordinate, result) {
-        this.trackHit(coordinate, result);
-
-        if (result.isShipSunk) {
-            this.resetState();
-            return;
-        }
-
-        if (result.hit) {
-            this.determineGenerator();
-        } else {
-            this.removeMissedCoordinate();
-        }
+        
     }
 
     removeMissedCoordinate() {
