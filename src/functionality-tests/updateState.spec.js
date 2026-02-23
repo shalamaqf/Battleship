@@ -17,14 +17,13 @@ describe('updateState method', () => {
         realPlayer.board.placeShip({x: 5, y: 2}, ship);
 
         const coordinate = {x: 5, y: 5};
-        const result = { hit: false };
+        const result = { hit: false, isShipSunk: false };
         realPlayer.board.receiveAttack(coordinate);
 
         computer.updateState(coordinate, result);
 
         expect(computer.lastHit).toBe(coordinate);
         expect(computer.anchorHit).toBe(null);
-        expect(computer.targetShip).toBe(null);
         expect(computer.isFirstHit).toBe(false);
     })
 
@@ -48,8 +47,6 @@ describe('updateState method', () => {
 
         expect(computer.lastHit).toBe(coordinate_1);
         expect(computer.anchorHit).toBe(coordinate_1);
-        expect(computer.targetShip).toBe(ship);
-        expect(computer.direction).toBe(null);
         expect(computer.isFirstHit).toBe(true);
 
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 6, y: 3});
@@ -58,51 +55,50 @@ describe('updateState method', () => {
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 7, y: 2});
     })
 
-    test('update state if attack is second hit', () => {
+    test("update state if attack is hit and it's not first hit", () => {
         const realPlayer = new Player('Real Player');
         const computer = new ComputerAI(realPlayer.board);
         const ship = new Ship(4, Direction.VERTICAL);
-        realPlayer.board.placeShip({x: 1, y: 2}, ship);
+        realPlayer.board.placeShip({x: 2, y: 3}, ship);
 
-        // First attack
-        const coordinate = {x: 5, y: 5};
-        const result = { hit: false, isShipSunk: false };
+        // First hit, first adjacent
+        const coordinate = {x: 2, y: 5};
+        const result = { hit: true, isShipSunk: false };
         realPlayer.board.receiveAttack(coordinate);
         computer.updateState(coordinate, result);
 
-        // Second attack, first hit
-        const coordinate_1 = {x: 1, y: 4};
-        const result_1 = { hit: true, isShipSunk: false };
-        realPlayer.board.receiveAttack(coordinate_1);
-        computer.updateState(coordinate_1, result_1);
-
-        // Third attack, missed 
-        const coordinate_2 = {x: 2, y: 4};
-        const result_2 = { hit: false, isShipSunk: false };
-        realPlayer.board.receiveAttack(coordinate_2);
-        computer.updateState(coordinate_2, result_2);
-
-        // Fourth attack, second hit 
-        const coordinate_3 = {x: 1, y: 5};
-        const result_3 = { hit: true, isShipSunk: false };
-        realPlayer.board.receiveAttack(coordinate_3);
-        computer.updateState(coordinate_3, result_3);
-
-        expect(computer.lastHit).toBe(coordinate_3);
-        expect(computer.anchorHit).toBe(coordinate_1);
-        expect(computer.targetShip).toBe(ship);
-        expect(computer.direction).toBe(Direction.VERTICAL);
+        expect(computer.lastHit).toBe(coordinate);
+        expect(computer.anchorHit).toBe(coordinate);
         expect(computer.isFirstHit).toBe(true);
 
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 2, y: 6});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 3, y: 5});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 2, y: 4});
         expect(computer.nextCandidateCoordinates).toContainEqual({x: 1, y: 5});
-        expect(computer.nextCandidateCoordinates).toContainEqual({x: 1, y: 6});
-        expect(computer.nextCandidateCoordinates).toContainEqual({x: 1, y: 7});
-        expect(computer.nextCandidateCoordinates).toContainEqual({x: 1, y: 8});
 
-        expect(computer.nextCandidateCoordinates).toContainEqual({x: 1, y: 3});
-        expect(computer.nextCandidateCoordinates).toContainEqual({x: 1, y: 2});
-        expect(computer.nextCandidateCoordinates).toContainEqual({x: 1, y: 1});
-        expect(computer.nextCandidateCoordinates).not.toContainEqual({x: 1, y: 0});
+        const firstAdjacent = computer.getNextCoordinate();
+        const result_1 = { hit: true, isShipSunk: false };
+        computer.updateState(firstAdjacent, result_1);
+
+        const secondAdjacent = computer.getNextCoordinate();
+        const result_2 = { hit: false, isShipSunk: false };
+        computer.updateState(secondAdjacent, result_2);
+
+        const thirdAdjacent = computer.getNextCoordinate();
+        const result_3 = { hit: true, isShipSunk: false };
+        computer.updateState(thirdAdjacent, result_3);
+
+        const fourthAdjacent = computer.getNextCoordinate();
+        const result_4 = { hit: false, isShipSunk: false };
+        computer.updateState(fourthAdjacent, result_4);
+
+        expect(thirdAdjacent).toMatchObject({x: 2, y: 4});
+        
+        // Second adjacent
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 2, y: 5});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 3, y: 4});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 2, y: 3});
+        expect(computer.nextCandidateCoordinates).toContainEqual({x: 1, y: 4});
     })
 
     test('update state if the ship is sunk', () => {
@@ -131,8 +127,7 @@ describe('updateState method', () => {
 
         expect(computer.lastHit).toBe(null);
         expect(computer.anchorHit).toBe(null);
-        expect(computer.targetShip).toBe(null);
-        expect(computer.direction).toBe(null);
         expect(computer.isFirstHit).toBe(false);
+        expect(computer.nextCandidateCoordinates.length).toBe(0);
     })
 })

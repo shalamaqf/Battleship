@@ -36,7 +36,35 @@ export class ComputerAI {
     }
 
     updateState(coordinate, result) {
-        
+        if (!result.hit) {
+            this.lastHit = coordinate;
+            
+            if (this.anchorHit) {
+                this.removeMissedCoordinate();
+            }
+            
+            if (this.nextCandidateCoordinates.length === 0 && this.anchorHit) {
+                this.generateAdjacentCoordinates();
+            } else {
+                return;
+            }
+        }
+
+        if (result.isShipSunk) {
+            this.resetState();
+            return;
+        }
+
+        if (result.hit && !this.isFirstHit) {
+            this.lastHit = coordinate;
+            this.anchorHit = coordinate;
+            this.isFirstHit = true;
+            this.generateAdjacentCoordinates();
+            return;
+        } else {
+            this.lastHit = coordinate;
+            this.anchorHit = coordinate;
+        }
     }
 
     removeMissedCoordinate() {
