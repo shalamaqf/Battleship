@@ -91,7 +91,18 @@ export const gameControllerMP = ( function () {
     }
 
     function getSecondPlayerOccupiedCoordinates() {
+        const coordinates = Object.keys(secondPlayer.board.occupiedCoordinate);
+        let occupiedCoordinates = [];
 
+        coordinates.forEach(coordinate => {
+            const obj = coordinate.split(',');
+            const x = parseInt(obj[0]);
+            const y = parseInt(obj[1]);
+            const objectCoordinate = {x: x, y: y};
+            occupiedCoordinates.push(objectCoordinate);
+        });
+
+        return occupiedCoordinates;
     }
 
     
