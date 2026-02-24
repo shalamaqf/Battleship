@@ -15,6 +15,10 @@ export const gameControllerMP = ( function () {
         secondPlayer.board.shuffleShips();
     }
 
+    function switchTurn() {
+
+    }
+
     function getFirstPlayerBoard() {
         return firstPlayer.board;
     }
@@ -25,6 +29,7 @@ export const gameControllerMP = ( function () {
     
     return {
         setupGame: setupGame,
+        switchTurn: switchTurn,
         getFirstPlayerBoard: getFirstPlayerBoard,
         getSecondPlayerBoard: getSecondPlayerBoard
     }
