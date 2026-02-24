@@ -1,8 +1,8 @@
 const { GameBoard } = require("../../functionality/game-board");
 const { gameControllerMP } = require("../../functionality/game-controller-MP");
 
-describe('setupGame method', () => {
-    test('setupGame method is defined', () => {
+describe('setupGame function', () => {
+    test('setupGame function is defined', () => {
         expect(gameControllerMP.setupGame).toBeDefined();
     })
 
@@ -20,8 +20,8 @@ describe('setupGame method', () => {
     })
 })
 
-describe('switchTurn method', () => {
-    test('switchTurn method is defined', () => {
+describe('switchTurn function', () => {
+    test('switchTurn function is defined', () => {
         expect(gameControllerMP.switchTurn).toBeDefined();
     })
 
@@ -37,5 +37,11 @@ describe('switchTurn method', () => {
         currentPlayer = gameControllerMP.getCurrentPlayer();
 
         expect(currentPlayer).toEqual(secondPlayer);
+    })
+})
+
+describe('playTurn function', () => {
+    test('playTurn function is defined', () => {
+        expect(gameControllerMP.playTurn).toBeDefined();
     })
 })

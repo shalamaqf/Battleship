@@ -23,6 +23,10 @@ export const gameControllerMP = ( function () {
         }
     }
 
+    function playTurn({x, y}, opponentBoard) {
+
+    }
+
     function getCurrentPlayer() {
         return currentPlayer;
     }
@@ -46,6 +50,7 @@ export const gameControllerMP = ( function () {
     return {
         setupGame: setupGame,
         switchTurn: switchTurn,
+        playTurn: playTurn,
         getFirstPlayerBoard: getFirstPlayerBoard,
         getSecondPlayerBoard: getSecondPlayerBoard,
         getCurrentPlayer: getCurrentPlayer,
