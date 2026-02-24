@@ -16,7 +16,15 @@ export const gameControllerMP = ( function () {
     }
 
     function switchTurn() {
+        if (currentPlayer === firstPlayer) {
+            currentPlayer = secondPlayer;
+        } else {
+            currentPlayer = firstPlayer;
+        }
+    }
 
+    function getCurrentPlayer() {
+        return currentPlayer;
     }
 
     function getFirstPlayerBoard() {
@@ -26,11 +34,22 @@ export const gameControllerMP = ( function () {
     function getSecondPlayerBoard() {
         return secondPlayer.board;
     }
+
+    function getFirstPlayer() {
+        return firstPlayer;
+    }
+
+    function getSecondPlayer() {
+        return secondPlayer;
+    }
     
     return {
         setupGame: setupGame,
         switchTurn: switchTurn,
         getFirstPlayerBoard: getFirstPlayerBoard,
-        getSecondPlayerBoard: getSecondPlayerBoard
+        getSecondPlayerBoard: getSecondPlayerBoard,
+        getCurrentPlayer: getCurrentPlayer,
+        getFirstPlayer: getFirstPlayer,
+        getSecondPlayer: getSecondPlayer
     }
 })();

@@ -24,4 +24,18 @@ describe('switchTurn method', () => {
     test('switchTurn method is defined', () => {
         expect(gameControllerMP.switchTurn).toBeDefined();
     })
+
+    test('switch the player', () => {
+        gameControllerMP.setupGame();
+        let currentPlayer = gameControllerMP.getCurrentPlayer();
+        const firstPlayer = gameControllerMP.getFirstPlayer();
+        const secondPlayer = gameControllerMP.getSecondPlayer();
+
+        expect(currentPlayer).toEqual(firstPlayer);
+
+        gameControllerMP.switchTurn();
+        currentPlayer = gameControllerMP.getCurrentPlayer();
+
+        expect(currentPlayer).toEqual(secondPlayer);
+    })
 })
