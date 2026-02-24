@@ -23,8 +23,20 @@ export const gameControllerMP = ( function () {
         }
     }
 
-    function playTurn({x, y}, opponentBoard) {
+    function checkWin(opponentBoard) {
+        return opponentBoard.areAllShipsSunk();
+    }
 
+    function playTurn({x, y}, opponentBoard) {
+        // Attack the opponent board
+        const result = opponentBoard.receiveAttack({x, y});
+
+        gameOver = checkWin(opponentBoard);
+
+        // Switch player if the game is not over and the attack is miss
+        if (result.hit === false && gameOver === false) switchTurn();
+
+        return { hit: result.hit, isShipSunk: result.isOpponentShipSunk, gameOver: gameOver }
     }
 
     function getCurrentPlayer() {
@@ -46,6 +58,23 @@ export const gameControllerMP = ( function () {
     function getSecondPlayer() {
         return secondPlayer;
     }
+
+    function getWinner() {
+        if (firstPlayer.board.areAllShipsSunk()) return secondPlayer;
+        if (secondPlayer.board.areAllShipsSunk()) return firstPlayer;
+    }
+
+    function isGameOver() {
+        return gameOver;
+    }
+    
+    function resetGame() {
+        firstPlayer = null;
+        secondPlayer = null;
+        currentPlayer = null;
+        gameOver = false;
+    }
+
     
     return {
         setupGame: setupGame,
