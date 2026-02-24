@@ -129,6 +129,7 @@ describe('playTurn function', () => {
         const firstPlayer = gameControllerMP.getFirstPlayer();
         const secondPlayer = gameControllerMP.getSecondPlayer();
         let currentPlayer = gameControllerMP.getCurrentPlayer();
+        let winner;
 
         // Simplified the setup
         firstPlayerBoard.resetBoard();
@@ -144,8 +145,10 @@ describe('playTurn function', () => {
         gameControllerMP.playTurn({x: 3, y: 1}, secondPlayerBoard);
         const result_1 = gameControllerMP.playTurn({x: 2, y: 1}, secondPlayerBoard);
         currentPlayer = gameControllerMP.getCurrentPlayer();
+        winner = gameControllerMP.getWinner();
 
         expect(currentPlayer).toEqual(firstPlayer);
+        expect(winner).toEqual(firstPlayer);
         expect(result_1.hit).toBe(true);
         expect(result_1.isShipSunk).toBe(true);
         expect(result_1.gameOver).toBe(true);
@@ -158,6 +161,7 @@ describe('playTurn function', () => {
         const firstPlayer = gameControllerMP.getFirstPlayer();
         const secondPlayer = gameControllerMP.getSecondPlayer();
         let currentPlayer = gameControllerMP.getCurrentPlayer();
+        let winner;
 
         // Simplified the setup
         firstPlayerBoard.resetBoard();
@@ -179,8 +183,10 @@ describe('playTurn function', () => {
         gameControllerMP.playTurn({x: 9, y: 10}, firstPlayerBoard);
         const result_1 = gameControllerMP.playTurn({x: 9, y: 9}, firstPlayerBoard);
         currentPlayer = gameControllerMP.getCurrentPlayer();
+        winner = gameControllerMP.getWinner();
 
         expect(currentPlayer).toEqual(secondPlayer);
+        expect(winner).toEqual(secondPlayer);
         expect(result_1.hit).toBe(true);
         expect(result_1.isShipSunk).toBe(true);
         expect(result_1.gameOver).toBe(true);

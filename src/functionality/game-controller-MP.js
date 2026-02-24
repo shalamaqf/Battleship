@@ -86,6 +86,7 @@ export const gameControllerMP = ( function () {
         getFirstPlayer: getFirstPlayer,
         getSecondPlayer: getSecondPlayer,
         resetGame: resetGame,
-        isGameOver: isGameOver
+        isGameOver: isGameOver,
+        getWinner: getWinner
     }
 })();
