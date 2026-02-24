@@ -18,7 +18,7 @@ export const gameUIMultiPlayer = ( function () {
     firstPlayerBoardSection.append(firstPlayerButtonContainer);
     secondPlayerBoardSection.append(secondPlayerButtonContainer);
 
-    
+
     function createButtons(boardDOM) {
         for (let i = 10; i > 0; i--) {
             for (let j = 1; j < 11; j++) {
@@ -29,6 +29,20 @@ export const gameUIMultiPlayer = ( function () {
                 button.type = 'button';
                 boardDOM.append(button);
             }
+        }
+    }
+
+    function updateButtonDOM(hit, button) {
+        if (hit === true) {
+            button.textContent = 'HIT';
+            button.classList.add('hit');
+            button.dataset.clicked = true;
+            button.disabled = true;
+        } else {
+            button.textContent = 'X';
+            button.classList.add('miss');
+            button.dataset.clicked = true;
+            button.disabled = true;
         }
     }
 })
