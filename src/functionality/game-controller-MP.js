@@ -90,6 +90,9 @@ export const gameControllerMP = ( function () {
         return occupiedCoordinates;
     }
 
+    function getSecondPlayerOccupiedCoordinates() {
+
+    }
 
     
     return {
@@ -104,6 +107,7 @@ export const gameControllerMP = ( function () {
         resetGame: resetGame,
         isGameOver: isGameOver,
         getWinner: getWinner,
-        getFirstPlayerOccupiedCoordinates: getFirstPlayerOccupiedCoordinates
+        getFirstPlayerOccupiedCoordinates: getFirstPlayerOccupiedCoordinates,
+        getSecondPlayerOccupiedCoordinates: getSecondPlayerOccupiedCoordinates
     }
 })();
