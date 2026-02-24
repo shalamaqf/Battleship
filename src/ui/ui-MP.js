@@ -1,3 +1,5 @@
+import { gameControllerMP } from "../functionality/game-controller-MP";
+
 export const gameUIMultiPlayer = ( function () {
     const firstPlayerBoardDOM = document.querySelector('.board.real-player');
     const secondPlayerBoardDOM = document.querySelector('.board.computer-player');
@@ -44,5 +46,14 @@ export const gameUIMultiPlayer = ( function () {
             button.dataset.clicked = true;
             button.disabled = true;
         }
+    }
+
+    function handleFirstPlayerClick(button) {
+        button.addEventListener('click', () => {
+            const {x, y} = {x: parseInt(button.dataset.x), y: parseInt(button.dataset.y)};
+            const result = gameControllerMP.firstPlayerTurn({x, y});
+            reactOnTurn(result, button);
+            handleGameOver();
+        })
     }
 })
