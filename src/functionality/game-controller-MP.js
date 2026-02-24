@@ -111,6 +111,12 @@ export const gameControllerMP = ( function () {
         return result;
     }
 
+    function secondPlayerTurn({x, y}) {
+        const coordinate = {x, y};
+        const result = playTurn(coordinate, firstPlayer.board);
+        return result;
+    }
+
     
     return {
         setupGame: setupGame,
@@ -125,6 +131,8 @@ export const gameControllerMP = ( function () {
         isGameOver: isGameOver,
         getWinner: getWinner,
         getFirstPlayerOccupiedCoordinates: getFirstPlayerOccupiedCoordinates,
-        getSecondPlayerOccupiedCoordinates: getSecondPlayerOccupiedCoordinates
+        getSecondPlayerOccupiedCoordinates: getSecondPlayerOccupiedCoordinates,
+        firstPlayerTurn: firstPlayerTurn,
+        secondPlayerTurn: secondPlayerTurn
     }
 })();
