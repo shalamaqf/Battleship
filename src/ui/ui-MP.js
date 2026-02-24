@@ -56,4 +56,13 @@ export const gameUIMultiPlayer = ( function () {
             handleGameOver();
         })
     }
+
+    function handleSecondPlayerClick(button) {
+        button.addEventListener('click', () => {
+            const {x, y} = {x: parseInt(button.dataset.x), y: parseInt(button.dataset.y)};
+            const result = gameControllerMP.secondPlayerTurn({x, y});
+            reactOnTurn(result, button);
+            handleGameOver();
+        })
+    }
 })
