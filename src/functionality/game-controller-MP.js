@@ -69,7 +69,10 @@ export const gameControllerMP = ( function () {
     }
 
     function resetGame() {
-        
+        firstPlayer = null;
+        secondPlayer = null;
+        currentPlayer = null;
+        gameOver = false;
     }
 
     

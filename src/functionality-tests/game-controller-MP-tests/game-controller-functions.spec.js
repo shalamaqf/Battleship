@@ -191,4 +191,19 @@ describe('resetGame function', () => {
     test('resetGame function is defined', () => {
         expect(gameControllerMP.resetGame).toBeDefined();
     })
+
+    test('reset the game', () => {
+        gameControllerMP.setupGame();
+        gameControllerMP.resetGame();
+
+        const firstPlayer = gameControllerMP.getFirstPlayer();
+        const secondPlayer = gameControllerMP.getSecondPlayer();
+        let currentPlayer = gameControllerMP.getCurrentPlayer();
+        let isGameOver = gameControllerMP.isGameOver();
+
+        expect(firstPlayer).toBe(null);
+        expect(secondPlayer).toBe(null);
+        expect(currentPlayer).toBe(null); 
+        expect(isGameOver).toBe(false);  
+    })
 })
