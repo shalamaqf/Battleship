@@ -105,6 +105,12 @@ export const gameControllerMP = ( function () {
         return occupiedCoordinates;
     }
 
+    function firstPlayerTurn({x, y}) {
+        const coordinate = {x, y};
+        const result = playTurn(coordinate, secondPlayer.board);
+        return result;
+    }
+
     
     return {
         setupGame: setupGame,
