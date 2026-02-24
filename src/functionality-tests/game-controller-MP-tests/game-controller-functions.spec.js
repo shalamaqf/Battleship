@@ -186,3 +186,9 @@ describe('playTurn function', () => {
         expect(result_1.gameOver).toBe(true);
     })
 })
+
+describe('resetGame function', () => {
+    test('resetGame function is defined', () => {
+        expect(gameControllerMP.resetGame).toBeDefined();
+    })
+})

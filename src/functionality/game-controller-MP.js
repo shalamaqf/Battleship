@@ -67,12 +67,9 @@ export const gameControllerMP = ( function () {
     function isGameOver() {
         return gameOver;
     }
-    
+
     function resetGame() {
-        firstPlayer = null;
-        secondPlayer = null;
-        currentPlayer = null;
-        gameOver = false;
+        
     }
 
     
@@ -84,6 +81,8 @@ export const gameControllerMP = ( function () {
         getSecondPlayerBoard: getSecondPlayerBoard,
         getCurrentPlayer: getCurrentPlayer,
         getFirstPlayer: getFirstPlayer,
-        getSecondPlayer: getSecondPlayer
+        getSecondPlayer: getSecondPlayer,
+        resetGame: resetGame,
+        isGameOver: isGameOver
     }
 })();
