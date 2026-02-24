@@ -14,7 +14,21 @@ export const gameUIMultiPlayer = ( function () {
 
     firstPlayerButtonContainer.classList.add('button-container first-player');
     secondPlayerButtonContainer.classList.add('button-container second-player');
-    
+
     firstPlayerBoardSection.append(firstPlayerButtonContainer);
     secondPlayerBoardSection.append(secondPlayerButtonContainer);
+
+    
+    function createButtons(boardDOM) {
+        for (let i = 10; i > 0; i--) {
+            for (let j = 1; j < 11; j++) {
+                const button = document.createElement('button');
+                button.classList.add('coordinate-button');
+                button.dataset.x = j;
+                button.dataset.y = i;
+                button.type = 'button';
+                boardDOM.append(button);
+            }
+        }
+    }
 })
