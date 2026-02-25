@@ -196,4 +196,10 @@ export const gameUIMultiPlayer = ( function () {
         const randomizeButton = firstPlayerButtonContainer.querySelector('.randomize');
         handleRandomizeButtonFirstPlayer(randomizeButton);
     }
+
+    function attachEventRandomizeButtonSecondPlayer() {
+        createRandomizeButton(secondPlayerButtonContainer);
+        const randomizeButton = secondPlayerButtonContainer.querySelector('.randomize');
+        handleRandomizeButtonSecondPlayer(randomizeButton);
+    }
 })
