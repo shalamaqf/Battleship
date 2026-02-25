@@ -72,4 +72,20 @@ export const gameUIMultiPlayer = ( function () {
         showPlayerTurn();
         showShipSunk(result);
     }
+
+    function updateBoard(result, button) {
+        const hit = result.hit;
+        updateButtonDOM(hit, button);
+
+        let currentPlayer = gameControllerMP.getCurrentPlayer();
+        const firstPlayer = gameControllerMP.getFirstPlayer();
+
+        if (currentPlayer === firstPlayer) {
+            enableBoard(secondPlayerBoardDOM);
+            disableBoard(firstPlayerBoardDOM);
+        } else {
+            enableBoard(firstPlayerBoardDOM);
+            disableBoard(secondPlayerBoardDOM);
+        }
+    }
 })
