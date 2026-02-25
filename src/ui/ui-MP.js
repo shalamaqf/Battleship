@@ -133,4 +133,9 @@ export const gameUIMultiPlayer = ( function () {
             handleFirstPlayerClick(button);
         })
     }
+
+    function showPlayerTurn() {
+        const currentPlayer = gameControllerMP.getCurrentPlayer();
+        playerTurn.textContent = currentPlayer.name;
+    }
 })
