@@ -44,7 +44,7 @@ export const setupUIMultiPlayer = ( function () {
     }
 
     function enableBoard(boardDOM) {
-        const buttons = boardElement.querySelectorAll('.coordinate-button');
+        const buttons = boardDOM.querySelectorAll('.coordinate-button');
         buttons.forEach(button => {
             if (!button.dataset.clicked) {
                 button.disabled = false;
