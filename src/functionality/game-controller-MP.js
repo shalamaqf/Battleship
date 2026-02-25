@@ -19,6 +19,10 @@ export const gameControllerMP = ( function () {
         firstPlayer.board.shuffleShips();
     }
 
+    function shuffleShipsSecondPlayer() {
+        secondPlayer.board.shuffleShips();
+    }
+
     function switchTurn() {
         if (currentPlayer === firstPlayer) {
             currentPlayer = secondPlayer;
