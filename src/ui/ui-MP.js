@@ -88,4 +88,11 @@ export const gameUIMultiPlayer = ( function () {
             disableBoard(secondPlayerBoardDOM);
         }
     }
+
+    function disableBoard(boardDOM) {
+        const buttons = boardElement.querySelectorAll('.coordinate-button');
+        buttons.forEach(button => {
+            button.disabled = true;
+        });
+    }
 })
