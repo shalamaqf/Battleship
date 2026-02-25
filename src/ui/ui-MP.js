@@ -289,4 +289,8 @@ export const gameUIMultiPlayer = ( function () {
         })
     }
 
+    function deleteButton(button) {
+        if (button) button.remove();
+    }
+
 })
