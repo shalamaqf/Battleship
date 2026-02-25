@@ -260,4 +260,12 @@ export const gameUIMultiPlayer = ( function () {
             }
         });
     }
+
+    function deleteButtonsHighlight(boardDOM) {
+        const buttons = boardDOM.querySelectorAll('.coordinate-button');
+
+        buttons.forEach(button => {
+            button.style.backgroundColor = '';
+        });
+    }
 })
