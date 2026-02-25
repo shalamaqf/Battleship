@@ -65,4 +65,11 @@ export const gameUIMultiPlayer = ( function () {
             handleGameOver();
         })
     }
+
+    function reactOnTurn(result, button) {
+        deleteShowShipSunk();
+        updateBoard(result, button);
+        showPlayerTurn();
+        showShipSunk(result);
+    }
 })
