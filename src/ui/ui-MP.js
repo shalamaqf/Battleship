@@ -277,4 +277,16 @@ export const gameUIMultiPlayer = ( function () {
         infoButtonContainer.append(startGameButton);
         infoSection.append(infoButtonContainer);
     }
+
+    function handleStartGameButton(startGameButton, buttonContainer) {
+        startGameButton.addEventListener('click', () => {
+            resetBoardUI();
+            deleteButton(startGameButton);
+            deleteButtonContainer(buttonContainer);
+            enableBoard(secondPlayerBoardDOM);
+            disableBoard(firstPlayerBoardDOM);
+            showPlayerTurn();
+        })
+    }
+
 })
