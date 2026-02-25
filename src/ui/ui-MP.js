@@ -268,4 +268,13 @@ export const gameUIMultiPlayer = ( function () {
             button.style.backgroundColor = '';
         });
     }
+
+    function createStartGameButton() {
+        const infoSection = document.getElementById('info-section');
+        const startGameButton = document.createElement('button');
+        startGameButton.textContent ='Start Game';
+        startGameButton.classList.add('start-game');
+        infoButtonContainer.append(startGameButton);
+        infoSection.append(infoButtonContainer);
+    }
 })
