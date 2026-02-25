@@ -202,6 +202,7 @@ export const setupUIMultiPlayer = ( function () {
         attachEventFinishSetupButtonFirstPlayer();
         attachEventFinishSetupButtonSecondPlayer();
         attachEventRandomizeButtonFirstPlayer();
+        attachEventRandomizeButtonSecondPlayer();
         attachEventFinishSetupButtonSecondPlayer();
         attachEventStartGameButton();
     }
