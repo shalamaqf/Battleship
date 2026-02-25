@@ -293,4 +293,9 @@ export const gameUIMultiPlayer = ( function () {
         if (button) button.remove();
     }
 
+    function deleteButtonContainer(container) {
+        if (container) container.remove();
+    }
+
+
 })
