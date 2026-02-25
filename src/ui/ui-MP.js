@@ -165,4 +165,11 @@ export const gameUIMultiPlayer = ( function () {
         const shipSunkInfo = document.getElementById('ship-sunk');
         shipSunkInfo.textContent = '';
     }
+
+    function createRandomizeButton(container) {
+        const randomizeButton = document.createElement('button');
+        randomizeButton.textContent = 'Randomize';
+        randomizeButton.classList.add('randomize');
+        container.append(randomizeButton);
+    }
 })
