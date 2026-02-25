@@ -172,4 +172,13 @@ export const gameUIMultiPlayer = ( function () {
         randomizeButton.classList.add('randomize');
         container.append(randomizeButton);
     }
+
+    function handleRandomizeButtonFirstPlayer(randomizeButton) {
+        randomizeButton.addEventListener('click', () => {
+            gameControllerMP.shuffleShipsFirstPlayer();
+            const occupiedCoordinates = gameControllerMP.getFirstPlayerOccupiedCoordinates();
+            deleteButtonsHighlight(firstPlayerBoardDOM);
+            highlightButtons(occupiedCoordinates);
+        })
+    }
 })
