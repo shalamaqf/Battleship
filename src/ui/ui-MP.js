@@ -311,4 +311,20 @@ export const gameUIMultiPlayer = ( function () {
         attachEventStartGameButton();
     }
 
+    function resetBoardUI() {
+        const buttonsFP = firstPlayerBoardDOM.querySelectorAll('.coordinate-button');
+        const buttonSP = secondPlayerBoardDOM.querySelectorAll('.coordinate-button');
+
+        buttonsFP.forEach(button => {
+            button.textContent = '';
+            button.classList.remove('hit', 'miss');
+            button.removeAttribute('clicked');
+        });
+
+        buttonSP.forEach(button => {
+            button.textContent = '';
+            button.classList.remove('hit', 'miss');
+            button.removeAttribute('clicked');
+        })
+    }
 })
