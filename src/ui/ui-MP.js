@@ -181,4 +181,13 @@ export const gameUIMultiPlayer = ( function () {
             highlightButtons(occupiedCoordinates);
         })
     }
+
+    function handleRandomizeButtonSecondPlayer(randomizeButton) {
+        randomizeButton.addEventListener('click', () => {
+            gameControllerMP.shuffleShipsSecondPlayer();
+            const occupiedCoordinates = gameControllerMP.getSecondPlayerOccupiedCoordinates();
+            deleteButtonsHighlight(secondPlayerBoardDOM);
+            highlightButtons(occupiedCoordinates);
+        })
+    }
 })
