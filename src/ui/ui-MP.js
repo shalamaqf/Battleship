@@ -160,4 +160,9 @@ export const gameUIMultiPlayer = ( function () {
             return;
         }
     }
+
+    function deleteShowShipSunk() {
+        const shipSunkInfo = document.getElementById('ship-sunk');
+        shipSunkInfo.textContent = '';
+    }
 })
