@@ -178,7 +178,7 @@ export const gameUIMultiPlayer = ( function () {
             gameControllerMP.shuffleShipsFirstPlayer();
             const occupiedCoordinates = gameControllerMP.getFirstPlayerOccupiedCoordinates();
             deleteButtonsHighlight(firstPlayerBoardDOM);
-            highlightButtons(occupiedCoordinates);
+            highlightButtons(occupiedCoordinates, firstPlayerBoardDOM);
         })
     }
 
@@ -187,7 +187,7 @@ export const gameUIMultiPlayer = ( function () {
             gameControllerMP.shuffleShipsSecondPlayer();
             const occupiedCoordinates = gameControllerMP.getSecondPlayerOccupiedCoordinates();
             deleteButtonsHighlight(secondPlayerBoardDOM);
-            highlightButtons(occupiedCoordinates);
+            highlightButtons(occupiedCoordinates, secondPlayerBoardDOM);
         })
     }
 
@@ -247,5 +247,17 @@ export const gameUIMultiPlayer = ( function () {
         const randomizeButton = secondPlayerButtonContainer.querySelector('.randomize');
 
         handleFinishSetupButtonSecondPlayer(finishSetupButton, randomizeButton, secondPlayerButtonContainer);
+    }
+
+    function highlightButtons(occupiedCoordinates, boardDOM) {
+        occupiedCoordinates.forEach(coordinate => {
+            const x = coordinate.x
+            const y = coordinate.y;
+            const button = boardDOM.querySelector(`[data-x="${x}"][data-y="${y}"]`)
+
+            if (button) {
+                button.style.backgroundColor = 'rgb(0, 255, 0)';
+            }
+        });
     }
 })
