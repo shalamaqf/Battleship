@@ -289,6 +289,11 @@ export const gameUIMultiPlayer = ( function () {
         })
     }
 
+    function attachEventStartGameButton() {
+        const startGameButton = document.querySelector('.start-game');
+        handleStartGameButton(startGameButton, infoButtonContainer);
+    }
+
     function deleteButton(button) {
         if (button) button.remove();
     }
