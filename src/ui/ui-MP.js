@@ -120,4 +120,17 @@ export const gameUIMultiPlayer = ( function () {
         createButtons(firstPlayerBoardDOM);
         createButtons(secondPlayerBoardDOM);
     }
+
+    function attachEventClickPlayerBoards() {
+        const buttonsFP = firstPlayerBoardDOM.querySelectorAll('.coordinate-button');
+        const buttonsSP = secondPlayerBoardDOM.querySelectorAll('.coordinate-button');
+
+        buttonsFP.forEach(button => {
+            handleSecondPlayerClick(button);
+        });
+
+        buttonsSP.forEach(button => {
+            handleFirstPlayerClick(button);
+        })
+    }
 })
