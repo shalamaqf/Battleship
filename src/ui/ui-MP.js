@@ -231,7 +231,7 @@ export const setupUIMultiPlayer = ( function () {
 
         // Highlight first player's board
         const occupiedCoordinates = gameControllerMP.getFirstPlayerOccupiedCoordinates();
-        highlightButtons(occupiedCoordinates);
+        highlightButtons(occupiedCoordinates, firstPlayerBoardDOM);
     }
 
     return {
