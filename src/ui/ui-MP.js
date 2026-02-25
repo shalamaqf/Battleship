@@ -95,4 +95,15 @@ export const gameUIMultiPlayer = ( function () {
             button.disabled = true;
         });
     }
+
+    function enableBoard(boardDOM) {
+        const buttons = boardElement.querySelectorAll('.coordinate-button');
+        buttons.forEach(button => {
+            if (!button.dataset.clicked) {
+                button.disabled = false;
+            } else {
+                button.disabled = true;
+            }
+        });
+    }
 })
