@@ -143,4 +143,21 @@ export const gameUIMultiPlayer = ( function () {
         const winner = gameControllerMP.getWinner();
         playerTurn.textContent = 'The winner is ' +  winner.name + '!';
     }
+
+    function showShipSunk(result) {
+        const shipSunkInfo = document.getElementById('ship-sunk');
+        const currentPlayer = gameControllerMP.getCurrentPlayer();
+        const firstPlayer = gameControllerMP.getFirstPlayer();
+        const secondPlayer = gameControllerMP.getSecondPlayer();
+
+        if (result.isShipSunk) {
+            if (currentPlayer === firstPlayer) {
+                shipSunkInfo.textContent = secondPlayer.name + "'s ship is sunk!";
+            } else {
+                shipSunkInfo.textContent = firstPlayer.name + "'s ship is sunk!";
+            }
+        } else {
+            return;
+        }
+    }
 })
