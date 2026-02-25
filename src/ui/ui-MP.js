@@ -37,7 +37,7 @@ export const setupUIMultiPlayer = ( function () {
     }
 
     function disableBoard(boardDOM) {
-        const buttons = boardElement.querySelectorAll('.coordinate-button');
+        const buttons = boardDOM.querySelectorAll('.coordinate-button');
         buttons.forEach(button => {
             button.disabled = true;
         });
@@ -180,7 +180,7 @@ export const setupUIMultiPlayer = ( function () {
             deleteButtonContainer(buttonContainer);
             enableBoard(secondPlayerBoardDOM);
             disableBoard(firstPlayerBoardDOM);
-            showPlayerTurn();
+            gameUIMultiPlayer.showPlayerTurn();
         })
     }
 
@@ -198,7 +198,7 @@ export const setupUIMultiPlayer = ( function () {
     }
 
     function attachEvents() {
-        attachEventClickPlayerBoards();
+        gameUIMultiPlayer.attachEventClickPlayerBoards();
         attachEventFinishSetupButtonFirstPlayer();
         attachEventFinishSetupButtonSecondPlayer();
         attachEventRandomizeButtonFirstPlayer();
@@ -351,6 +351,11 @@ export const gameUIMultiPlayer = ( function () {
     function deleteShowShipSunk() {
         const shipSunkInfo = document.getElementById('ship-sunk');
         shipSunkInfo.textContent = '';
+    }
+
+    return {
+        showPlayerTurn: showPlayerTurn,
+        attachEventClickPlayerBoards: attachEventClickPlayerBoards
     }
 
 })();
