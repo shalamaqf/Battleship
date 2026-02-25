@@ -209,4 +209,14 @@ export const gameUIMultiPlayer = ( function () {
         finishSetupButton.classList.add('finish-setup');
         container.append(finishSetupButton);
     }
+
+    function handleFinishSetupButtonFirstPlayer(finishSetupButton, randomizeButton, buttonContainer) {
+        finishSetupButton.addEventListener('click', () => {
+            deleteButtonsHighlight(secondPlayerBoardDOM);
+            deleteButton(randomizeButton);
+            deleteButton(finishSetupButton);
+            deleteButtonContainer(buttonContainer);
+            showSecondPlayerSetupText();
+        })
+    }
 })
