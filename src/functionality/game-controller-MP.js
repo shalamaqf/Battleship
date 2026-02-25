@@ -141,6 +141,8 @@ export const gameControllerMP = ( function () {
         getFirstPlayerOccupiedCoordinates: getFirstPlayerOccupiedCoordinates,
         getSecondPlayerOccupiedCoordinates: getSecondPlayerOccupiedCoordinates,
         firstPlayerTurn: firstPlayerTurn,
-        secondPlayerTurn: secondPlayerTurn
+        secondPlayerTurn: secondPlayerTurn,
+        shuffleShipsFirstPlayer: shuffleShipsFirstPlayer,
+        shuffleShipsSecondPlayer: shuffleShipsSecondPlayer
     }
 })();
