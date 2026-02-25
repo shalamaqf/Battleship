@@ -345,3 +345,9 @@ export const setupUIMultiPlayer = ( function () {
         setupGameMultiPlayerUI: setupGameMultiPlayerUI
     }
 })();
+
+
+
+export const gameUIMultiPlayer = ( function () {
+
+})();
