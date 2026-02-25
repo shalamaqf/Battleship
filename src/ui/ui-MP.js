@@ -190,4 +190,10 @@ export const gameUIMultiPlayer = ( function () {
             highlightButtons(occupiedCoordinates);
         })
     }
+
+    function attachEventRandomizeButtonFirstPlayer() {
+        createRandomizeButton(firstPlayerButtonContainer);
+        const randomizeButton = firstPlayerButtonContainer.querySelector('.randomize');
+        handleRandomizeButtonFirstPlayer(randomizeButton);
+    }
 })
