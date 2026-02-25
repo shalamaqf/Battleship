@@ -106,4 +106,13 @@ export const gameUIMultiPlayer = ( function () {
             }
         });
     }
+
+    function handleGameOver() {
+        if (gameControllerMP.isGameOver()) {
+            deleteShowShipSunk();
+            disableBoard(firstPlayerBoardDOM);
+            disableBoard(secondPlayerBoardDOM);
+            showWinner();
+        }
+    }
 })
