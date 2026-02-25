@@ -115,4 +115,9 @@ export const gameUIMultiPlayer = ( function () {
             showWinner();
         }
     }
+
+    function renderPlayersBoards() {
+        createButtons(firstPlayerBoardDOM);
+        createButtons(secondPlayerBoardDOM);
+    }
 })
