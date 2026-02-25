@@ -302,5 +302,13 @@ export const gameUIMultiPlayer = ( function () {
         if (container) container.remove();
     }
 
+    function attachEvents() {
+        attachEventClickPlayerBoards();
+        attachEventFinishSetupButtonFirstPlayer();
+        attachEventFinishSetupButtonSecondPlayer();
+        attachEventRandomizeButtonFirstPlayer();
+        attachEventFinishSetupButtonSecondPlayer();
+        attachEventStartGameButton();
+    }
 
 })
