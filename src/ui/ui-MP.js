@@ -138,4 +138,9 @@ export const gameUIMultiPlayer = ( function () {
         const currentPlayer = gameControllerMP.getCurrentPlayer();
         playerTurn.textContent = currentPlayer.name;
     }
+
+    function showWinner() {
+        const winner = gameControllerMP.getWinner();
+        playerTurn.textContent = 'The winner is ' +  winner.name + '!';
+    }
 })
