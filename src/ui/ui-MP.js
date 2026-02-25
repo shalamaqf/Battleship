@@ -216,6 +216,8 @@ export const gameUIMultiPlayer = ( function () {
             deleteButton(randomizeButton);
             deleteButton(finishSetupButton);
             deleteButtonContainer(buttonContainer);
+            disableBoard(firstPlayerBoardDOM);
+            enableBoard(secondPlayerBoardDOM);
             showSecondPlayerSetupText();
         })
     }
@@ -326,5 +328,20 @@ export const gameUIMultiPlayer = ( function () {
             button.classList.remove('hit', 'miss');
             button.removeAttribute('clicked');
         })
+    }
+
+    function setupGameMultiPlayerUI() {
+        renderPlayersBoards();
+        attachEvents();
+        disableBoard(secondPlayerBoardDOM);
+
+
+        // Highlight first player's board
+        const occupiedCoordinates = gameControllerMP.getFirstPlayerOccupiedCoordinates();
+        highlightButtons(occupiedCoordinates);
+    }
+
+    return {
+        setupGameMultiPlayerUI: setupGameMultiPlayerUI
     }
 })
