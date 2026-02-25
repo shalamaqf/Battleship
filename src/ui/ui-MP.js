@@ -212,11 +212,22 @@ export const gameUIMultiPlayer = ( function () {
 
     function handleFinishSetupButtonFirstPlayer(finishSetupButton, randomizeButton, buttonContainer) {
         finishSetupButton.addEventListener('click', () => {
-            deleteButtonsHighlight(secondPlayerBoardDOM);
+            deleteButtonsHighlight(firstPlayerBoardDOM);
             deleteButton(randomizeButton);
             deleteButton(finishSetupButton);
             deleteButtonContainer(buttonContainer);
             showSecondPlayerSetupText();
+        })
+    }
+
+    function handleFinishSetupButtonSecondPlayer(finishSetupButton, randomizeButton, buttonContainer) {
+        finishSetupButton.addEventListener('click', () => {
+            deleteButtonsHighlight(secondPlayerBoardDOM);
+            deleteButton(randomizeButton);
+            deleteButton(finishSetupButton);
+            deleteButtonContainer(buttonContainer);
+            createStartGameButton();
+            attachEventStartGameButton();
         })
     }
 })
