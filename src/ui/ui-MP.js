@@ -202,4 +202,11 @@ export const gameUIMultiPlayer = ( function () {
         const randomizeButton = secondPlayerButtonContainer.querySelector('.randomize');
         handleRandomizeButtonSecondPlayer(randomizeButton);
     }
+
+    function createFinishSetupButton(container) {
+        const finishSetupButton = document.createElement('button');
+        finishSetupButton.textContent = 'Finish Setup';
+        finishSetupButton.classList.add('finish-setup');
+        container.append(finishSetupButton);
+    }
 })
