@@ -239,4 +239,13 @@ export const gameUIMultiPlayer = ( function () {
 
         handleFinishSetupButtonFirstPlayer(finishSetupButton, randomizeButton, firstPlayerButtonContainer);
     }
+
+    function attachEventFinishSetupButtonSecondPlayer() {
+        createFinishSetupButton(secondPlayerButtonContainer);
+
+        const finishSetupButton = secondPlayerButtonContainer.querySelector('.finish-setup');
+        const randomizeButton = secondPlayerButtonContainer.querySelector('.randomize');
+
+        handleFinishSetupButtonSecondPlayer(finishSetupButton, randomizeButton, secondPlayerButtonContainer);
+    }
 })
