@@ -404,6 +404,15 @@ export const inputPlayerNameUI =( function () {
         document.body.append(formContainer);
     }
 
+    function showForm() {
+        formContainer.classList.add('show');
+    }
+
+    function hideForm() {
+        formContainer.classList.remove('show');
+        formContainer.remove();
+    }
+
     function hideMain() {
         main.classList.add('hide');
     }
