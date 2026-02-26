@@ -336,3 +336,7 @@ export const UIFlowCoordinator = ( function () {
         showStartGame: showStartGame
     }
 })();
+
+export const inputPlayerNameUI =( function () {
+
+})();
