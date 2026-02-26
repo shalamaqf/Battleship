@@ -136,23 +136,6 @@ export const setupUIMultiPlayer = ( function () {
         })
     }
 
-    function resetBoardUI() {
-        const buttonsFP = firstPlayerBoardDOM.querySelectorAll('.coordinate-button');
-        const buttonSP = secondPlayerBoardDOM.querySelectorAll('.coordinate-button');
-
-        buttonsFP.forEach(button => {
-            button.textContent = '';
-            button.classList.remove('hit', 'miss');
-            button.removeAttribute('clicked');
-        });
-
-        buttonSP.forEach(button => {
-            button.textContent = '';
-            button.classList.remove('hit', 'miss');
-            button.removeAttribute('clicked');
-        })
-    }
-
     function setupGameMultiPlayerUI() {
         renderPlayersBoards();
         attachEvents();
@@ -281,6 +264,24 @@ export const gameUIMultiPlayer = ( function () {
         const shipSunkInfo = document.getElementById('ship-sunk');
         shipSunkInfo.textContent = '';
     }
+
+     function resetBoardUI() {
+        const buttonsFP = firstPlayerBoardDOM.querySelectorAll('.coordinate-button');
+        const buttonSP = secondPlayerBoardDOM.querySelectorAll('.coordinate-button');
+
+        buttonsFP.forEach(button => {
+            button.textContent = '';
+            button.classList.remove('hit', 'miss');
+            button.removeAttribute('clicked');
+        });
+
+        buttonSP.forEach(button => {
+            button.textContent = '';
+            button.classList.remove('hit', 'miss');
+            button.removeAttribute('clicked');
+        })
+    }
+
 
     return {
         showPlayerTurn: showPlayerTurn,
