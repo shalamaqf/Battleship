@@ -339,6 +339,7 @@ export const UIFlowCoordinator = ( function () {
 
 export const inputPlayerNameUI =( function () {
     const main = document.querySelector('main');
+    const formContainer = document.createElement('div');
 
     function hideMain() {
         main.classList.add('hide');
