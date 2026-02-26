@@ -341,6 +341,11 @@ export const inputPlayerNameUI =( function () {
     const main = document.querySelector('main');
     const formContainer = document.createElement('div');
 
+    function createForm() {
+        const form = document.createElement('form');
+        return form;
+    }
+
     function hideMain() {
         main.classList.add('hide');
     }
