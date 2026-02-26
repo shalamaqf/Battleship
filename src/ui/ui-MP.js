@@ -346,10 +346,10 @@ export const inputPlayerNameUI =( function () {
         return form;
     }
 
-    function createNameInput() {
+    function createNameInput(id) {
         const input = document.createElement('input');
         input.type = 'text';
-        input.id = 'name';
+        input.id = id;
         input.name = 'player_name';
         input.maxLength = 10;
         input.minLength = 1;
@@ -357,9 +357,9 @@ export const inputPlayerNameUI =( function () {
         return input;
     }
 
-    function createLabel() {
+    function createLabel(forDataAttribute) {
         const label = document.createElement('label');
-        label.htmlFor = 'name';
+        label.htmlFor = forDataAttribute;
         label.textContent = 'Name:';
 
         return label;
