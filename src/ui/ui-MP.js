@@ -287,7 +287,7 @@ export const UIFlowCoordinator = ( function () {
 
     function handleStartGameButton(startGameButton) {
         startGameButton.addEventListener('click', () => {
-            setupUIMultiPlayer.endSetup();
+            initializeMultiPlayerUI.endSetup();
             gameUIMultiPlayer.startGame();
             removeStartGameButton();
             resetBoardUI();
