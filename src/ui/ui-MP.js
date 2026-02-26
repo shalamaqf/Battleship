@@ -438,4 +438,14 @@ export const inputPlayerNameUI =( function () {
     function showMain() {
         main.classList.remove('hide');
     }
+
+    function showInputNameScreen() {
+        hideMain();
+        setupForm();
+        showForm();
+    }
+
+    return {
+        showInputNameScreen: showInputNameScreen
+    }
 })();
