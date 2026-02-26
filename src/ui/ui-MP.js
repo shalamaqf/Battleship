@@ -415,6 +415,13 @@ export const inputPlayerNameUI =( function () {
         })
     }
 
+    function setupPlayers() {
+        firstPlayerName = document.getElementById('first-player-name').value;
+        secondPlayerName = document.getElementById('second-player-name').value;
+        
+        gameControllerMP.setupGame(firstPlayerName, secondPlayerName);
+    }
+
     function showForm() {
         formContainer.classList.add('show');
     }
