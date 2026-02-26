@@ -264,24 +264,6 @@ export const gameUIMultiPlayer = ( function () {
         shipSunkInfo.textContent = '';
     }
 
-     function resetBoardUI() {
-        const buttonsFP = firstPlayerBoardDOM.querySelectorAll('.coordinate-button');
-        const buttonSP = secondPlayerBoardDOM.querySelectorAll('.coordinate-button');
-
-        buttonsFP.forEach(button => {
-            button.textContent = '';
-            button.classList.remove('hit', 'miss');
-            button.removeAttribute('clicked');
-        });
-
-        buttonSP.forEach(button => {
-            button.textContent = '';
-            button.classList.remove('hit', 'miss');
-            button.removeAttribute('clicked');
-        })
-    }
-
-
     return {
         showPlayerTurn: showPlayerTurn,
         attachEventClickPlayerBoards: attachEventClickPlayerBoards
@@ -308,6 +290,7 @@ export const UIFlowCoordinator = ( function () {
             setupUIMultiPlayer.endSetup();
             gameUIMultiPlayer.startGame();
             removeStartGameButton();
+            resetBoardUI();
         })
     }
 
@@ -318,6 +301,23 @@ export const UIFlowCoordinator = ( function () {
 
     function removeStartGameButton() {
         if (infoButtonContainer) infoButtonContainer.remove();
+    }
+
+    function resetBoardUI() {
+        const buttonsFP = firstPlayerBoardDOM.querySelectorAll('.coordinate-button');
+        const buttonSP = secondPlayerBoardDOM.querySelectorAll('.coordinate-button');
+
+        buttonsFP.forEach(button => {
+            button.textContent = '';
+            button.classList.remove('hit', 'miss');
+            button.removeAttribute('clicked');
+        });
+
+        buttonSP.forEach(button => {
+            button.textContent = '';
+            button.classList.remove('hit', 'miss');
+            button.removeAttribute('clicked');
+        })
     }
 
     function showStartGame() {
