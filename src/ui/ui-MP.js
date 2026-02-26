@@ -365,6 +365,15 @@ export const inputPlayerNameUI =( function () {
         return label;
     }
 
+    function createSubmitButton() {
+        const submitBtn = document.createElement('button');
+        submitBtn.type = 'submit';
+        submitBtn.classList.add('doneBtn');
+        submitBtn.textContent = 'Done';
+
+        return submitBtn;
+    }
+
     function hideMain() {
         main.classList.add('hide');
     }
