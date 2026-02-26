@@ -358,3 +358,8 @@ export const gameUIMultiPlayer = ( function () {
     }
 
 })();
+
+
+export const UIFlowCoordinator = ( function () {
+
+})();
