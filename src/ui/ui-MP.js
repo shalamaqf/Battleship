@@ -146,8 +146,11 @@ export const setupUIMultiPlayer = ( function () {
         highlightButtons(occupiedCoordinates, firstPlayerBoardDOM);
     }
 
+    function endSetup() {}
+
     return {
-        setupGameMultiPlayerUI: setupGameMultiPlayerUI
+        setupGameMultiPlayerUI: setupGameMultiPlayerUI,
+        endSetup: endSetup
     }
 })();
 
@@ -287,10 +290,10 @@ export const UIFlowCoordinator = ( function () {
 
     function handleStartGameButton(startGameButton) {
         startGameButton.addEventListener('click', () => {
-            initializeMultiPlayerUI.endSetup();
-            gameUIMultiPlayer.startGame();
+            setupUIMultiPlayer.endSetup();
             removeStartGameButton();
             resetBoardUI();
+            gameUIMultiPlayer.startGame();
         })
     }
 
