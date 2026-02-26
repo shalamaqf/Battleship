@@ -374,6 +374,11 @@ export const inputPlayerNameUI =( function () {
         return submitBtn;
     }
 
+    function createContainer() {
+        const div = document.createElement('div');
+        return div;
+    }
+
     function hideMain() {
         main.classList.add('hide');
     }
