@@ -57,11 +57,13 @@ export const setupUIMultiPlayer = ( function () {
         createButtons(secondPlayerBoardDOM);
     }
 
-    function createRandomizeButton(container) {
+    function createRandomizeButton(container, playerBoardDOM) {
         const randomizeButton = document.createElement('button');
         randomizeButton.textContent = 'Randomize';
         randomizeButton.classList.add('randomize');
         container.append(randomizeButton);
+
+        handleRandomizeButton(randomizeButton, playerBoardDOM);
     }
 
     function handleRandomizeButton(randomizeButton, playerBoardDOM) {
