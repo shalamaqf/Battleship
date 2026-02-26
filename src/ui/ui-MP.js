@@ -353,8 +353,16 @@ export const inputPlayerNameUI =( function () {
         input.name = 'player_name';
         input.maxLength = 10;
         input.minLength = 1;
-        
+
         return input;
+    }
+
+    function createLabel() {
+        const label = document.createElement('label');
+        label.htmlFor = 'name';
+        label.textContent = 'Name:';
+
+        return label;
     }
 
     function hideMain() {
