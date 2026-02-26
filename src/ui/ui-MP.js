@@ -146,11 +146,8 @@ export const setupUIMultiPlayer = ( function () {
         highlightButtons(occupiedCoordinates, firstPlayerBoardDOM);
     }
 
-    function endSetup() {}
-
     return {
-        setupGameMultiPlayerUI: setupGameMultiPlayerUI,
-        endSetup: endSetup
+        setupGameMultiPlayerUI: setupGameMultiPlayerUI
     }
 })();
 
