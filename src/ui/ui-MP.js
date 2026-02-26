@@ -267,9 +267,13 @@ export const gameUIMultiPlayer = ( function () {
         shipSunkInfo.textContent = '';
     }
 
+    function startGame() {
+        showPlayerTurn();
+        attachEventClickPlayerBoards();
+    }
+
     return {
-        showPlayerTurn: showPlayerTurn,
-        attachEventClickPlayerBoards: attachEventClickPlayerBoards
+        startGame: startGame
     }
 
 })();
