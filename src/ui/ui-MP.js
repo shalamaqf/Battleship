@@ -83,18 +83,6 @@ export const setupUIMultiPlayer = ( function () {
         })
     }
 
-    function attachEventRandomizeButtonFirstPlayer() {
-        createRandomizeButton(firstPlayerButtonContainer);
-        const randomizeButton = firstPlayerButtonContainer.querySelector('.randomize');
-        handleRandomizeButtonFirstPlayer(randomizeButton);
-    }
-
-    function attachEventRandomizeButtonSecondPlayer() {
-        createRandomizeButton(secondPlayerButtonContainer);
-        const randomizeButton = secondPlayerButtonContainer.querySelector('.randomize');
-        handleRandomizeButtonSecondPlayer(randomizeButton);
-    }
-
     function createFinishSetupButton(container) {
         const finishSetupButton = document.createElement('button');
         finishSetupButton.textContent = 'Finish Setup';
