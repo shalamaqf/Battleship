@@ -340,6 +340,8 @@ export const UIFlowCoordinator = ( function () {
 export const inputPlayerNameUI =( function () {
     const main = document.querySelector('main');
     const formContainer = document.createElement('div');
+    let firstPlayerName;
+    let secondPlayerName;
 
     function createForm() {
         const form = document.createElement('form');
