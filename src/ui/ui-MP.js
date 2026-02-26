@@ -83,11 +83,13 @@ export const setupUIMultiPlayer = ( function () {
         })
     }
 
-    function createFinishSetupButton(container) {
+    function createFinishSetupButton(container, currentBoardDOM, callback) {
         const finishSetupButton = document.createElement('button');
         finishSetupButton.textContent = 'Finish Setup';
         finishSetupButton.classList.add('finish-setup');
         container.append(finishSetupButton);
+
+        handleFinishSetupButton(finishSetupButton, container, currentBoardDOM, callback);
     }
 
     function handleFinishSetupButton(finishSetupButton, container, currentBoardDOM, callback) {
