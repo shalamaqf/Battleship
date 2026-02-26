@@ -64,21 +64,20 @@ export const setupUIMultiPlayer = ( function () {
         container.append(randomizeButton);
     }
 
-    function handleRandomizeButtonFirstPlayer(randomizeButton) {
-        randomizeButton.addEventListener('click', () => {
-            gameControllerMP.shuffleShipsFirstPlayer();
-            const occupiedCoordinates = gameControllerMP.getFirstPlayerOccupiedCoordinates();
-            deleteButtonsHighlight(firstPlayerBoardDOM);
-            highlightButtons(occupiedCoordinates, firstPlayerBoardDOM);
-        })
-    }
+    function handleRandomizeButton(randomizeButton, playerBoardDOM) {
+        let occupiedCoordinates;
 
-    function handleRandomizeButtonSecondPlayer(randomizeButton) {
         randomizeButton.addEventListener('click', () => {
-            gameControllerMP.shuffleShipsSecondPlayer();
-            const occupiedCoordinates = gameControllerMP.getSecondPlayerOccupiedCoordinates();
-            deleteButtonsHighlight(secondPlayerBoardDOM);
-            highlightButtons(occupiedCoordinates, secondPlayerBoardDOM);
+            if (playerBoardDOM === firstPlayerBoardDOM) {
+                gameControllerMP.shuffleShipsFirstPlayer();
+                occupiedCoordinates = gameControllerMP.getFirstPlayerOccupiedCoordinates();
+            } else {
+                gameControllerMP.shuffleShipsSecondPlayer();
+                occupiedCoordinates = gameControllerMP.getSecondPlayerOccupiedCoordinates();
+            }
+
+            deleteButtonsHighlight(playerBoardDOM);
+            highlightButtons(occupiedCoordinates, playerBoardDOM);
         })
     }
 
