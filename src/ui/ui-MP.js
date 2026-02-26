@@ -5,13 +5,11 @@ const firstPlayerBoardDOM = document.querySelector('.board.real-player');
 const secondPlayerBoardDOM = document.querySelector('.board.computer-player');
 const playerTurn = document.getElementById('player-turn');
 
+const infoSection = document.getElementById('info-section');
+
 export const setupUIMultiPlayer = ( function () {
     const firstPlayerBoardSection = document.querySelector('.player.real-player');
     const secondPlayerBoardSection = document.querySelector('.player.computer-player');
-
-    // Container module scoped
-    const infoButtonContainer = document.createElement('div');
-    infoButtonContainer.id = 'infoButton-container';
 
     const firstPlayerButtonContainer = document.createElement('div');
     const secondPlayerButtonContainer = document.createElement('div');
@@ -162,31 +160,6 @@ export const setupUIMultiPlayer = ( function () {
         buttons.forEach(button => {
             button.style.backgroundColor = '';
         });
-    }
-
-    function createStartGameButton() {
-        const infoSection = document.getElementById('info-section');
-        const startGameButton = document.createElement('button');
-        startGameButton.textContent ='Start Game';
-        startGameButton.classList.add('start-game');
-        infoButtonContainer.append(startGameButton);
-        infoSection.append(infoButtonContainer);
-    }
-
-    function handleStartGameButton(startGameButton, buttonContainer) {
-        startGameButton.addEventListener('click', () => {
-            resetBoardUI();
-            deleteButton(startGameButton);
-            deleteButtonContainer(buttonContainer);
-            enableBoard(secondPlayerBoardDOM);
-            disableBoard(firstPlayerBoardDOM);
-            gameUIMultiPlayer.showPlayerTurn();
-        })
-    }
-
-    function attachEventStartGameButton() {
-        const startGameButton = document.querySelector('.start-game');
-        handleStartGameButton(startGameButton, infoButtonContainer);
     }
 
     function deleteButton(button) {
@@ -361,5 +334,41 @@ export const gameUIMultiPlayer = ( function () {
 
 
 export const UIFlowCoordinator = ( function () {
+    const infoButtonContainer = document.createElement('div');
+    infoButtonContainer.id = 'infoButton-container';
 
+
+    function createStartGameButton() {
+        const startGameButton = document.createElement('button');
+        startGameButton.textContent ='Start Game';
+        startGameButton.classList.add('start-game');
+        infoButtonContainer.append(startGameButton);
+        infoSection.append(infoButtonContainer);
+    }
+
+    function handleStartGameButton(startGameButton) {
+        startGameButton.addEventListener('click', () => {
+            setupUIMultiPlayer.endSetup();
+            gameUIMultiPlayer.startGame();
+            removeStartGameButton();
+        })
+    }
+
+    function attachEventStartGameButton() {
+        const startGameButton = document.querySelector('.start-game');
+        handleStartGameButton(startGameButton);
+    }
+
+    function removeStartGameButton() {
+        if (infoButtonContainer) infoButtonContainer.remove();
+    }
+
+    function showStartGame() {
+        createStartGameButton();
+        attachEventStartGameButton();
+    }
+
+    return {
+        showStartGame: showStartGame
+    }
 })();
