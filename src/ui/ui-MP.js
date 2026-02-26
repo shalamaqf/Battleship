@@ -125,13 +125,15 @@ export const setupUIMultiPlayer = ( function () {
         if (container) container.remove();
     }
 
-    function attachEvents() {
-        gameUIMultiPlayer.attachEventClickPlayerBoards();
-        attachEventFinishSetupButtonFirstPlayer();
-        attachEventFinishSetupButtonSecondPlayer();
-        attachEventRandomizeButtonFirstPlayer();
-        attachEventRandomizeButtonSecondPlayer();
-        attachEventStartGameButton();
+    function setupBoardsAndButtons() {
+        createRandomizeButton(firstPlayerButtonContainer, firstPlayerBoardDOM);
+        createRandomizeButton(secondPlayerButtonContainer, secondPlayerBoardDOM);
+        createFinishSetupButton(firstPlayerButtonContainer, firstPlayerBoardDOM, () => {
+            enableBoard(secondPlayerBoardDOM);
+            createFinishSetupButton(secondPlayerButtonContainer, secondPlayerBoardDOM, () => {
+                UIFlowCoordinator.showStartGame();
+            })
+        })
     }
 
     function resetBoardUI() {
