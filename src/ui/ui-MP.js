@@ -6,6 +6,24 @@ const playerTurn = document.getElementById('player-turn');
 
 const infoSection = document.getElementById('info-section');
 
+function disableBoard(boardDOM) {
+        const buttons = boardDOM.querySelectorAll('.coordinate-button');
+        buttons.forEach(button => {
+            button.disabled = true;
+        });
+    }
+
+function enableBoard(boardDOM) {
+    const buttons = boardDOM.querySelectorAll('.coordinate-button');
+    buttons.forEach(button => {
+        if (!button.dataset.clicked) {
+            button.disabled = false;
+        } else {
+            button.disabled = true;
+        }
+    });
+}
+
 export const setupUIMultiPlayer = ( function () {
     const firstPlayerBoardSection = document.querySelector('.player.real-player');
     const secondPlayerBoardSection = document.querySelector('.player.computer-player');
@@ -31,24 +49,6 @@ export const setupUIMultiPlayer = ( function () {
                 boardDOM.append(button);
             }
         }
-    }
-
-    function disableBoard(boardDOM) {
-        const buttons = boardDOM.querySelectorAll('.coordinate-button');
-        buttons.forEach(button => {
-            button.disabled = true;
-        });
-    }
-
-    function enableBoard(boardDOM) {
-        const buttons = boardDOM.querySelectorAll('.coordinate-button');
-        buttons.forEach(button => {
-            if (!button.dataset.clicked) {
-                button.disabled = false;
-            } else {
-                button.disabled = true;
-            }
-        });
     }
 
     function renderPlayersBoards() {
