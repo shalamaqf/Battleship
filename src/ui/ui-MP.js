@@ -313,13 +313,13 @@ export const UIFlowCoordinator = ( function () {
         buttonsFP.forEach(button => {
             button.textContent = '';
             button.classList.remove('hit', 'miss');
-            button.removeAttribute('clicked');
+            button.removeAttribute('data-clicked');
         });
 
         buttonSP.forEach(button => {
             button.textContent = '';
             button.classList.remove('hit', 'miss');
-            button.removeAttribute('clicked');
+            button.removeAttribute('data-clicked');
         })
     }
 
@@ -408,6 +408,7 @@ export const inputPlayerNameUI =( function () {
             setupPlayers();
             hideForm();
             showMain();
+            setupUIMultiPlayer.showSetupScreen();
         })
     }
 
