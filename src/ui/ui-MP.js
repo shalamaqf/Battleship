@@ -346,6 +346,17 @@ export const inputPlayerNameUI =( function () {
         return form;
     }
 
+    function createNameInput() {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.id = 'name';
+        input.name = 'player_name';
+        input.maxLength = 10;
+        input.minLength = 1;
+        
+        return input;
+    }
+
     function hideMain() {
         main.classList.add('hide');
     }
