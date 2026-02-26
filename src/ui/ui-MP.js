@@ -381,6 +381,29 @@ export const inputPlayerNameUI =( function () {
         return div;
     }
 
+    function setupForm() {
+        const form = createForm();
+        const inputContainer_p1 = createContainer();
+        const inputContainer_p2 = createContainer();
+        const input_p1 = createNameInput('first-player-name');
+        const input_p2 = createNameInput('second-player-name');
+        const label_p1 = createLabel('first-player-name');
+        const label_p2 = createLabel('second-player-name');
+        const submitBtn = createSubmitButton();
+
+        inputContainer_p1.append(label_p1);
+        inputContainer_p1.append(input_p1);
+        inputContainer_p2.append(label_p2);
+        inputContainer_p2.append(input_p2);
+
+        form.append(inputContainer_p1);
+        form.append(inputContainer_p2);
+        form.append(submitBtn);
+
+        formContainer.append(form);
+        document.body.append(formContainer);
+    }
+
     function hideMain() {
         main.classList.add('hide');
     }
