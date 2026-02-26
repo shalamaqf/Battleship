@@ -1,6 +1,5 @@
 import { gameControllerMP } from "../functionality/game-controller-MP";
 
-
 const firstPlayerBoardDOM = document.querySelector('.board.real-player');
 const secondPlayerBoardDOM = document.querySelector('.board.computer-player');
 const playerTurn = document.getElementById('player-turn');
@@ -138,7 +137,7 @@ export const setupUIMultiPlayer = ( function () {
 
     function setupGameMultiPlayerUI() {
         renderPlayersBoards();
-        attachEvents();
+        setupBoardsAndButtons();
         disableBoard(secondPlayerBoardDOM);
 
 
