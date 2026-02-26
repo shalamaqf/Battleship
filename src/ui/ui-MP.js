@@ -402,11 +402,11 @@ export const inputPlayerNameUI =( function () {
 
         formContainer.append(form);
         document.body.append(formContainer);
+
+        handleForm(form)
     }
 
-    function handleForm() {
-        const form = document.querySelector('form');
-
+    function handleForm(form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             setupPlayers();
