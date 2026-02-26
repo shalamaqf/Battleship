@@ -135,7 +135,7 @@ export const setupUIMultiPlayer = ( function () {
         })
     }
 
-    function setupGameMultiPlayerUI() {
+    function showSetupScreen() {
         renderPlayersBoards();
         setupBoardsAndButtons();
         disableBoard(secondPlayerBoardDOM);
@@ -147,7 +147,7 @@ export const setupUIMultiPlayer = ( function () {
     }
 
     return {
-        setupGameMultiPlayerUI: setupGameMultiPlayerUI
+        showSetupScreen: showSetupScreen
     }
 })();
 
