@@ -120,11 +120,7 @@ export const setupUIMultiPlayer = ( function () {
             button.style.backgroundColor = '';
         });
     }
-
-    function deleteButton(button) {
-        if (button) button.remove();
-    }
-
+    
     function deleteButtonContainer(container) {
         if (container) container.remove();
     }
