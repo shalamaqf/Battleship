@@ -90,15 +90,12 @@ export const setupUIMultiPlayer = ( function () {
         container.append(finishSetupButton);
     }
 
-    function handleFinishSetupButtonFirstPlayer(finishSetupButton, randomizeButton, buttonContainer) {
+    function handleFinishSetupButton(finishSetupButton, container, currentBoardDOM, callback) {
         finishSetupButton.addEventListener('click', () => {
-            deleteButtonsHighlight(firstPlayerBoardDOM);
-            deleteButton(randomizeButton);
-            deleteButton(finishSetupButton);
-            deleteButtonContainer(buttonContainer);
-            disableBoard(firstPlayerBoardDOM);
-            enableBoard(secondPlayerBoardDOM);
-            showSecondPlayerSetupText();
+            deleteButtonsHighlight(currentBoardDOM);
+            deleteButtonContainer(container);
+            disableBoard(currentBoardDOM);
+            callback();
         })
     }
 
