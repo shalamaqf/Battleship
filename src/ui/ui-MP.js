@@ -404,6 +404,17 @@ export const inputPlayerNameUI =( function () {
         document.body.append(formContainer);
     }
 
+    function handleForm() {
+        const form = document.querySelector('form');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            setupPlayers();
+            hideForm();
+            showMain();
+        })
+    }
+
     function showForm() {
         formContainer.classList.add('show');
     }
