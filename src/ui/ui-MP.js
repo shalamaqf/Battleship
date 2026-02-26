@@ -101,35 +101,6 @@ export const setupUIMultiPlayer = ( function () {
         })
     }
 
-    function handleFinishSetupButtonSecondPlayer(finishSetupButton, randomizeButton, buttonContainer) {
-        finishSetupButton.addEventListener('click', () => {
-            deleteButtonsHighlight(secondPlayerBoardDOM);
-            deleteButton(randomizeButton);
-            deleteButton(finishSetupButton);
-            deleteButtonContainer(buttonContainer);
-            createStartGameButton();
-            attachEventStartGameButton();
-        })
-    }
-    
-    function attachEventFinishSetupButtonFirstPlayer() {
-        createFinishSetupButton(firstPlayerButtonContainer);
-
-        const finishSetupButton = firstPlayerButtonContainer.querySelector('.finish-setup');
-        const randomizeButton = firstPlayerButtonContainer.querySelector('.randomize');
-
-        handleFinishSetupButtonFirstPlayer(finishSetupButton, randomizeButton, firstPlayerButtonContainer);
-    }
-
-    function attachEventFinishSetupButtonSecondPlayer() {
-        createFinishSetupButton(secondPlayerButtonContainer);
-
-        const finishSetupButton = secondPlayerButtonContainer.querySelector('.finish-setup');
-        const randomizeButton = secondPlayerButtonContainer.querySelector('.randomize');
-
-        handleFinishSetupButtonSecondPlayer(finishSetupButton, randomizeButton, secondPlayerButtonContainer);
-    }
-
     function highlightButtons(occupiedCoordinates, boardDOM) {
         occupiedCoordinates.forEach(coordinate => {
             const x = coordinate.x
