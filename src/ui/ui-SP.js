@@ -118,7 +118,12 @@ export const gameUI = (function () {
 
     function showPlayerTurn() {
         const currentPlayer = gameController.getCurrentPlayer();
-        playerTurn.textContent = currentPlayer.name + "'s turn";
+
+        if (gameController.isHumanTurn()) {
+            playerTurn.textContent = currentPlayer.name + "r turn";
+        } else {
+            playerTurn.textContent = currentPlayer.name + "'s turn";
+        }
     }
 
     function showWinner() {
