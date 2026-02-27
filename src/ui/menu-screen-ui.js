@@ -19,4 +19,24 @@ export const menuScreenUI = ( function () {
         return button;
     }
 
+    function setupMenu() {
+        const titleContainer = inputPlayerNameUI.createContainer();
+        titleContainer.classList.add('title-container');
+        const title = createText('title');
+        title.textContent = 'Battleship';
+        titleContainer.append(title);
+
+        const buttonContainer = inputPlayerNameUI.createContainer();
+        buttonContainer.classList.add('button-menu-container');
+        const buttonSinglePlayer = createButton('button-feature', 'single-player');
+        const buttonMultiplayer = createButton('button-feature', 'multi-player');
+        buttonSinglePlayer.textContent = 'Single Player';
+        buttonMultiplayer.textContent = 'Multiplayer';
+        buttonContainer.append(buttonSinglePlayer);
+        buttonContainer.append(buttonMultiplayer);
+        
+        menuContainer.append(titleContainer);
+        menuContainer.append(buttonContainer);
+    }
+
 })();
