@@ -1,4 +1,4 @@
-import { gameControllerMP } from "../functionality/game-controller-MP";
+import { gameControllerMP } from "../functionality/game-controller-MP.js";
 
 const firstPlayerBoardDOM = document.querySelector('.board.real-player');
 const secondPlayerBoardDOM = document.querySelector('.board.computer-player');
@@ -31,8 +31,8 @@ export const setupUIMultiPlayer = ( function () {
     const firstPlayerButtonContainer = document.createElement('div');
     const secondPlayerButtonContainer = document.createElement('div');
 
-    firstPlayerButtonContainer.classList.add('button-container first-player');
-    secondPlayerButtonContainer.classList.add('button-container second-player');
+    firstPlayerButtonContainer.classList.add('button-container', 'first-player');
+    secondPlayerButtonContainer.classList.add('button-container', 'second-player');
 
     firstPlayerBoardSection.append(firstPlayerButtonContainer);
     secondPlayerBoardSection.append(secondPlayerButtonContainer);
