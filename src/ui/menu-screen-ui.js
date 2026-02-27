@@ -63,4 +63,12 @@ export const menuScreenUI = ( function () {
         })
     }
 
+    function showMenuScreen() {
+        setupMenu();
+    }
+
+    return {
+        showMenuScreen: showMenuScreen
+    }
+
 })();
