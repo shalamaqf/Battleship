@@ -1,4 +1,6 @@
+import { gameController } from "../functionality/game-controller-SP";
 import { inputPlayerNameUI } from "./ui-MP.js"; 
+import { gameUI } from "./ui-SP";
 
 export const menuScreenUI = ( function () {
     const main = document.querySelector('main');
@@ -37,6 +39,10 @@ export const menuScreenUI = ( function () {
         
         menuContainer.append(titleContainer);
         menuContainer.append(buttonContainer);
+    }
+
+    function deleteMenuScreen() {
+        menuContainer.remove();
     }
 
 })();
