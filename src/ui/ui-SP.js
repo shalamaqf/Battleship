@@ -118,7 +118,7 @@ export const gameUI = (function () {
 
     function showPlayerTurn() {
         const currentPlayer = gameController.getCurrentPlayer();
-        playerTurn.textContent = currentPlayer.name;
+        playerTurn.textContent = currentPlayer.name + "'s turn";
     }
 
     function showWinner() {
