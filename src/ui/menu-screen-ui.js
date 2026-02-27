@@ -9,4 +9,12 @@ export const menuScreenUI = ( function () {
 
         return p;
     }
+
+    function createButton(buttonClass) {
+        const button = document.createElement('button');
+        button.classList.add(buttonClass);
+
+        return button;
+    }
+
 })();
