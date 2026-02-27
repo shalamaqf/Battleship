@@ -337,8 +337,8 @@ export const UIFlowCoordinator = ( function () {
 export const inputPlayerNameUI =( function () {
     const main = document.querySelector('main');
     const formContainer = document.createElement('div');
-    let firstPlayerName;
-    let secondPlayerName;
+    const firstPlayerName = document.querySelector('.name.real-player');
+    const secondPlayerName = document.querySelector('.name.computer-player');
 
     function createForm() {
         const form = document.createElement('form');
@@ -415,10 +415,13 @@ export const inputPlayerNameUI =( function () {
     }
 
     function setupPlayers() {
-        firstPlayerName = document.getElementById('first-player-name').value;
-        secondPlayerName = document.getElementById('second-player-name').value;
-        
-        gameControllerMP.setupGame(firstPlayerName, secondPlayerName);
+        firstPlayerName.textContent = document.getElementById('first-player-name').value;
+        secondPlayerName.textContent = document.getElementById('second-player-name').value;
+
+        const input_1 = document.getElementById('first-player-name').value;
+        const input_2 = document.getElementById('second-player-name').value;
+ 
+        gameControllerMP.setupGame(input_1, input_2);
     }
 
     function showForm() {
