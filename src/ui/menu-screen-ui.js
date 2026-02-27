@@ -2,6 +2,8 @@ import { inputPlayerNameUI } from "./ui-MP.js";
 
 export const menuScreenUI = ( function () {
     const main = document.querySelector('main');
+    const menuContainer = inputPlayerNameUI.createContainer();
+    menuContainer.classList.add('menu-container');
 
     function createText(textClass) {
         const p = document.createElement('p');
