@@ -36,6 +36,9 @@ export const menuScreenUI = ( function () {
         buttonMultiplayer.textContent = 'Multiplayer';
         buttonContainer.append(buttonSinglePlayer);
         buttonContainer.append(buttonMultiplayer);
+
+        handleSinglePlayerButton(buttonSinglePlayer);
+        handleMultiPlayerButton(buttonMultiplayer);
         
         menuContainer.append(titleContainer);
         menuContainer.append(buttonContainer);
