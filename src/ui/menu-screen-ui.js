@@ -53,4 +53,11 @@ export const menuScreenUI = ( function () {
         })
     }
 
+    function handleMultiPlayerButton(button) {
+        button.addEventListener('click', () => {
+            deleteMenuScreen();
+            inputPlayerNameUI.showInputNameScreen();
+        })
+    }
+
 })();
