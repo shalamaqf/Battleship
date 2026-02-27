@@ -455,6 +455,8 @@ export const inputPlayerNameUI =( function () {
     }
 
     return {
-        showInputNameScreen: showInputNameScreen
+        showInputNameScreen: showInputNameScreen,
+        createContainer: createContainer,
+        hideMain: hideMain
     }
 })();
