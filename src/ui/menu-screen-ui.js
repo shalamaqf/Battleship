@@ -45,4 +45,12 @@ export const menuScreenUI = ( function () {
         menuContainer.remove();
     }
 
+    function handleSinglePlayerButton(button) {
+        button.addEventListener('click', () => {
+            deleteMenuScreen();
+            gameController.setupGame();
+            gameUI.setupGameUI();
+        })
+    }
+
 })();
