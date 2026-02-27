@@ -251,6 +251,7 @@ export const gameUIMultiPlayer = ( function () {
         const secondPlayer = gameControllerMP.getSecondPlayer();
 
         if (result.isShipSunk) {
+            deleteShowPlayerTurn();
             if (currentPlayer === firstPlayer) {
                 shipSunkInfo.textContent = secondPlayer.name + "'s ship is sunk!";
             } else {
@@ -264,6 +265,10 @@ export const gameUIMultiPlayer = ( function () {
     function deleteShowShipSunk() {
         const shipSunkInfo = document.getElementById('ship-sunk');
         shipSunkInfo.textContent = '';
+    }
+
+    function deleteShowPlayerTurn() {
+        playerTurn.textContent = '';
     }
 
     function startGame() {
