@@ -126,6 +126,10 @@ export const gameUI = (function () {
         }
     }
 
+    function deletePlayerTurn() {
+        playerTurn.textContent = '';
+    }
+
     function showWinner() {
         const winner = gameController.getWinner();
         playerTurn.textContent = 'The winner is ' +  winner.name + '!';
@@ -135,8 +139,10 @@ export const gameUI = (function () {
         const shipSunkInfo = document.getElementById('ship-sunk');
         
         if (result.isShipSunk && gameController.isHumanTurn()) {
+            deletePlayerTurn();
             shipSunkInfo.textContent = "Computer's ship is sunk!";
         } else if (result.isShipSunk && !gameController.isHumanTurn()) {
+            deletePlayerTurn();
             shipSunkInfo.textContent = "Your ship is sunk!";
         } else {
             return;
