@@ -1,9 +1,7 @@
-import { gameController } from "../functionality/game-controller.js";
-import { gameUI } from "./ui.js";
+import { menuScreenUI } from "./menu-screen-ui.js";
 
 function init() {
-    gameController.setupGame();
-    gameUI.setupGameUI();
+    menuScreenUI.showMenuScreen();
 }
 
 init();
