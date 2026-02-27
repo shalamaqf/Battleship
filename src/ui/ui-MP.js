@@ -267,6 +267,7 @@ export const gameUIMultiPlayer = ( function () {
     function startGame() {
         showPlayerTurn();
         attachEventClickPlayerBoards();
+        enableBoard(secondPlayerBoardDOM);
     }
 
     return {
