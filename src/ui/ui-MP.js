@@ -350,6 +350,7 @@ export const inputPlayerNameUI =( function () {
         input.type = 'text';
         input.id = id;
         input.name = 'player_name';
+        input.required = true; 
         input.maxLength = 10;
         input.minLength = 1;
 
