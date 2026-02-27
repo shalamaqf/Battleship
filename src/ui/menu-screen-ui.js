@@ -1,6 +1,6 @@
-import { gameController } from "../functionality/game-controller-SP";
+import { gameController } from "../functionality/game-controller-SP.js";
 import { inputPlayerNameUI } from "./ui-MP.js"; 
-import { gameUI } from "./ui-SP";
+import { gameUI } from "./ui-SP.js";
 
 export const menuScreenUI = ( function () {
     const main = document.querySelector('main');
@@ -42,6 +42,7 @@ export const menuScreenUI = ( function () {
         
         menuContainer.append(titleContainer);
         menuContainer.append(buttonContainer);
+        document.body.append(menuContainer);
     }
 
     function deleteMenuScreen() {
@@ -51,6 +52,7 @@ export const menuScreenUI = ( function () {
     function handleSinglePlayerButton(button) {
         button.addEventListener('click', () => {
             deleteMenuScreen();
+            inputPlayerNameUI.showMain();
             gameController.setupGame();
             gameUI.setupGameUI();
         })
@@ -64,6 +66,7 @@ export const menuScreenUI = ( function () {
     }
 
     function showMenuScreen() {
+        inputPlayerNameUI.hideMain();
         setupMenu();
     }
 
