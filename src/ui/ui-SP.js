@@ -1,4 +1,4 @@
-import { gameController } from "../functionality/game-controller.js";
+import { gameController } from "../functionality/game-controller-SP.js";
 
 export const gameUI = (function () {
     const realPlayerBoardDOM = document.querySelector('.board.real-player');
