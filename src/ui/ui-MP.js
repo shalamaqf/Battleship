@@ -124,11 +124,12 @@ export const setupUIMultiPlayer = ( function () {
         if (container) container.remove();
     }
 
-    function setupBoardsAndButtons() {
+    function setupBoardsAndButtons(occupiedCoordinates) {
         createRandomizeButton(firstPlayerButtonContainer, firstPlayerBoardDOM);
         createRandomizeButton(secondPlayerButtonContainer, secondPlayerBoardDOM);
         createFinishSetupButton(firstPlayerButtonContainer, firstPlayerBoardDOM, () => {
             enableBoard(secondPlayerBoardDOM);
+            highlightButtons(occupiedCoordinates, secondPlayerBoardDOM);
             createFinishSetupButton(secondPlayerButtonContainer, secondPlayerBoardDOM, () => {
                 UIFlowCoordinator.showStartGame();
             })
@@ -136,14 +137,15 @@ export const setupUIMultiPlayer = ( function () {
     }
 
     function showSetupScreen() {
+        const occupiedCoordinatesFirstPlayer = gameControllerMP.getFirstPlayerOccupiedCoordinates();
+        const occupiedCoordinatesSecondPlayer = gameControllerMP.getSecondPlayerOccupiedCoordinates();
+
         renderPlayersBoards();
-        setupBoardsAndButtons();
+        setupBoardsAndButtons(occupiedCoordinatesSecondPlayer);
         disableBoard(secondPlayerBoardDOM);
 
-
         // Highlight first player's board
-        const occupiedCoordinates = gameControllerMP.getFirstPlayerOccupiedCoordinates();
-        highlightButtons(occupiedCoordinates, firstPlayerBoardDOM);
+        highlightButtons(occupiedCoordinatesFirstPlayer, firstPlayerBoardDOM);
     }
 
     return {
