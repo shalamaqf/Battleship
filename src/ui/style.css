@@ -80,7 +80,7 @@ main {
 
 .button-menu-container {
     display: flex;
-    gap: 2rem;
+    gap: 7rem;
 }
 
 /* Input name screen layout */
@@ -116,4 +116,27 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+
+.title {
+    font-family: "Bangers", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13rem;
+    color: rgba(249, 191, 59, 1);
+}
+
+.button-feature {
+    width: fit-content;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3rem;
+
+    background-color: rgba(255,255,255, 1);
+    border-radius: 25px;
+    cursor: pointer;
 }
