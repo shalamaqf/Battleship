@@ -126,9 +126,9 @@ export const setupUIMultiPlayer = ( function () {
 
     function setupBoardsAndButtons(occupiedCoordinates) {
         createRandomizeButton(firstPlayerButtonContainer, firstPlayerBoardDOM);
-        createRandomizeButton(secondPlayerButtonContainer, secondPlayerBoardDOM);
         createFinishSetupButton(firstPlayerButtonContainer, firstPlayerBoardDOM, () => {
             enableBoard(secondPlayerBoardDOM);
+            createRandomizeButton(secondPlayerButtonContainer, secondPlayerBoardDOM);
             highlightButtons(occupiedCoordinates, secondPlayerBoardDOM);
             createFinishSetupButton(secondPlayerButtonContainer, secondPlayerBoardDOM, () => {
                 UIFlowCoordinator.showStartGame();
