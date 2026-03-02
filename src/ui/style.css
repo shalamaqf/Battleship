@@ -7,10 +7,18 @@
   box-sizing: border-box;
 }
 
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 main {
     display: flex;
     flex-direction: column;
     margin: 2rem;
+    margin-top: -1rem;
 }
 
 #info-section {
@@ -27,8 +35,8 @@ main {
 
 #player-board-section {
     display: flex;
-    justify-content: space-around;
     margin-top: 1.5rem;
+    gap: 18rem;
 }
 
 #info-container {
@@ -60,4 +68,17 @@ main {
 
 .show {
     display: block;
+}
+
+/* Menu screen layout */
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.button-menu-container {
+    display: flex;
+    gap: 2rem;
 }
