@@ -87,11 +87,11 @@ main {
 form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    justify-content: center;
 }
 
 .doneBtn {
-    margin-top: 2rem;
+    margin-top: 3rem;
     align-self: center;
     width: fit-content;
 }
@@ -139,4 +139,58 @@ body {
     background-color: rgba(255,255,255, 1);
     border-radius: 25px;
     cursor: pointer;
+}
+
+form {
+    font-family: "Bangers", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4rem;
+}
+
+.name-input {
+    display: flex;
+    align-items: center;
+}
+
+input {
+    width: fit-content;
+
+    font-family: "Bangers", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3rem;
+
+    border-radius: 25px;
+    border-width: 3px;
+    padding: 0.3rem;
+    padding-left: 1rem;
+}
+
+input:focus {
+    outline: none;
+    border-color: rgba(249, 105, 14, 1);
+    border-width: 2px;
+    background-color: rgba(250, 190, 88, 1);
+}
+
+.doneBtn {
+    width: fit-content;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3rem;
+
+    background-color: rgba(255,255,255, 1);
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.doneBtn:hover {
+    background-color: rgba(250, 190, 88, 1);
+    border-color: rgba(249, 105, 14, 1);
+    color: rgba(255,255,255, 1);
 }

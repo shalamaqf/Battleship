@@ -396,6 +396,11 @@ export const inputPlayerNameUI =( function () {
         const label_p2 = createLabel('second-player-name');
         const submitBtn = createSubmitButton();
 
+        label_p1.textContent = '1st player name:'
+        label_p2.textContent = '2nd player name:'
+        inputContainer_p1.classList.add('name-input');
+        inputContainer_p2.classList.add('name-input')
+
         inputContainer_p1.append(label_p1);
         inputContainer_p1.append(input_p1);
         inputContainer_p2.append(label_p2);
