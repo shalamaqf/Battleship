@@ -99,3 +99,11 @@ form {
 label {
     margin: 1rem;
 }
+
+/* Setup section */
+.button-container.first-player,
+.button-container.second-player {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
