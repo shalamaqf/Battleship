@@ -141,6 +141,12 @@ body {
     cursor: pointer;
 }
 
+.button-feature:hover {
+    background-color: rgba(250, 190, 88, 1);
+    border-color: rgba(249, 105, 14, 1);
+    color: rgba(255,255,255, 1);
+}
+
 form {
     font-family: "Bangers", system-ui;
     font-weight: 400;
