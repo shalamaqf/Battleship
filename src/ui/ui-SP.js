@@ -140,7 +140,7 @@ export const gameUI = (function () {
         
         if (result.isShipSunk && gameController.isHumanTurn()) {
             deletePlayerTurn();
-            shipSunkInfo.textContent = "Computer's ship is sunk!";
+            shipSunkInfo.textContent = "Opponent's ship is sunk!";
         } else if (result.isShipSunk && !gameController.isHumanTurn()) {
             deletePlayerTurn();
             shipSunkInfo.textContent = "Your ship is sunk!";
