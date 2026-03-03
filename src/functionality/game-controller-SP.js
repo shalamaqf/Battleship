@@ -66,7 +66,7 @@ export const gameController = ( function () {
 
     function resetState() {
         realPlayer = new Player('You');
-        computerPlayer = new Player('Computer');
+        computerPlayer = new Player('Opponent');
         currentPlayer = realPlayer;
         gameOver = false;
     }

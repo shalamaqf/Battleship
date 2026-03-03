@@ -124,6 +124,7 @@ body {
     font-style: normal;
     font-size: 13rem;
     color: rgba(249, 191, 59, 1);
+    text-shadow: 2px 2px rgba(249, 105, 14, 1);
 }
 
 .button-feature {
@@ -195,8 +196,57 @@ input:focus {
     cursor: pointer;
 }
 
-.doneBtn:hover {
+.doneBtn:hover,
+.randomize:hover,
+.finish-setup:hover,
+.start-game:hover {
     background-color: rgba(250, 190, 88, 1);
     border-color: rgba(249, 105, 14, 1);
     color: rgba(255,255,255, 1);
+}
+
+.randomize,
+.finish-setup,
+.start-game {
+    width: fit-content;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
+
+    background-color: rgba(255,255,255, 1);
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.coordinate-button {
+    border-color: rgba(0, 0, 0, 1);
+    border-width: 1.7px;
+    cursor: crosshair;
+}
+
+.hit,
+.miss {
+    font-size: 1.5rem;
+}
+
+#player-turn,
+#ship-sunk {
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3rem;
+
+    color: rgba(255,255,255, 1);
+    text-shadow: 2px 2px rgba(249, 105, 14, 1);
+}
+
+.name {
+    font-family: "Staatliches", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
 }

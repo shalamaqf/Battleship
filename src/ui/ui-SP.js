@@ -22,12 +22,12 @@ export const gameUI = (function () {
 
     function updateButtonDOM(hit, button) {
         if (hit === true) {
-            button.textContent = 'HIT';
+            button.textContent = '💥';
             button.classList.add('hit');
             button.dataset.clicked = true;
             button.disabled = true;
         } else {
-            button.textContent = 'X';
+            button.textContent = '❌';
             button.classList.add('miss');
             button.dataset.clicked = true;
             button.disabled = true;
@@ -132,7 +132,7 @@ export const gameUI = (function () {
 
     function showWinner() {
         const winner = gameController.getWinner();
-        playerTurn.textContent = 'The winner is ' +  winner.name + '!';
+        playerTurn.textContent = '🏆 The winner is ' +  winner.name + '!';
     }
 
     function showShipSunk(result) {
@@ -184,7 +184,9 @@ export const gameUI = (function () {
             const button = realPlayerBoardDOM.querySelector(`[data-x="${x}"][data-y="${y}"]`)
 
             if (button) {
-                button.style.backgroundColor = 'rgb(0, 255, 0)';
+                button.style.backgroundColor = 'rgba(235, 149, 50, 1)';
+                button.style.borderColor = 'rgba(211, 84, 0, 1)';
+                button.style.borderWidth= '2px';
             }
         });
     }
@@ -194,6 +196,8 @@ export const gameUI = (function () {
 
         buttons.forEach(button => {
             button.style.backgroundColor = '';
+            button.style.borderColor = '';
+            button.style.borderWidth = '1px';
         });
     }
 
