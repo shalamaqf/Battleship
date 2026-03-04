@@ -25,8 +25,11 @@ export const menuScreenUI = ( function () {
         const titleContainer = inputPlayerNameUI.createContainer();
         titleContainer.classList.add('title-container');
         const title = createText('title');
+        const credit = createText('credit');
         title.textContent = 'Battleship';
+        credit.textContent = 'by Shalama Fadilla'
         titleContainer.append(title);
+        titleContainer.append(credit);
 
         const buttonContainer = inputPlayerNameUI.createContainer();
         buttonContainer.classList.add('button-menu-container');
