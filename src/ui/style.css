@@ -35,7 +35,7 @@ main {
 
 #player-board-section {
     display: flex;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     gap: 18rem;
 }
 
@@ -249,4 +249,9 @@ input:focus {
     font-weight: 400;
     font-style: normal;
     font-size: 2rem;
+}
+
+#player-turn {
+    text-align: center;
+    margin-top: 2rem;
 }

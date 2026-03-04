@@ -132,7 +132,7 @@ export const gameUI = (function () {
 
     function showWinner() {
         const winner = gameController.getWinner();
-        playerTurn.textContent = '🏆 The winner is ' +  winner.name + '!';
+        playerTurn.innerHTML = '🏆 The winner is ' +  winner.name + '!<br>⟳ Refresh the page to play again';
     }
 
     function showShipSunk(result) {

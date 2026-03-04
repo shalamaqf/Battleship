@@ -245,7 +245,7 @@ export const gameUIMultiPlayer = ( function () {
 
     function showWinner() {
         const winner = gameControllerMP.getWinner();
-        playerTurn.textContent = '🏆 The winner is ' +  winner.name + '!';
+        playerTurn.innerHTML = '🏆 The winner is ' +  winner.name + '!<br>⟳ Refresh the page to play again';
     }
 
     function showShipSunk(result) {
