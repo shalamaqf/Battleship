@@ -118,7 +118,7 @@ label {
 
 /* Styling */
 body {
-    background-image: url(./ui/img/battleship-bg-4k.svg);
+    background-image: url(./src/ui/img/battleship-bg-4k.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
